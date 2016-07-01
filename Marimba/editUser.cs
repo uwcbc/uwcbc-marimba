@@ -76,7 +76,7 @@
                 return;
             }
 
-            string[] user = ClsStorage.currentClub.FindUser(cboUserID.Text);
+            User user = ClsStorage.currentClub.FindUser(cboUserID.Text);
             if (user == null)
             {
                 if (Properties.Settings.Default.playSounds)
@@ -84,14 +84,14 @@
                 MessageBox.Show("That user does not exist. Please make sure you have selected a valid user.");
             }
 
-            cboPrivileges.Text = user[2];
+            cboPrivileges.Text = user.priviledge;
         }
 
         private void frmEditUser_Load(object sender, EventArgs e)
         {
-            foreach (string[] user in ClsStorage.currentClub.strUsers)
+            foreach (User user in clsStorage.currentClub.strUsers)
             {
-                cboUserID.Items.Add(user[0]);
+                cboUserID.Items.Add(user.name);
             }
         }
 

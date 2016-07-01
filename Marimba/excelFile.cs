@@ -236,10 +236,13 @@
                 worksheet.Cell(9, 2).Value = ClsStorage.currentClub.imapRequiresSSL;
 
                 int row = 10;
-                foreach (string[] user in ClsStorage.currentClub.strUsers)
+                foreach (User user in ClsStorage.currentClub.strUsers)
                 {
-                    for (int j = 0; j < user.Length; j++)
-                        worksheet.Cell(row, j + 1).Value = user[j];
+                    worksheet.Cell(row, 1) = user.name;
+                    worksheet.Cell(row, 2) = user.saltAndPassword;
+                    worksheet.Cell(row, 3) = user.priviledge;
+                    worksheet.Cell(row, 4) = user.keyXORPassword;
+
                     row++;
                     iCurrent++;
                     Program.home.bwReport.ReportProgress((iCurrent * 100) / iTotal);
@@ -475,10 +478,19 @@
                 // load Users
                 for (int i = 0; i < iUser; i++)
                 {
-                    string[] newUser = new string[4];
-                    for (int j = 0; j < 4; j++)
-                        newUser[j] = (string)worksheet.Cell(i + 10, j + 1).Value;
+                    string[] userFields = new string[User.numUserFields];
+                    for (int j = 0; j < User.numUserFields; j++)
+                    {
+                        userFields[j] = (string)worksheet.Cell(i + 10, j + 1).Value;
+                    }
 
+                    User newUser = new User
+                    {
+                        name = userFields[0],
+                        saltAndPassword = userFields[1],
+                        priviledge = userFields[2],
+                        keyXORPassword = userFields[3]
+                    };
                     output.strUsers.Add(newUser);
                 }
 

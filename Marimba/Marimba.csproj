@@ -138,6 +138,7 @@
     <Compile Include="Utility\Enumerations.cs" />
     <Compile Include="Utility\ExcelHighlightingInfo.cs" />
     <Compile Include="AssetList.cs">
+    <Compile Include="User.cs" />
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AssetList.Designer.cs">

@@ -52,21 +52,11 @@
         /// <summary>
         /// fileVersion contains the version of the file currently loaded
         /// </summary>
-        public double fileVersion;
+        double fileVersion;
 
-        /// <summary>
-        /// Number of user fields that are stored
-        /// </summary>
-        private static readonly int UserFieldsToStore = 4;
-
-        /// <summary>
-        /// strUsers [,0] stores Name
-        /// strUsers [,1] stores password (note: encrypted, but not that well)
-        /// I do not recommend publicly releasing any .mrb files and use a unique password for Marimba
-        /// strUsers [,2] stores type of user
-        /// strUsers [,3] stores the key xor'd with the single hash of the user's password
-        /// </summary>
-        public List<string[]> strUsers;
+        //I do not recommend publicly releasing any .mrb files and use a unique password for Marimba
+        public List<User> strUsers;
+        private static readonly string[] priviledges = { "Exec", "Admin" };
 
         /// <summary>
         /// Number of members currently in the club
@@ -206,16 +196,22 @@
             else
                 numUsers = iUser;
 
-            strUsers = new List<string[]>(iUser);
+            strUsers = new List<User>(iUser);
             for (int i = 0; i < numUsers; i++)
             {
-                string[] nextUser = new string[UserFieldsToStore];
-                for (int j = 0; j < UserFieldsToStore; j++)
+                string[] userFields = new string[User.numUserFields];
+                for (int j = 0; j < User.numUserFields; j++)
                 {
-                    nextUser[j] = this.br.ReadString();
+                    userFields[j] = this.br.ReadString();
                 }
-
-                strUsers.Add(nextUser);
+                User user = new User
+                {
+                    name = userFields[0],
+                    saltAndPassword = userFields[1],
+                    priviledge = userFields[2],
+                    keyXORPassword = userFields[3]
+                };
+                strUsers.Add(user);
             }
             
             // string strKey = br.ReadString();
@@ -354,12 +350,12 @@
             bw.Write((short)strUsers.Count);
 
             // write the users (i.e. exec account information)
-            foreach (string[] user in strUsers)
+            foreach (User user in strUsers)
             {
-                for (int i = 0; i < UserFieldsToStore; i++)
-                {
-                    bw.Write(user[i]);
-                }
+                bw.Write(user.name);
+                bw.Write(user.saltAndPassword);
+                bw.Write(user.priviledge);
+                bw.Write(user.keyXORPassword);
             }
             
             // ENCRYPTED SECTION
@@ -521,11 +517,13 @@
             // Convert the input string to a byte array and compute the hash. 
             byte[] data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
 
-            string[] newUser = new string[UserFieldsToStore];
-            newUser[0] = strName;
-            newUser[1] = ConvertToString(salt) + "$" + ConvertToString(data);
-            newUser[2] = strPrivileges;
-            newUser[3] = Convert.ToBase64String(ClsStorage.XOR(this.aesInfo.Key, shaHash.ComputeHash(saltPlusPassword)));
+            User newUser = new User
+            {
+                name = strName,
+                saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data),
+                priviledge = strPrivileges,
+                keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(this.aesInfo.Key, shaHash.ComputeHash(saltPlusPassword)))
+            };
             strUsers.Add(newUser);
             return true;
         }
@@ -537,7 +535,7 @@
         /// <returns>Whether removal was successful</returns>
         public bool DeleteUser(string strName)
         {
-            string[] user = FindUser(strName);
+            User user = FindUser(strName);
             if (user == null)
             {
                 return false;
@@ -547,23 +545,17 @@
         }
 
         /// <summary>
-        /// get the index of the specified user
+        /// get the specified user
         /// </summary>
         /// <param name="strName">name of user</param>
-        /// <returns>Array representing user if exists, null if doesn't exist</returns>
-        public string[] FindUser(string strName)
+        /// <returns>User object if there is a user with the given name, null if doesn't exist</returns>
+        public User FindUser(string strName)
         {
-            int i = 0;
-
             // first, find the user
-            foreach (string[] user in strUsers)
+            foreach (User user in strUsers)
             {
-                if (user[0].Equals(strName))
-                {
+                if (strName == user.name)
                     return user;
-                }
-
-                i++;
             }
 
             // did not find user
@@ -578,17 +570,7 @@
         /// <returns>Whether the login was successful</returns>
         public bool LoginUser(string strName, string strPassword)
         {
-            // remove spaces at beginning and end
-            if (strName.ElementAt(0) == ' ')
-            {
-                strName = strName.Remove(0, 1);
-            }
-            if (strName.ElementAt(strName.Length - 1) == ' ')
-            {
-                strName = strName.Remove(strName.Length - 1, 1);
-            }
-
-            string[] user = FindUser(strName);
+            User user = FindUser(strName);
             if (user == null)
                 return false;
             else
@@ -596,13 +578,12 @@
                 // create a hash of the password and compare
                 SHA256 shaHash = SHA256.Create();
 
-                // Convert the input string to a byte array and compute the hash. 
-                
-                // retrieve the salt
-                byte[] salt = StringToByteArray(user[1].Split('$')[0]);
+                // Convert the input string to a byte array and compute the hash.
 
-                // retrieve the hash
-                string hash = user[1].Split('$')[1];
+                // retrieve the salt and hash
+                string[] parsedPassword = user.saltAndPassword.Split('$');
+                byte[] salt = StringToByteArray(parsedPassword[0]);
+                string hash = parsedPassword[1];
 
                 // calculate hash of salt + password
                 int passwordLength = Encoding.UTF8.GetBytes(strPassword).Length;
@@ -615,10 +596,10 @@
                 if (StringComparer.OrdinalIgnoreCase.Compare(hash, ConvertToString(data)) == 0)
                 {
                     this.strCurrentUser = strName;
-                    this.strCurrentUserPrivilege = user[2];
+                    this.strCurrentUserPrivilege = user.priviledge;
                     try
                     {
-                        this.aesInfo.Key = ClsStorage.XOR(Convert.FromBase64String(user[3]), shaHash.ComputeHash(saltPlusPassword));
+                        this.aesInfo.Key = ClsStorage.XOR(Convert.FromBase64String(user.keyXORPassword), shaHash.ComputeHash(saltPlusPassword));
                     }
                     catch
                     {
@@ -647,7 +628,7 @@
             // check user exists and current password is correct
             if (LoginUser(strName, strPassword))
             {
-                string[] user = FindUser(strName);
+                User user = FindUser(strName);
 
                 // replace the old password with the new password
                 SHA256 shaHash = SHA256.Create();
@@ -669,11 +650,10 @@
 
                 // Convert the input string to a byte array and compute the hash.
                 byte[] data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
-
-                user[1] = ConvertToString(salt) + "$" + ConvertToString(data);
+                user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
 
                 // add the key used to encrypted the files here
-                user[3] = Convert.ToBase64String(ClsStorage.XOR(this.aesInfo.Key, shaHash.ComputeHash(saltPlusPassword)));
+                user.keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(this.aesInfo.Key, shaHash.ComputeHash(saltPlusPassword)));
 
                 return true;
             }
@@ -689,13 +669,13 @@
         /// <returns>Whether editing privilege was successful</returns>
         public bool EditUserPrivilege(string strName, string strNewPrivilege)
         {
-            string[] user = FindUser(strName);
+            User user = FindUser(strName);
             if (user == null || Array.IndexOf(ValidPrivileges, strNewPrivilege) < 0)
             {
                 return false;
             }
 
-            user[2] = strNewPrivilege;
+            user.priviledge = strNewPrivilege;
             return true;
         }
 
@@ -717,7 +697,7 @@
             int passwordLength = Encoding.UTF8.GetBytes(strName).Length;
             byte[] saltPlusPassword = new byte[SaltLength + passwordLength];
             
-            foreach (string[] user in strUsers)
+            foreach (User user in strUsers)
             {
                 using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
                 {
@@ -732,9 +712,8 @@
                 data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
 
                 // build hash
-                user[1] = ConvertToString(salt) + "$" + ConvertToString(data);
-
-                user[3] = Convert.ToBase64String(ClsStorage.XOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
+                user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
+                user.keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
             }
 
             // finally, update key
