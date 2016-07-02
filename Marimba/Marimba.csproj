@@ -104,148 +104,150 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
+    <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
+    <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetItem.cs" />
-    <Compile Include="BudgetItemForm.cs">
+    <Compile Include="Forms\BudgetItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetItemForm.Designer.cs">
+    <Compile Include="Forms\BudgetItemForm.Designer.cs">
       <DependentUpon>BudgetItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddFeesForm.cs">
+    <Compile Include="Forms\AddFeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddFeesForm.Designer.cs">
+    <Compile Include="Forms\AddFeesForm.Designer.cs">
       <DependentUpon>AddFeesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="editUser.cs">
+    <Compile Include="Comparers\CompareListItemsClass.cs" />
+    <Compile Include="Comparers\ListViewColumnSorter.cs" />
+    <Compile Include="Forms\editUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editUser.Designer.cs">
+    <Compile Include="Forms\editUser.Designer.cs">
       <DependentUpon>editUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectTermForm.cs">
+    <Compile Include="Forms\SelectTermForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectTermForm.Designer.cs">
+    <Compile Include="Forms\SelectTermForm.Designer.cs">
       <DependentUpon>SelectTermForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\Enumerations.cs" />
     <Compile Include="Utility\ExcelHighlightingInfo.cs" />
-    <Compile Include="AssetList.cs">
     <Compile Include="ResettedPasswordsForm.cs">
+    <Compile Include="Forms\ResettedPasswordsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResettedPasswordsForm.Designer.cs">
+    <Compile Include="Forms\ResettedPasswordsForm.Designer.cs">
       <DependentUpon>ResettedPasswordsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="Forms\AssetList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AssetList.Designer.cs">
+    <Compile Include="Forms\AssetList.Designer.cs">
       <DependentUpon>AssetList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.cs">
+    <Compile Include="Forms\Attendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Attendance.Designer.cs">
+    <Compile Include="Forms\Attendance.Designer.cs">
       <DependentUpon>Attendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="budgetView.cs">
+    <Compile Include="Forms\budgetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="budgetView.Designer.cs">
+    <Compile Include="Forms\budgetView.Designer.cs">
       <DependentUpon>budgetView.cs</DependentUpon>
     </Compile>
-    <Compile Include="changePassword.cs">
+    <Compile Include="Forms\changePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="changePassword.Designer.cs">
+    <Compile Include="Forms\changePassword.Designer.cs">
       <DependentUpon>changePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="ClsStorage.cs" />
     <Compile Include="Club.cs" />
     <Compile Include="CsvRow.cs" />
-    <Compile Include="editMultiInstruments.cs">
+    <Compile Include="Forms\editMultiInstruments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editMultiInstruments.Designer.cs">
+    <Compile Include="Forms\editMultiInstruments.Designer.cs">
       <DependentUpon>editMultiInstruments.cs</DependentUpon>
     </Compile>
-    <Compile Include="editSettings.cs">
+    <Compile Include="Forms\editSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editSettings.Designer.cs">
+    <Compile Include="Forms\editSettings.Designer.cs">
       <DependentUpon>editSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="election.cs" />
-    <Compile Include="electionForm.cs">
+    <Compile Include="Forms\electionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="electionForm.Designer.cs">
+    <Compile Include="Forms\electionForm.Designer.cs">
       <DependentUpon>electionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Email.cs" />
-    <Compile Include="EmailForm.cs">
+    <Compile Include="email.cs" />
+    <Compile Include="Forms\EmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmailForm.Designer.cs">
+    <Compile Include="Forms\EmailForm.Designer.cs">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExcelFile.cs" />
+    <Compile Include="excelFile.cs" />
     <Compile Include="HistoryItem.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Forms\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs" />
-    <Compile Include="MemberList.cs">
+    <Compile Include="member.cs" />
+    <Compile Include="Forms\MemberList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberList.Designer.cs">
+    <Compile Include="Forms\MemberList.Designer.cs">
       <DependentUpon>MemberList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MembershipMenu.cs">
+    <Compile Include="Forms\MembershipMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MembershipMenu.Designer.cs">
+    <Compile Include="Forms\MembershipMenu.Designer.cs">
       <DependentUpon>MembershipMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="moneyMenu.cs">
+    <Compile Include="Forms\moneyMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="moneyMenu.Designer.cs">
+    <Compile Include="Forms\moneyMenu.Designer.cs">
       <DependentUpon>moneyMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="newTerm.cs">
+    <Compile Include="Forms\newTerm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newTerm.Designer.cs">
+    <Compile Include="Forms\newTerm.Designer.cs">
       <DependentUpon>newTerm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewUser.cs">
+    <Compile Include="Forms\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewUser.Designer.cs">
+    <Compile Include="Forms\NewUser.Designer.cs">
       <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile.cs">
+    <Compile Include="Forms\Profile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile.Designer.cs">
+    <Compile Include="Forms\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -253,113 +255,112 @@
     <Compile Include="Ribbon.xaml.cs">
       <DependentUpon>Ribbon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SendEmailForm.cs">
+    <Compile Include="Forms\SendEmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SendEmailForm.Designer.cs">
+    <Compile Include="Forms\SendEmailForm.Designer.cs">
       <DependentUpon>SendEmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignInForm.cs">
+    <Compile Include="Forms\SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignInForm.Designer.cs">
+    <Compile Include="Forms\SignInForm.Designer.cs">
       <DependentUpon>SignInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUpForm.cs">
+    <Compile Include="Forms\SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUpForm.Designer.cs">
+    <Compile Include="Forms\SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sound.cs" />
-    <Compile Include="Term.cs" />
-    <Compile Include="termFinancials.cs">
+    <Compile Include="sound.cs" />
+    <Compile Include="term.cs" />
+    <Compile Include="Forms\termFinancials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="termFinancials.Designer.cs">
+    <Compile Include="Forms\termFinancials.Designer.cs">
       <DependentUpon>termFinancials.cs</DependentUpon>
     </Compile>
-    <Compile Include="viewHistory.cs">
+    <Compile Include="Forms\viewHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="viewHistory.Designer.cs">
+    <Compile Include="Forms\viewHistory.Designer.cs">
       <DependentUpon>viewHistory.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="About.resx">
+    <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetItemForm.resx">
+    <EmbeddedResource Include="Forms\BudgetItemForm.resx">
       <DependentUpon>BudgetItemForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddFeesForm.resx">
+    <EmbeddedResource Include="Forms\AddFeesForm.resx">
       <DependentUpon>AddFeesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="editUser.resx">
+    <EmbeddedResource Include="Forms\editUser.resx">
       <DependentUpon>editUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssetList.resx">
-      <DependentUpon>AssetList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResettedPasswordsForm.resx">
+    <EmbeddedResource Include="Forms\ResettedPasswordsForm.resx">
       <DependentUpon>ResettedPasswordsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attendance.resx">
+    <EmbeddedResource Include="Forms\AssetList.resx">
+      <DependentUpon>AssetList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="budgetView.resx">
+    <EmbeddedResource Include="Forms\budgetView.resx">
       <DependentUpon>budgetView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="changePassword.resx">
+    <EmbeddedResource Include="Forms\changePassword.resx">
       <DependentUpon>changePassword.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="editMultiInstruments.resx">
+    <EmbeddedResource Include="Forms\editMultiInstruments.resx">
       <DependentUpon>editMultiInstruments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editSettings.resx">
+    <EmbeddedResource Include="Forms\editSettings.resx">
       <DependentUpon>editSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="electionForm.resx">
+    <EmbeddedResource Include="Forms\electionForm.resx">
       <DependentUpon>electionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmailForm.resx">
+    <EmbeddedResource Include="Forms\EmailForm.resx">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberList.resx">
+    <EmbeddedResource Include="Forms\MemberList.resx">
       <DependentUpon>MemberList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MembershipMenu.resx">
+    <EmbeddedResource Include="Forms\MembershipMenu.resx">
       <DependentUpon>MembershipMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="moneyMenu.resx">
+    <EmbeddedResource Include="Forms\moneyMenu.resx">
       <DependentUpon>moneyMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="newTerm.resx">
+    <EmbeddedResource Include="Forms\newTerm.resx">
       <DependentUpon>newTerm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewUser.resx">
+    <EmbeddedResource Include="Forms\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile.resx">
+    <EmbeddedResource Include="Forms\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -373,26 +374,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SelectTermForm.resx">
+    <EmbeddedResource Include="Forms\SelectTermForm.resx">
       <DependentUpon>SelectTermForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SendEmailForm.resx">
+    <EmbeddedResource Include="Forms\SendEmailForm.resx">
       <DependentUpon>SendEmailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignInForm.resx">
+    <EmbeddedResource Include="Forms\SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUpForm.resx">
+    <EmbeddedResource Include="Forms\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="termFinancials.resx">
+    <EmbeddedResource Include="Forms\termFinancials.resx">
       <DependentUpon>termFinancials.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="viewHistory.resx">
+    <EmbeddedResource Include="Forms\viewHistory.resx">
       <DependentUpon>viewHistory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

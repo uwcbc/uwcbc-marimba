@@ -1,4 +1,4 @@
-﻿namespace Marimba
+namespace Marimba
 {
     using System;
     using System.Collections.Generic;
