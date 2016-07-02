@@ -33,6 +33,7 @@ namespace Marimba
         {
             SaveFileDialog svd = new SaveFileDialog();
             svd.Title = "Save Passwords";
+            svd.Filter = "CSV Files|*.csv";
             svd.ShowDialog();
             if (svd.FileName == "")
             {
