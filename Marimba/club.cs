@@ -57,6 +57,13 @@
         //I do not recommend publicly releasing any .mrb files and use a unique password for Marimba
         public List<User> strUsers;
         private static readonly string[] priviledges = { "Exec", "Admin" };
+        private static readonly char[] allowedCharacters = {
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+        };
 
         /// <summary>
         /// Number of members currently in the club
@@ -682,42 +689,49 @@
         /// <summary>
         /// Updates the master key used to encrypt the passwords
         /// </summary>
-        public void UpdateKey()
+        /// <returns>Returns a List of new username-password pairs. A highly good idea to dispose of this object ASAP.</returns>
+        public List<string[]> UpdateKey()
         {
             // first, generate a new key
             Aes newKey = Aes.Create();
             
             // next, update the key access everyone has
-            // NOTE: We reset everyone's password; for now to the default of being the club name
-            // An admin should go in and change everyone's password to something else
+            // NOTE: We reset everyone's password.
             // The key would be updated to prevent a person who previously had access from having access again
             SHA256 shaHash = SHA256.Create();
             byte[] data;
             byte[] salt = new byte[SaltLength];
-            int passwordLength = Encoding.UTF8.GetBytes(strName).Length;
+            int passwordLength = 12;
+            byte[] newPassword = new byte[passwordLength];
             byte[] saltPlusPassword = new byte[SaltLength + passwordLength];
-            
+
+            List<string[]> usersAndPasswords = new List<string[]>(strUsers.Count);
             foreach (User user in strUsers)
             {
                 using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
                 {
                     // generate salt
                     rngCsp.GetBytes(salt);
+                    rngCsp.GetBytes(newPassword);
                 }
 
-                // combine the salt and password
+                //combine the salt and password
                 Array.Copy(salt, saltPlusPassword, SaltLength);
-                Array.Copy(Encoding.UTF8.GetBytes(strName), 0, saltPlusPassword, SaltLength, passwordLength);
+                Array.Copy(newPassword, 0, saltPlusPassword, SaltLength, passwordLength);
 
                 data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
 
-                // build hash
-                user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
-                user.keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
+                //build hash
+                user.saltAndPassword = bytesToHex(salt) + "$" + bytesToHex(data);
+                user.keyXORPassword = Convert.ToBase64String(clsStorage.byteXOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
+
+                string[] userAndPassword = { user.name, bytesToHex(newPassword) };
+                usersAndPasswords.Add(userAndPassword);
             }
 
-            // finally, update key
-            this.aesInfo.Key = newKey.Key;
+            //finally, update key
+            aesInfo.Key = newKey.Key;
+            return usersAndPasswords;
         }
 
         /// <summary>

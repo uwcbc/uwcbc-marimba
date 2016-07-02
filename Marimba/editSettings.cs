@@ -78,7 +78,11 @@
 
         private void btnChangeKey_Click(object sender, EventArgs e)
         {
-            ClsStorage.currentClub.UpdateKey();
+            ResettedPasswordsForm form = new ResettedPasswordsForm();
+            List<string[]> usersAndPasswords = ClsStorage.currentClub.UpdateKey();
+            form.Populate(usersAndPasswords);
+            form.ShowDialog();
+
             if (Properties.Settings.Default.playSounds)
                 Sound.Success.Play();
         }
