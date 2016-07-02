@@ -714,6 +714,8 @@
                     rngCsp.GetBytes(salt);
                     rngCsp.GetBytes(newPassword);
                 }
+                string sanitizedPassword = ConvertToString(newPassword);
+                newPassword = StringToByteArray(sanitizedPassword);
 
                 //combine the salt and password
                 Array.Copy(salt, saltPlusPassword, SaltLength);
@@ -722,10 +724,10 @@
                 data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
 
                 //build hash
-                user.saltAndPassword = bytesToHex(salt) + "$" + bytesToHex(data);
+                user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
                 user.keyXORPassword = Convert.ToBase64String(clsStorage.byteXOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
 
-                string[] userAndPassword = { user.name, bytesToHex(newPassword) };
+                string[] userAndPassword = { user.name, sanitizedPassword };
                 usersAndPasswords.Add(userAndPassword);
             }
 
@@ -735,7 +737,7 @@
         }
 
         /// <summary>
-        /// Converts a byte array into a hexadecimal string
+        /// Converts a byte array into a hexadecimal string. Used to be called bytesToHex.
         /// </summary>
         /// <param name="byteArray">Array of bytes</param>
         /// <returns>String in hexadecimal</returns>
