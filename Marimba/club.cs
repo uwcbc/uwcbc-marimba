@@ -714,8 +714,8 @@
                     rngCsp.GetBytes(salt);
                     rngCsp.GetBytes(newPassword);
                 }
+                newPassword = sanitizeRandomBytes(newPassword);
                 string sanitizedPassword = ConvertToString(newPassword);
-                newPassword = StringToByteArray(sanitizedPassword);
 
                 //combine the salt and password
                 Array.Copy(salt, saltPlusPassword, SaltLength);
@@ -734,6 +734,17 @@
             //finally, update key
             aesInfo.Key = newKey.Key;
             return usersAndPasswords;
+        }
+
+        private static byte[] sanitizeRandomBytes(byte[] byteArray)
+        {
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                int pos = byteArray[i] % allowedCharacters.Length;
+                byteArray[i] = (byte)allowedCharacters[pos];
+            }
+
+            return byteArray;
         }
 
         /// <summary>
