@@ -75,7 +75,7 @@
             instrumentLoad();
 
             // load details about member
-            lblTitle.Text = ClsStorage.currentClub.GetFormattedName(iID);
+            lblTitle.Text = ClsStorage.currentClub.GetFirstAndLastName(iID);
             txtFirstName.Text = ClsStorage.currentClub.members[iID].firstName;
             txtLastName.Text = ClsStorage.currentClub.members[iID].lastName;
             txtEmail.Text = ClsStorage.currentClub.members[iID].email;
