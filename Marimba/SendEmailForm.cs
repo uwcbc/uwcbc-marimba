@@ -29,7 +29,16 @@ namespace Marimba
             // that's too much
             lvEmail.BeginUpdate();
             if (loadMore <= 480)
-                lvEmail.Items.AddRange(ClsStorage.currentClub.clubEmail.folderItems(loadMore - 40, loadMore).ToArray());
+            {
+                try
+                {
+                    lvEmail.Items.AddRange(ClsStorage.currentClub.clubEmail.folderItems(loadMore - 40, loadMore).ToArray());
+                }
+                catch
+                {
+                    MessageBox.Show("Error: Cannot load more e-mails.", "Error");
+                }
+            }
             lvEmail.EndUpdate();
         }
 
