@@ -578,6 +578,16 @@
         /// <returns>Whether the login was successful</returns>
         public bool LoginUser(string strName, string strPassword)
         {
+            // remove spaces at beginning and end
+            if (strName.ElementAt(0) == ' ')
+            {
+                strName = strName.Remove(0, 1);
+            }
+            if (strName.ElementAt(strName.Length - 1) == ' ')
+            {
+                strName = strName.Remove(strName.Length - 1, 1);
+            }
+
             string[] user = FindUser(strName);
             if (user == null)
                 return false;
