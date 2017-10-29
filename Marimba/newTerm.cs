@@ -29,7 +29,7 @@
                     MessageBox.Show("Please enter a name for the term.");
                 }
                 else if (mcTermStart.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart) > 0 ||
-                    mcTermEnd.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart.AddDays(7 * Convert.ToInt32(updNumRehearsals.Value))) < 0)
+                    mcTermEnd.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart.AddDays(7 * (Convert.ToInt32(updNumRehearsals.Value) - 1))) < 0)
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
