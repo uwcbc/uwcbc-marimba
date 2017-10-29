@@ -82,5 +82,10 @@
             if (Properties.Settings.Default.playSounds)
                 Sound.Success.Play();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
