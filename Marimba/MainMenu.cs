@@ -201,16 +201,42 @@
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ClsStorage.unsavedChanges && MessageBox.Show("Would you like to save the changes made?", "Save Changes", MessageBoxButtons.YesNo)
-                == DialogResult.Yes)
+            DialogResult result;
+            if (ClsStorage.unsavedChanges)
             {
-                btnSaveAs_Click(sender, e);
+                result = MessageBox.Show("Would you like to save the changes made?", "Save Changes", MessageBoxButtons.YesNoCancel);
+
+                if (result == DialogResult.Yes)
+                {
+                    btnSaveAs_Click(sender, e);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else if (ClsStorage.currentClub != null)
+                {
+                    ClsStorage.currentClub.br.Close();
+                    if (ClsStorage.loggedin)
+                        ClsStorage.currentClub.clubEmail.logout();
+                }
             }
-            else if (ClsStorage.currentClub != null)
+            else
             {
-                ClsStorage.currentClub.br.Close();
-                if (ClsStorage.loggedin)
-                    ClsStorage.currentClub.clubEmail.logout();
+                result = MessageBox.Show("Would you like to exit?", "Exit", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes && ClsStorage.currentClub != null)
+                {
+                    ClsStorage.currentClub.br.Close();
+                    if (ClsStorage.loggedin)
+                    {
+                        ClsStorage.currentClub.clubEmail.logout();
+                    }
+                }
+                else if(result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }                
             }
         }
 
