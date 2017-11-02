@@ -256,8 +256,12 @@
                 if (Properties.Settings.Default.playSounds)
                     Sound.Click.Play();
 
-                EmailForm webDesign = new EmailForm(EmailPurpose.Receive, Convert.ToInt32(lvEmail.SelectedItems[0].SubItems[4].Text));
-                webDesign.Show();
+                try
+                {
+                    EmailForm webDesign = new EmailForm(EmailPurpose.Receive, Convert.ToInt32(lvEmail.SelectedItems[0].SubItems[4].Text));
+                    webDesign.Show();
+                }
+                catch { /* do nothing */ }
             }
         }
 
