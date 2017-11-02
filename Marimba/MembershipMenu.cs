@@ -167,11 +167,11 @@
                         Sound.Success.Play();
                 }
             }
-            catch
+            catch (Exception err)
             {
                 if (Properties.Settings.Default.playSounds)
                     Sound.Error.Play();
-                MessageBox.Show("Adding some of the members failed. Please make sure all of the data is valid.");
+                MessageBox.Show("Adding some of the members failed. Please make sure all of the data is valid. \n\nError: " + err);
             }
         }
 
