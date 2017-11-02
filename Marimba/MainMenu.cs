@@ -62,6 +62,9 @@
                     Sound.Success.Play();
                  ClsStorage.unsavedChanges = false;
            }
+
+            // refresh recent activity
+            populateHistory();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -126,10 +129,7 @@
                     emailList = new ListViewItem[1] { new ListViewItem("Error in loading email. Please confirm that you are connected to the Internet and that the password in settings is correct.") };
                     this.Invoke(new DelegateVoid(addEmailToListView));
                 }
-                catch
-                {
-                    // do nothing, give up
-                }
+                catch { /* do nothing, give up */ }
             }
         }
 
@@ -197,6 +197,9 @@
                     Sound.Success.Play();
                 ClsStorage.unsavedChanges = false;
             }
+
+            // refresh recent activity
+            populateHistory();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
