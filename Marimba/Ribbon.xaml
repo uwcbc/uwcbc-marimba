@@ -44,12 +44,12 @@
             <RibbonTab x:Name="Membership" Header="Membership" KeyTip="M" >
                 <RibbonGroup x:Name="RehearsalGroup" Header="Rehearsal">
                     <RibbonButton x:Name="SignInButton" LargeImageSource="ribbon_images/signin.png" Label="Sign In" KeyTip="I" SmallImageSource="ribbon_images/signin.png" SnapsToDevicePixels="True" Click="SignInButton_Click" />
-                    <RibbonButton x:Name="Attendance" LargeImageSource="ribbon_images/attendance.ico" Label="Attendance" KeyTip="A" SmallImageSource="ribbon_images/attendance.ico" SnapsToDevicePixels="True" Click="Attendance_Click"  />
+                    <RibbonButton x:Name="Attendance" LargeImageSource="ribbon_images/merge.png" Label="Attendance" KeyTip="A" SmallImageSource="ribbon_images/merge.png" SnapsToDevicePixels="True" Click="Attendance_Click"  />
                 </RibbonGroup>
                 <RibbonGroup x:Name="NewMemberGroup" Header="Members">
-                    <RibbonButton x:Name="SignUpButton" LargeImageSource="ribbon_images/new_large.png" Label="Sign Up" KeyTip="U" SmallImageSource="ribbon_images/new_small.png"  SnapsToDevicePixels="True" Click="SignUpButton_Click" />
-                    <RibbonButton x:Name="Profile" LargeImageSource="ribbon_images/profile.ico" Label="Profile" KeyTip="P" SmallImageSource="ribbon_images/profile.ico"  SnapsToDevicePixels="True" Click="Profile_Click" />
-                    <RibbonButton x:Name="Google_Button" Label="Import from Google Doc" KeyTip="G" SnapsToDevicePixels="True" Click="Google_Button_Click"/>
+                    <RibbonButton x:Name="SignUpButton" LargeImageSource="ribbon_images/signup.png" Label="Sign Up" KeyTip="U" SmallImageSource="ribbon_images/signup.png"  SnapsToDevicePixels="True" Click="SignUpButton_Click" />
+                    <RibbonButton x:Name="Profile" LargeImageSource="ribbon_images/profile.png" Label="Profile" KeyTip="P" SmallImageSource="ribbon_images/profile.png"  SnapsToDevicePixels="True" Click="Profile_Click" />
+                    <RibbonButton x:Name="Google_Button" Label="Import from Google Doc" LargeImageSource="ribbon_images/google.png" KeyTip="G" SnapsToDevicePixels="True" Click="Google_Button_Click"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ExportMemberGroup" Header="Export">
                     <RibbonSplitButton x:Name="ExpMember" LargeImageSource="ribbon_images/xlsx.png" Label="Export" KeyTip="X" SmallImageSource="ribbon_images/xlsx.png"  SnapsToDevicePixels="True" Click="ExpMember_Click" >
@@ -87,7 +87,7 @@
                     <RibbonButton x:Name="NewTerm" Label="New Term" KeyTip="T" SmallImageSource="ribbon_images/new_small.png" SnapsToDevicePixels="True" Click="NewTerm_Click"  />
                 </RibbonGroup>
                 <RibbonGroup x:Name="Purge" Header="Purge Old Members">
-                    <RibbonButton x:Name="Perger_Button" Label="Purge Old Members" KeyTip="P" SnapsToDevicePixels="True" Click="Perger_Button_Click" />
+                    <RibbonButton x:Name="Perger_Button" Label="Purge Old Members" LargeImageSource="ribbon_images/purge.png" KeyTip="P" SnapsToDevicePixels="True" Click="Perger_Button_Click" />
                 </RibbonGroup>
                 <RibbonGroup x:Name="ExportClubGroup" Header="Export">
                     <RibbonButton x:Name="ExpClub" LargeImageSource="ribbon_images/xlsx.png" Label="Export Club" KeyTip="E" SmallImageSource="ribbon_images/xlsx.png"  SnapsToDevicePixels="True" Click="ExpClub_Click"  />
@@ -97,8 +97,8 @@
                     <RibbonButton x:Name="ImpClub" LargeImageSource="ribbon_images/xlsx.png" Label="Import Club" KeyTip="I" SmallImageSource="ribbon_images/xlsx.png"  SnapsToDevicePixels="True" Click="ImpClub_Click" />
                 </RibbonGroup>
                 <RibbonGroup x:Name="Users" Header="Users">
-                    <RibbonButton x:Name="NewUser" Label="New User" KeyTip="U" SmallImageSource="ribbon_images/Members.png" SnapsToDevicePixels="True" Click="NewUser_Click" />
-                    <RibbonButton x:Name="EditUser" Label="Edit Users" SmallImageSource="ribbon_images/Elections.png" KeyTip="EU" Click="EditUser_Click"/>
+                    <RibbonButton x:Name="NewUser" Label="New User" KeyTip="U" LargeImageSource="ribbon_images/Members.png" SnapsToDevicePixels="True" Click="NewUser_Click" />
+                    <RibbonButton x:Name="EditUser" Label="Edit Users" LargeImageSource="ribbon_images/edit.png" KeyTip="EU" Click="EditUser_Click"/>
                 </RibbonGroup>
             </RibbonTab>
 
