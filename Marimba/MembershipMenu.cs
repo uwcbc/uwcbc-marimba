@@ -159,18 +159,29 @@
                         reader.ReadRow(row);
                         while (reader.ReadRow(row) && row[0] != String.Empty)
                         {
-                            ClsStorage.currentClub.AddMember(row[1], row[2], 0, Convert.ToUInt32(row[3]), Member.ParseFaculty(row[6]), row[5], row[4], String.Empty, Convert.ToDateTime(row[0]));
+                            // ensure that there are 8 objects
+                            while (row.Count < 8)
+                            {
+                                row.Add("");
+                            }
+
+                            ClsStorage.currentClub.AddMember(row[1], row[2], 0, Convert.ToUInt32(row[3]), Member.ParseFaculty(row[6]), Member.ParseShirt(row[7]), row[5], row[4], String.Empty, Convert.ToDateTime(row[0]));
                         }
                     }
                     ClsStorage.currentClub.AddHistory(String.Empty, ChangeType.ImportMembers);
                     if (Properties.Settings.Default.playSounds)
+                    {
                         Sound.Success.Play();
+                        MessageBox.Show("Members added successfully");
+                    }
                 }
             }
             catch (Exception err)
             {
                 if (Properties.Settings.Default.playSounds)
+                {
                     Sound.Error.Play();
+                }
                 MessageBox.Show("Adding some of the members failed. Please make sure all of the data is valid. \n\nError: " + err);
             }
         }

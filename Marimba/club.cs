@@ -846,7 +846,7 @@
         /// <param name="strOther">Other info</param>
         /// <param name="signup">Time that this member signed up</param>
         /// <returns>Whether a strictly new member is added; if an old member is updated, this return false</returns>
-        public bool AddMember(string strFName, string strLName, Member.MemberType type, uint uiID, int iFaculty, string strInstrument, string strEmail, string strOther, DateTime signup)
+        public bool AddMember(string strFName, string strLName, Member.MemberType type, uint uiID, int iFaculty, int iShirt, string strInstrument, string strEmail, string strOther, DateTime signup)
         {
             // before adding, check if it is a duplicate member
             // a matching student number or email address will be the judge of this
@@ -857,7 +857,7 @@
                     return false;
                 }
 
-            this.members[iMember] = new Member(strFName, strLName, type, uiID, iFaculty, strInstrument, strEmail, strOther, signup, -1);
+            this.members[iMember] = new Member(strFName, strLName, type, uiID, iFaculty, strInstrument, strEmail, strOther, signup, iShirt);
             iMember++;
             return true;
         }

@@ -393,10 +393,30 @@
                     return (int)Faculty.Mathematics;
                 case "science":
                     return (int)Faculty.Science;
+                default:
+                    return (int)Faculty.Unknown;
             }
+        }
 
-            // we didn't find anything, so return -1 otherwise
-            return -1;
+        public static int ParseShirt(string strSize)
+        {
+            switch (strSize.ToLower())
+            {
+                case "xs":
+                    return (int)ShirtSize.XS;
+                case "s":
+                    return (int)ShirtSize.S;
+                case "m":
+                    return (int)ShirtSize.M;
+                case "l":
+                    return (int)ShirtSize.L;
+                case "xl":
+                    return (int)ShirtSize.XL;
+                case "xxl":
+                    return (int)ShirtSize.XXL;
+                default:
+                    return (int)ShirtSize.Unknown;
+            }
         }
 
         /// <summary>
@@ -462,10 +482,10 @@
                     return 23;
                 case Instrument.Tuba:
                     return 11;
+                default:
+                    // for any other instrument, just return the music stand
+                    return 15;
             }
-
-            // for any other instrument, just return the music stand
-            return 15;
         }
 
         /// <summary>
@@ -554,9 +574,9 @@
                     return Instrument.Trumpet;
                 case "tuba":
                     return Instrument.Tuba;
+                default:
+                    return Instrument.Other;
             }
-
-            return Instrument.Other;
         }
 
         /// <summary>
