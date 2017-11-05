@@ -242,11 +242,6 @@
         private void Google_Button_Click(object sender, RoutedEventArgs e)
         {
             Program.home.memberMenu.btnGoogleDoc_Click(sender, e);
-            if (Properties.Settings.Default.playSounds)
-            {
-                Sound.Success.Play();
-                MessageBox.Show("Members added successfully");
-            }
         }
 
         private void EditUser_Click(object sender, RoutedEventArgs e)

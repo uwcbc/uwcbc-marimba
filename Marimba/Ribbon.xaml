@@ -15,7 +15,7 @@
                     <RibbonApplicationMenuItem Header="Settings" ImageSource="ribbon_images\settings.png" Click="Settings_Click" SnapsToDevicePixels="True" />
                     <RibbonApplicationMenuItem x:Name="SaveMenu" Header="Save" ImageSource="ribbon_images\save.png" Click="SaveButton_Click" SnapsToDevicePixels="True" />
                     <RibbonApplicationMenuItem Header="Save As" ImageSource="ribbon_images\save.png" Click="SaveAsButton_Click" SnapsToDevicePixels="True" />
-                    <RibbonApplicationMenuItem Header="About" ImageSource="ribbon_images\Marimba-logo.ico" Click="AboutButton_Click" SnapsToDevicePixels="True" />
+                    <RibbonApplicationMenuItem Header="About" ImageSource="ribbon_images\Marimba-logo.png" Click="AboutButton_Click" SnapsToDevicePixels="True" />
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
             <!-- Ribbon Tab #1: Home -->
