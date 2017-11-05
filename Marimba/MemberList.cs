@@ -252,6 +252,8 @@
                     Form memberprofile = new Profile(Convert.ToInt32(lvMain.SelectedItems[0].SubItems[5].Text));
                     memberprofile.ShowDialog();
 
+                    refreshList();
+
                     // if someone was unsubscribed, remove them
                     if (!ClsStorage.currentClub.members[Convert.ToInt32(lvMain.SelectedItems[0].SubItems[5].Text)].IsSubscribed())
                         lvMain.Items.RemoveAt(lvMain.SelectedIndices[0]);
@@ -266,6 +268,11 @@
                     this.Close();
                 }
             }
+        }
+
+        private void refreshList()
+        {
+            // Have some way to refresh the list with the changes made
         }
 
         private void cbCurrentTerm_CheckedChanged(object sender, EventArgs e)
