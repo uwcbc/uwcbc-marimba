@@ -99,5 +99,52 @@
                 MessageBox.Show("Adding term failed. Please verify the input provided is valid.");
             }
         }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            if (mcTermStart.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart) > 0 ||
+                mcTermEnd.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart) < 0)
+            {
+                MessageBox.Show("The rehearsal start date isn't within the term bounds, silly.");
+                return;
+            }
+
+            // TotalDays returns a double (whole and fractional days) but since we're only dealing with whole days, I'm just dropping the fraction
+            int numDays = (int)(mcTermEnd.SelectionStart - mcRehearsalStart.SelectionStart).TotalDays;
+            // determine the last potential rehearsal date before EoT
+            DateTime lastRehearsal = mcTermEnd.SelectionStart.AddDays(-(numDays % 7)); // adding negative days, cause math.
+
+            try
+            {
+                updNumRehearsals.Value = (decimal)(Math.Floor((lastRehearsal - mcRehearsalStart.SelectionStart).TotalDays / 7) + 1);
+            }
+            catch (Exception err)
+            {
+                if (err.GetType().IsAssignableFrom(typeof(System.ArgumentOutOfRangeException)))
+                {
+                    updNumRehearsals.Value = 12;
+                    MessageBox.Show("The maximum number of rehearsals is 12.  Please check the selected dates.");
+                }
+                else
+                {
+                    MessageBox.Show("Error: " + err.ToString());
+                }
+            }
+        }
+
+        private void newTerm_Load(object sender, EventArgs e)
+        {
+            ToolTip buttonTool = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            buttonTool.AutoPopDelay = 5000;
+            buttonTool.InitialDelay = 1000;
+            buttonTool.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            buttonTool.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            buttonTool.SetToolTip(this.btnCalc, "Calculated with the assumption that there is a rehearsal every week");
+        }
     }
 }
