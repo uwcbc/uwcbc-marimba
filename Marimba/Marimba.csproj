@@ -15,7 +15,7 @@
     <TargetFrameworkProfile />
     <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
     <StyleCopTreatErrorsAsWarnings>False</StyleCopTreatErrorsAsWarnings>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\Nathan\Documents\Marimba\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <TargetCulture>en-CA</TargetCulture>
     <ProductName>Marimba</ProductName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -460,12 +460,13 @@
     <Content Include="instruments\timpani.ico" />
     <Content Include="instruments\trombone.ico" />
     <Content Include="instruments\trumpet.ico" />
-    <Content Include="Marimba-logo.ico" />
     <Content Include="mrbfile.ico" />
+    <Resource Include="ribbon_images\Marimba-logo.png" />
+    <Resource Include="ribbon_images\purge.png" />
+    <Resource Include="ribbon_images\signup.png" />
+    <Resource Include="ribbon_images\profile.png" />
     <Resource Include="ribbon_images\xlsx.png" />
-    <Resource Include="ribbon_images\profile.ico" />
     <Resource Include="ribbon_images\logo_32.png" />
-    <Resource Include="ribbon_images\Marimba-logo.ico" />
     <Resource Include="ribbon_images\save.png" />
     <Resource Include="ribbon_images\save_small.png" />
     <Resource Include="ribbon_images\merge.png" />
@@ -479,6 +480,8 @@
     <Resource Include="ribbon_images\history.png" />
     <None Include="Resources\Marimba_logo.ico" />
     <None Include="Resources\Marimba-logo.ico" />
+    <Resource Include="ribbon_images\edit.png" />
+    <Resource Include="ribbon_images\google.png" />
     <Content Include="ribbon_images\Import.png" />
     <Resource Include="ribbon_images\Members.png" />
     <Resource Include="ribbon_images\new_mail.png" />
