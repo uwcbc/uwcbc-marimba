@@ -11,6 +11,8 @@ namespace Marimba.Forms
     using System.Windows.Forms;
     using System.IO;
 
+    using Marimba.Comparers;
+
     public partial class MemberList : Form
     {
         // this form has one of two purposes:

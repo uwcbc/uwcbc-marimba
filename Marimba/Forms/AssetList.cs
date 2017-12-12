@@ -10,6 +10,8 @@ namespace Marimba.Forms
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
+    using Marimba.Comparers;
+
     public partial class AssetList : Form
     {
         public ListViewColumnSorter lvmColumnSorter;

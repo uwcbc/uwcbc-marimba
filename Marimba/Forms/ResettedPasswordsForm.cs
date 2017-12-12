@@ -38,7 +38,7 @@ namespace Marimba.Forms
             if (svd.FileName == "")
             {
                 if (Properties.Settings.Default.playSounds)
-                    sound.success.Play();
+                    Sound.Success.Play();
                 return;
             }
 
@@ -58,7 +58,7 @@ namespace Marimba.Forms
             }
 
             if (Properties.Settings.Default.playSounds)
-                sound.success.Play();
+                Sound.Success.Play();
         }
     }
 }

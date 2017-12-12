@@ -725,7 +725,7 @@ namespace Marimba
 
                 // build hash
                 user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
-                user.keyXORPassword = Convert.ToBase64String(clsStorage.byteXOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
+                user.keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
 
                 string[] userAndPassword = { user.name, sanitizedPassword };
                 usersAndPasswords.Add(userAndPassword);

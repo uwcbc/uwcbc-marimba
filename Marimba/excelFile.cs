@@ -238,10 +238,10 @@
                 int row = 10;
                 foreach (User user in ClsStorage.currentClub.strUsers)
                 {
-                    worksheet.Cell(row, 1) = user.name;
-                    worksheet.Cell(row, 2) = user.saltAndPassword;
-                    worksheet.Cell(row, 3) = user.priviledge;
-                    worksheet.Cell(row, 4) = user.keyXORPassword;
+                    worksheet.Cell(row, 1).Value = user.name;
+                    worksheet.Cell(row, 2).Value = user.saltAndPassword;
+                    worksheet.Cell(row, 3).Value = user.priviledge;
+                    worksheet.Cell(row, 4).Value = user.keyXORPassword;
 
                     row++;
                     iCurrent++;
