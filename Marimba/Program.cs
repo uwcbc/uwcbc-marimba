@@ -7,8 +7,7 @@
 
     static class Program
     {
-        public static MainMenu home;
-
+        public static Marimba.Forms.MainMenu home;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,7 +17,7 @@
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            home = new MainMenu(args);
+            home = new Marimba.Forms.MainMenu(args);
             Application.Run(home);
         }
     }
