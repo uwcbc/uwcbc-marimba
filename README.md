@@ -13,7 +13,11 @@ This is the UW Concert Band Club's mailing list/finances management program, ori
 
 3. OPTIONAL: Integrate Visual Studio with Git.
 
-    Ideally, you should be able to check-in and check-out changes directly in Visual Studio. This is up to whether you like the convenience of an IDE doing things for you, or like using a shell to run git commands.
+    Ideally, you should be able to check-in and check-out changes directly in Visual Studio. This is up to whether you like the convenience of an IDE doing things for you, or like using a shell to run git commands.\
+    
+### Todo
+
+* Figure out how to setup InstallShield consistently so that we can actually build this
 
 ## Credits (taken directly from the about.cs file)
 
