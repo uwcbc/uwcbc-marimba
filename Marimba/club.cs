@@ -52,7 +52,7 @@ namespace Marimba
         /// <summary>
         /// fileVersion contains the version of the file currently loaded
         /// </summary>
-        double fileVersion;
+        public double fileVersion;
 
         //I do not recommend publicly releasing any .mrb files and use a unique password for Marimba
         public List<User> strUsers;
@@ -725,7 +725,7 @@ namespace Marimba
 
                 // build hash
                 user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
-                user.keyXORPassword = Convert.ToBase64String(clsStorage.byteXOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
+                user.keyXORPassword = Convert.ToBase64String(ClsStorage.XOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
 
                 string[] userAndPassword = { user.name, sanitizedPassword };
                 usersAndPasswords.Add(userAndPassword);

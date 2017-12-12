@@ -89,7 +89,7 @@ namespace Marimba.Forms
 
         private void frmEditUser_Load(object sender, EventArgs e)
         {
-            foreach (User user in clsStorage.currentClub.strUsers)
+            foreach (User user in ClsStorage.currentClub.strUsers)
             {
                 cboUserID.Items.Add(user.name);
             }

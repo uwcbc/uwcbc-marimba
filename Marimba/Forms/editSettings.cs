@@ -79,7 +79,7 @@ namespace Marimba.Forms
         private void btnChangeKey_Click(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.playSounds)
-                sound.success.Play();
+                Sound.Success.Play();
 
             ResettedPasswordsForm form = new ResettedPasswordsForm();
             List<string[]> usersAndPasswords = ClsStorage.currentClub.UpdateKey();

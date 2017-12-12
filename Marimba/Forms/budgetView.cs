@@ -10,6 +10,7 @@ namespace Marimba.Forms
     using System.Text;
     using System.Windows.Forms;
 
+    using Marimba.Comparers;
     using Marimba.Utility;
 
     public partial class budgetView : Form
