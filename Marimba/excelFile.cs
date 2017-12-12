@@ -467,7 +467,7 @@
                 output.fileVersion = version;
                 output.strName = (string)worksheet.Cell(2, 2).Value;
                 int iUser = Convert.ToInt16(worksheet.Cell(3, 2).Value);
-                output.strUsers = new List<string[]>(iUser);
+                output.strUsers = new List<User>(iUser);
                 output.emailAddress = (string)worksheet.Cell(4, 2).Value;
                 output.imapServerAddress = (string)worksheet.Cell(5, 2).Value;
                 output.bImap = (Boolean)worksheet.Cell(6, 2).Value;

@@ -52,7 +52,7 @@ namespace Marimba
         /// <summary>
         /// fileVersion contains the version of the file currently loaded
         /// </summary>
-        double fileVersion;
+        public double fileVersion;
 
         //I do not recommend publicly releasing any .mrb files and use a unique password for Marimba
         public List<User> strUsers;
