@@ -717,13 +717,13 @@ namespace Marimba
                 newPassword = sanitizeRandomBytes(newPassword);
                 string sanitizedPassword = ConvertToString(newPassword);
 
-                //combine the salt and password
+                // combine the salt and password
                 Array.Copy(salt, saltPlusPassword, SaltLength);
                 Array.Copy(newPassword, 0, saltPlusPassword, SaltLength, passwordLength);
 
                 data = shaHash.ComputeHash(shaHash.ComputeHash(saltPlusPassword));
 
-                //build hash
+                // build hash
                 user.saltAndPassword = ConvertToString(salt) + "$" + ConvertToString(data);
                 user.keyXORPassword = Convert.ToBase64String(clsStorage.byteXOR(shaHash.ComputeHash(saltPlusPassword), newKey.Key));
 

@@ -62,7 +62,7 @@ namespace Marimba.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ClsStorage.currentClub.LoginUser(txtID.Text, txtPassword.Text))
+            if (ClsStorage.currentClub.LoginUser(txtID.Text.Trim(), txtPassword.Text))
             {
                 ClsStorage.currentClub.LoadEncryptedSection();
                 Program.home.ribbon1 = new Marimba.Ribbon();
