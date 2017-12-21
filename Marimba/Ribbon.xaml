@@ -91,6 +91,7 @@
                 </RibbonGroup>
                 <RibbonGroup x:Name="ExportClubGroup" Header="Export">
                     <RibbonButton x:Name="ExpClub" LargeImageSource="ribbon_images/xlsx.png" Label="Export Club" KeyTip="E" SmallImageSource="ribbon_images/xlsx.png"  SnapsToDevicePixels="True" Click="ExpClub_Click"  />
+                    <RibbonButton x:Name="ExpSqliteClub" LargeImageSource="ribbon_images/db_icon.png" Label="Export Club (SQLite)" SmallImageSource="ribbon_images/db_icon.png" SnapsToDevicePixels="True" Click="ExpSqlLiteClub_Click" />
                     <ProgressBar x:Name="Export_Status" Height="40" Width="200" VerticalContentAlignment="Stretch" Foreground="#FF009B77"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ImportClubGroup" Header="Import">

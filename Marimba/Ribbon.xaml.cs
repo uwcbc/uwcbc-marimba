@@ -207,6 +207,19 @@
             }
         }
 
+        private void ExpSqlLiteClub_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.playSounds)
+                Sound.Click.Play();
+
+            if (Program.home.memberMenu.svdSave.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Program.home.memberMenu.svdSave.FilterIndex = 1;
+                ExpClub.IsEnabled = false;
+                Program.home.bwSqlliteExport.RunWorkerAsync();
+            }
+        }
+
         private void ImpClub_Click(object sender, RoutedEventArgs e)
         {
             if (Properties.Settings.Default.playSounds)

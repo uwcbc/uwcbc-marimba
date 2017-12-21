@@ -43,6 +43,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bwReport = new System.ComponentModel.BackgroundWorker();
+            this.bwSqlliteExport = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // lvHistory
@@ -51,10 +52,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvHistory.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvHistory.Location = new System.Drawing.Point(21, 282);
-            this.lvHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvHistory.Location = new System.Drawing.Point(32, 441);
+            this.lvHistory.Margin = new System.Windows.Forms.Padding(6);
             this.lvHistory.Name = "lvHistory";
-            this.lvHistory.Size = new System.Drawing.Size(1149, 174);
+            this.lvHistory.Size = new System.Drawing.Size(1722, 270);
             this.lvHistory.TabIndex = 0;
             this.lvHistory.UseCompatibleStateImageBehavior = false;
             this.lvHistory.View = System.Windows.Forms.View.List;
@@ -63,10 +64,10 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(17, 234);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcome.Location = new System.Drawing.Point(26, 366);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(115, 24);
+            this.lblWelcome.Size = new System.Drawing.Size(182, 38);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "Welcome ";
             // 
@@ -79,10 +80,10 @@
             // 
             this.lblHistory.AutoSize = true;
             this.lblHistory.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistory.Location = new System.Drawing.Point(17, 258);
-            this.lblHistory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHistory.Location = new System.Drawing.Point(26, 403);
+            this.lblHistory.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblHistory.Name = "lblHistory";
-            this.lblHistory.Size = new System.Drawing.Size(141, 20);
+            this.lblHistory.Size = new System.Drawing.Size(229, 33);
             this.lblHistory.TabIndex = 14;
             this.lblHistory.Text = "Recent activity:";
             // 
@@ -91,12 +92,12 @@
             this.elementHost1.AutoSize = true;
             this.elementHost1.Dock = System.Windows.Forms.DockStyle.Top;
             this.elementHost1.Location = new System.Drawing.Point(0, 0);
-            this.elementHost1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.elementHost1.MaximumSize = new System.Drawing.Size(1920, 220);
-            this.elementHost1.MinimumSize = new System.Drawing.Size(900, 220);
+            this.elementHost1.Margin = new System.Windows.Forms.Padding(6);
+            this.elementHost1.MaximumSize = new System.Drawing.Size(2880, 344);
+            this.elementHost1.MinimumSize = new System.Drawing.Size(1350, 344);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.elementHost1.Size = new System.Drawing.Size(1182, 220);
+            this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
+            this.elementHost1.Size = new System.Drawing.Size(1773, 344);
             this.elementHost1.TabIndex = 17;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -172,11 +173,11 @@
             this.columnHeader4});
             this.lvEmail.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEmail.FullRowSelect = true;
-            this.lvEmail.Location = new System.Drawing.Point(21, 482);
-            this.lvEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvEmail.Location = new System.Drawing.Point(32, 753);
+            this.lvEmail.Margin = new System.Windows.Forms.Padding(6);
             this.lvEmail.MultiSelect = false;
             this.lvEmail.Name = "lvEmail";
-            this.lvEmail.Size = new System.Drawing.Size(1148, 358);
+            this.lvEmail.Size = new System.Drawing.Size(1720, 557);
             this.lvEmail.TabIndex = 18;
             this.lvEmail.UseCompatibleStateImageBehavior = false;
             this.lvEmail.UseWaitCursor = true;
@@ -210,21 +211,28 @@
             this.bwReport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwReport_ProgressChanged);
             this.bwReport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwReport_RunWorkerCompleted);
             // 
+            // bwSqlliteExport
+            // 
+            this.bwSqlliteExport.WorkerReportsProgress = true;
+            this.bwSqlliteExport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwSqlliteExport_DoWork);
+            this.bwSqlliteExport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwSqlliteExport_ProgressChanged);
+            this.bwSqlliteExport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwSqlliteExport_RunWorkerCompleted);
+            // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 853);
+            this.ClientSize = new System.Drawing.Size(1773, 1333);
             this.Controls.Add(this.lvEmail);
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lvHistory);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(900, 800);
+            this.MaximumSize = new System.Drawing.Size(2867, 1648);
+            this.MinimumSize = new System.Drawing.Size(1337, 1210);
             this.Name = "MainMenu";
             this.Text = "Marimba";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
@@ -250,5 +258,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         public System.ComponentModel.BackgroundWorker bwReport;
         public System.Windows.Forms.SaveFileDialog sfdSave;
+        internal System.ComponentModel.BackgroundWorker bwSqlliteExport;
     }
 }

@@ -521,6 +521,7 @@
     <None Include="Resources\Marimba-logo.ico" />
     <Resource Include="ribbon_images\edit.png" />
     <Resource Include="ribbon_images\google.png" />
+    <Content Include="ribbon_images\db_icon.png" />
     <Content Include="ribbon_images\Import.png" />
     <Resource Include="ribbon_images\Members.png" />
     <Resource Include="ribbon_images\new_mail.png" />
@@ -572,6 +573,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

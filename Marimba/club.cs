@@ -1,11 +1,14 @@
 namespace Marimba
 {
     using System;
+    using System.Data.SQLite;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.IO;
     using System.Linq;
     using System.Security.Cryptography;
     using System.Text;
+    using System.Threading.Tasks;
 
     using Marimba.Utility;
 
@@ -338,6 +341,277 @@ namespace Marimba
             }
 
             this.clubEmail = new Email(emailAddress, Properties.Settings.Default.emailPassword, imapServerAddress, this.bImap, smptServerAddress, smtpRequiresSSL, imapRequiresSSL);
+        }
+
+        /// <summary>
+        /// Exports the current club to the new file version format.
+        /// </summary>
+        /// <param name="destinationFilePath"></param>
+        /// <param name="worker"></param>
+        public void ExportSqlLiteClub(string destinationFilePath, BackgroundWorker worker)
+        {
+            string usersDbFilename = Path.ChangeExtension(Path.GetRandomFileName(), "db");
+            string mainDbFilename = Path.ChangeExtension(Path.GetRandomFileName(), "db");
+
+            string usersDbPath = Path.Combine(Path.GetTempPath(), usersDbFilename);
+            string mainDbPath = Path.Combine(Path.GetTempPath(), mainDbFilename);
+            
+            // export user table
+            var userDbConnectionString = new SQLiteConnectionStringBuilder { DataSource = usersDbPath }.ToString();
+            using (var connection = new SQLiteConnection(userDbConnectionString))
+            {
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE user
+                        (name VARCHAR(255) NOT NULL,
+                        salt BLOB NOT NULL,
+                        password VARCHAR(255) NOT NULL,
+                        priviledge INTEGER NOT NULL,
+                        key_xor_password VARCHAR(255) NOT NULL);",
+                    new List<string> { },
+                    new List<string> { "@name", "@salt", "@password", "@priviledge", "@key_xor_password" },
+                    "INSERT INTO user VALUES (@name, @salt, @password, @priviledge, @key_xor_password);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        foreach (User user in strUsers)
+                        {
+                            string[] parsedPassword = user.saltAndPassword.Split('$');
+
+                            parameters[0].Value = user.name;
+                            parameters[1].Value = StringToByteArray(parsedPassword[0]);
+                            parameters[2].Value = parsedPassword[1];
+                            parameters[3].Value = Array.IndexOf(ValidPrivileges, user.priviledge);
+                            parameters[4].Value = user.keyXORPassword;
+
+                            tasks.Add(command.ExecuteNonQueryAsync());
+                        }
+                        return tasks;
+                    }
+                );
+            }
+
+            // export main table
+            var mainDbConnectionString = new SQLiteConnectionStringBuilder { DataSource = mainDbPath }.ToString();
+            using (var connection = new SQLiteConnection(mainDbConnectionString))
+            {
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE member
+                        (rowid INTEGER NOT NULL,
+                        first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, other_instrument_name VARCHAR(255),
+                        email VARCHAR(255) NOT NULL, member_type INTEGER NOT NULL, faculty INTEGER NOT NULL,
+                        student_number VARCHAR(255) NOT NULL, signup_time DATETIME NOT NULL, shirt_size INTEGER NOT NULL,
+                        PRIMARY KEY(rowid));",
+                    new List<string> { },
+                    new List<string> {
+                        "@first_name", "@last_name", "@other_instrument_name",
+                        "@email", "@member_type", "@faculty",
+                        "@student_number", "@signup_time", "@shirt_size"
+                    },
+                    @"INSERT INTO member
+                        (first_name, last_name, other_instrument_name, email, member_type, faculty, student_number, signup_time, shirt_size) VALUES
+                        (@first_name, @last_name, @other_instrument_name, @email, @member_type, @faculty, @student_number, @signup_time, @shirt_size);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        foreach (Member member in members) {
+                            parameters[0].Value = member.firstName;
+                            parameters[1].Value = member.lastName;
+                            parameters[2].Value = String.IsNullOrWhiteSpace(member.otherInstrument) ? null : member.otherInstrument;
+                            parameters[3].Value = member.email;
+                            parameters[4].Value = (int)member.type;
+                            parameters[5].Value = (int)member.memberFaculty;
+                            parameters[6].Value = member.uiStudentNumber.ToString();
+                            parameters[7].Value = member.signupTime;
+                            parameters[8].Value = (int)member.size;
+                            tasks.Add(command.ExecuteNonQueryAsync());
+                        }
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE member_instruments
+                        (member INTEGER NOT NULL, relationship INTEGER NOT NULL, instrument INTEGER NOT NULL,
+                        FOREIGN KEY(member) REFERENCES member(rowid));",
+                    new List<string> {
+                        @"CREATE INDEX member_relationship_on_member_instruments ON member_instruments (member, relationship);"
+                    },
+                    new List<string> {
+                        "@member", "@instrument", "@relationship"
+                    },
+                    "INSERT INTO member_instruments VALUES (@member, @instrument, @relationship)",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        foreach (Member member in members)
+                        {
+                            int indexOfPrimaryInstrument = (int)member.curInstrument;
+                            parameters[0].Value = Array.IndexOf(members, member) + 1;
+                            if (member.playsInstrument == null)
+                            {
+                                parameters[1].Value = indexOfPrimaryInstrument;
+                                parameters[2].Value = 0; // primary instrument
+                                tasks.Add(command.ExecuteNonQueryAsync());
+                                continue;
+                            }
+
+                            for (int i = 0; i < member.playsInstrument.Length; i++)
+                            {
+                                if (!member.playsInstrument[i]) continue;
+
+                                parameters[1].Value = i;
+                                parameters[2].Value = (i == indexOfPrimaryInstrument) ? 0 : 1;
+                                tasks.Add(command.ExecuteNonQueryAsync());
+                            }
+                        }
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    "CREATE TABLE term (rowid INTEGER NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(rowid));",
+                    new List<string> { },
+                    new List<string> { "@name" },
+                    "INSERT INTO term (name) VALUES (@name);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        foreach (Term term in listTerms)
+                        {
+                            parameters[0].Value = term.strName;
+                            tasks.Add(command.ExecuteNonQueryAsync());
+                        }
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE rehearsal_date
+                        (rowid INTEGER NOT NULL, term INTEGER NOT NULL, date DATE NOT NULL,
+                        PRIMARY KEY (rowid),
+                        FOREIGN KEY (term) REFERENCES term(rowid));",
+                    new List<string> {
+                        "CREATE INDEX term_on_term_rehearsal_dates ON rehearsal_date (term)",
+                        "CREATE UNIQUE INDEX date_on_term_rehearsal_dates ON rehearsal_date (date)"
+                    },
+                    new List<string> { "@term", "@date" },
+                    "INSERT INTO rehearsal_date (term, date) VALUES (@term, @date);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        for (int i = 0; i < listTerms.Count(); i++)
+                        {
+                            parameters[0].Value = i + 1; // again, +1 because term index starts at 1
+                            foreach (DateTime date in listTerms[i].rehearsalDates)
+                            {
+                                parameters[1].Value = date;
+                                tasks.Add(command.ExecuteNonQueryAsync());
+                            }
+                        }
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE term_member
+                        (term INTEGER NOT NULL, member INTEGER NOT NULL,
+                        FOREIGN KEY (term) REFERENCES term(rowid),
+                        FOREIGN KEY (member) REFERENCES member(rowid));",
+                    new List<string>
+                    {
+                        "CREATE INDEX term_on_term_member ON term_member (term)",
+                        "CREATE INDEX member_on_term_member ON term_member (member)"
+                    },
+                    new List<string> { "@term", "@member" },
+                    "INSERT INTO term_member VALUES (@term, @member);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        for (int i = 0; i < listTerms.Count(); i++)
+                        {
+                            parameters[0].Value = i + 1; // again, +1 because term index starts at 1
+                            foreach (short sID in listTerms[i].members)
+                            {
+                                int memberIndex = ClsStorage.currentClub.FindMember(sID);
+                                parameters[1].Value = memberIndex + 1;
+                                tasks.Add(command.ExecuteNonQueryAsync());
+                            }
+                        }
+
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE rehearsal_attendance
+                        (date INTEGER NOT NULL, member INTEGER NOT NULL,
+                        FOREIGN KEY (date) REFERENCES rehearsal_date(rowid),
+                        FOREIGN KEY (member) REFERENCES member(rowid));",
+                    new List<string>
+                    {
+                        "CREATE INDEX date_on_rehearsal_attendance ON rehearsal_attendance (date)",
+                        "CREATE INDEX member_on_rehearsal_attendance ON rehearsal_attendance (member)"
+                    },
+                    new List<string> { "@date", "@member" },
+                    "INSERT INTO rehearsal_attendance VALUES (@date, @member);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        for (int i = 0; i < listTerms.Count(); i++)
+                        {
+
+                        }
+                        return tasks;
+                    }
+                );
+            }
+        }
+
+        /// <summary>
+        /// A lambda function to create a table in the given SQLite connection.
+        /// </summary>
+        /// <param name="connection">An open connection to the SQLite Connection.</param>
+        /// <param name="createCommand">The string SQLite command to create the table.</param>
+        /// <param name="indexCommands">A list of string SQLite commands to create indexes on the table.</param>
+        /// <param name="insertParameterNames">The names of the parameters to use in the prepared insert statement.</param>
+        /// <param name="insertCommand">The string SQLite commmand to insert into the table using the parameter names in insertParameterNames.</param>
+        /// <param name="createInsertTasks">A function which consumes the insert parameters and returns an enumerable of Tasks which will insert a row into the table being created.</param>
+        protected void CreateAndPopulateTable(
+            SQLiteConnection connection,
+            string createCommand,
+            IList<string> indexCommands,
+            IList<string> insertParameterNames,
+            string insertCommand,
+            Func<SQLiteCommand, IList<SQLiteParameter>, IList<Task<int>>> createInsertTasks)
+        {
+            using (var command = new SQLiteCommand(connection))
+            {
+                using (var tx = connection.BeginTransaction())
+                {
+                    command.CommandText = createCommand;
+                    command.ExecuteNonQuery();
+
+                    foreach (string indexCommand in indexCommands)
+                    {
+                        command.CommandText = indexCommand;
+                        command.ExecuteNonQuery();
+                    }
+
+                    command.CommandText = insertCommand;
+                    var parameters = insertParameterNames.Select(parameterName => new SQLiteParameter(parameterName)).ToList();
+
+                    var insertTasks = createInsertTasks(command, parameters);
+                    Task.WaitAll(insertTasks.ToArray());
+                    tx.Commit();
+                }
+            }
         }
 
         /// <summary>
@@ -962,6 +1236,19 @@ namespace Marimba
         {
             for (int i = 0; i < iMember; i++)
                 if (members[i].email == strEmail)
+                    return i;
+            return -1;
+        }
+
+        /// <summary>
+        /// Search for member's index by its internal ID. Returns -1 if not found.
+        /// </summary>
+        /// <param name="sID">Internal ID.</param>
+        /// <returns>An integer for the member with the given ID, -1 if no member found</returns>
+        public int FindMember(short sID)
+        {
+            for (int i = 0; i < iMember; i++)
+                if (members[i].sID == sID)
                     return i;
             return -1;
         }

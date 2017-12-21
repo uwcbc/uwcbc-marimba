@@ -297,5 +297,24 @@ namespace Marimba.Forms
             Thread t = new Thread(emailLogin);
             t.Start();
         }
+
+        private void bwSqlliteExport_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ClsStorage.currentClub.ExportSqlLiteClub(Program.home.memberMenu.svdSave.FileName, bwSqlliteExport);
+            memberMenu.svdSave.FileName = String.Empty;
+            if (Properties.Settings.Default.playSounds)
+                Sound.Success.Play();
+        }
+
+        private void bwSqlliteExport_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ribbon1.Export_Status.Value = Math.Min(e.ProgressPercentage, 100);
+        }
+
+        private void bwSqlliteExport_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ribbon1.Export_Status.Value = 0;
+            ribbon1.ExpClub.IsEnabled = true;
+        }
     }
 }
