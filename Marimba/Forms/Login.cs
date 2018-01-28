@@ -25,7 +25,6 @@ namespace Marimba.Forms
             try
             {
                 // if we opened from a file
-                string check = Properties.Settings.Default.FileLocation;
                 if (strLocation != String.Empty)
                 {
                     ClsStorage.currentClub = new Club(strLocation);

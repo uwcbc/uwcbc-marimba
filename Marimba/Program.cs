@@ -15,6 +15,12 @@
         [STAThread]
         public static void Main(string[] args)
         {
+            // This fixes when one is trying to open a .mrb file and the file name doesn't get passed in
+            if (args == null || args.Length == 0)
+            {
+                args = AppDomain.CurrentDomain.SetupInformation.ActivationArguments‌​.ActivationData.Select(s => new Uri(s).LocalPath).ToArray();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             home = new Marimba.Forms.MainMenu(args);
