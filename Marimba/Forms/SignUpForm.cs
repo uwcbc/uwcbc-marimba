@@ -35,7 +35,8 @@
                 //check for missing information
                 if (txtFirstName.Text == "" || txtLastName.Text == "" || txtEmail.Text == "" ||
                     ((txtStudentNumber.Text == "" || cbFaculty.Text == "") && cbClass.Text == "UW Student") ||
-                    cbInstrument.Text == "" || cbClass.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == ""))
+                    cbInstrument.Text == "" || cbClass.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == "")
+                    || cbShirtSize.Text == "")
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
@@ -45,7 +46,7 @@
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
-                    MessageBox.Show("The student number entered is not a UW student number. Please correct it.");
+                    MessageBox.Show("The student number entered is not a valid UW student number.");
                 }
                 else
                 {
@@ -73,13 +74,13 @@
                             txtStudentNumber.Text = "0";
                     if (cbMultiple.Checked && ClsStorage.currentClub.AddMember(txtFirstName.Text, txtLastName.Text, (Member.MemberType)cbClass.SelectedIndex,
                         Convert.ToUInt32(txtStudentNumber.Text), cbFaculty.SelectedIndex, cbInstrument.Text, tempOtherInstrument, txtEmail.Text,
-                        txtOther.Text, -1, tempPlays) || ClsStorage.currentClub.AddMember(txtFirstName.Text, txtLastName.Text, (Member.MemberType)cbClass.SelectedIndex,
+                        txtOther.Text, cbShirtSize.SelectedIndex, tempPlays) || ClsStorage.currentClub.AddMember(txtFirstName.Text, txtLastName.Text, (Member.MemberType)cbClass.SelectedIndex,
                         Convert.ToUInt32(txtStudentNumber.Text), cbFaculty.SelectedIndex, cbInstrument.Text, tempOtherInstrument, txtEmail.Text,
-                        txtOther.Text, -1))
+                        txtOther.Text, cbShirtSize.SelectedIndex))
                     {
                         if (Properties.Settings.Default.playSounds)
                             Sound.Welcome.Play();
-                        MessageBox.Show("Sign-Up Successful! Check your inbox for an e-mail soon!");
+                        MessageBox.Show("Sign-Up Successful!");
                         iSignup++;
                         cleanup();
                     }
@@ -113,6 +114,7 @@
             cbInstrument.Text = "";
             txtFirstName.Focus();
             cbMultiple.Checked = false;
+            cbShirtSize.Text = "";
             if (lvInstruments != null)
             {
                 lvInstruments.Dispose();
@@ -320,6 +322,11 @@
             //if other instrument is showing, then we have changed the selection from other to something else, so remove other
             else if (bOtherInstrument && !lvInstruments.Items[17].Checked)
                 hideOther();
+        }
+
+        private void cbShirtSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
