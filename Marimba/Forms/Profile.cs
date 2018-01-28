@@ -190,7 +190,7 @@ namespace Marimba.Forms
             }*/
         }
 
-        private void btnDeactivate_Click(object sender, EventArgs e)
+        private void btnUnsubscribeEmail_Click(object sender, EventArgs e)
         {
             // here we are merely deactivating the member
             // this is for people we would like to keep record of for UWCBC glory
@@ -210,30 +210,40 @@ namespace Marimba.Forms
 
             if (Properties.Settings.Default.playSounds)
                 Sound.Success.Play();
-            MessageBox.Show("Member deactivated.");            
+            MessageBox.Show("Member removed from mailing list.");            
         }
 
-        private void btnUnsubscribe_Click(object sender, EventArgs e)
+        private void btnUnsubscribeAll_Click(object sender, EventArgs e)
         {
             // the reason for not deleting a member is to not mess up every single member's profile number
             // as well as all the term information if the unsubscribe actually attended rehearsals
             // instead, we remove everything we had and make that data anonymous
-            ClsStorage.currentClub.AddHistory(ClsStorage.currentClub.GetFormattedName(iID), ChangeType.Unsubscribe);
-            ClsStorage.currentClub.members[iID].EditMember(
-                "♪Unsubscribed",
-                "♪Unsubscribed",
-                Member.MemberType.Other,
-                0,
-                -1,
-                String.Empty,
-                String.Empty,
-                String.Empty,
-                ClsStorage.currentClub.members[iID].signupTime,
-                -1);
+            DialogResult result = MessageBox.Show("Are you sure you want to unsubscribe this member?", "Unsubsribe Member Entirely", MessageBoxButtons.YesNo);
 
-            if (Properties.Settings.Default.playSounds)
-                Sound.Success.Play();
-            MessageBox.Show("Member unsubscribed.");
+            // gotta be extra sure they want to unsubscribe them
+            if (result == DialogResult.Yes) {
+                result = MessageBox.Show("Are you REEEAAAALLLY sure you want to unsubscribe this member?", "No Turning Back", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    ClsStorage.currentClub.AddHistory(ClsStorage.currentClub.GetFormattedName(iID), ChangeType.Unsubscribe);
+                    ClsStorage.currentClub.members[iID].EditMember(
+                        "♪Unsubscribed",
+                        "♪Unsubscribed",
+                        Member.MemberType.Other,
+                        0,
+                        -1,
+                        String.Empty,
+                        String.Empty,
+                        String.Empty,
+                        ClsStorage.currentClub.members[iID].signupTime,
+                        -1);
+
+                    if (Properties.Settings.Default.playSounds)
+                        Sound.Success.Play();
+                    MessageBox.Show("Okay fine.  Member entirely unsubscribed.");
+                }
+            }
             this.Close();
         }
 

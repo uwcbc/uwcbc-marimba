@@ -118,12 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblUnsubscribe.Text" xml:space="preserve">
-    <value>Press the first button to deactivate the membership.
-Only the e-mail address will be removed. This is ideal
+    <value>The first button unsubscribes the member from the mailing list.  
+Only their e-mail address will be removed.  This is ideal
 for graduating members.
 
-Press the second button to unsubscribe. This will remove
-most information, only leaving behind the history with the club.
+The second button unsubscribes the member, themselves.
+This will remove most information, only leaving behind the
+history with the club.
 
 Neither of these commands can be undone.</value>
   </data>
