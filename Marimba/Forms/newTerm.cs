@@ -22,11 +22,20 @@ namespace Marimba.Forms
         {
             try
             {
+                List<Term> test = ClsStorage.currentClub.listTerms;
+                IEnumerable<Term> term_matches = ClsStorage.currentClub.listTerms.Where(t => t.strName == txtName.Text);
+
                 if (txtName.Text == String.Empty)
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
                     MessageBox.Show("Please enter a name for the term.");
+                }             
+                else if (term_matches.Count() > 0)
+                {
+                    if (Properties.Settings.Default.playSounds)
+                        Sound.Error.Play();
+                    MessageBox.Show("Term name already exists.  Please enter a new name.");
                 }
                 else if (mcTermStart.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart) > 0 ||
                     mcTermEnd.SelectionStart.CompareTo(mcRehearsalStart.SelectionStart.AddDays(7 * (Convert.ToInt32(updNumRehearsals.Value) - 1))) < 0)
