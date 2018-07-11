@@ -7,17 +7,17 @@ This is the UW Concert Band Club's mailing list/finances management program, ori
 
     Look for the Visual Studio 2013 installation on Dreamspark. As a UW student, you can get this for free. Download it (it's 2GB) and install it. You can leave all the defaults as is.
 
-2. Setup the Visual Studio projects.
+2. Install InstalShield Limited Edition
+
+    You'll need to add the [InstalledShield Plugin](https://info.flexerasoftware.com/IS-EVAL-InstallShield-Limited-Edition-Visual-Studio) so that users will be able to install Marimba. TODO: Actually document this properly. All I did is find the link.
+
+3. Setup the Visual Studio projects.
 
     Ask the previous developer of Marimba to add you to the uwcbc organization. To actually get the code, install a git client and clone the repo. To open the project, double click the .sln file in the new uwcbc-marimba folder. Everything should be working at this point! If not, ask the previous developer.
 
-3. OPTIONAL: Integrate Visual Studio with Git.
+4. OPTIONAL: Integrate Visual Studio with Git.
 
-    Ideally, you should be able to check-in and check-out changes directly in Visual Studio. This is up to whether you like the convenience of an IDE doing things for you, or like using a shell to run git commands.\
-    
-### Todo
-
-* Figure out how to setup InstallShield consistently so that we can actually build this
+    Ideally, you should be able to check-in and check-out changes directly in Visual Studio. This is up to whether you like the convenience of an IDE doing things for you, or like using a shell to run git commands.
 
 ## Credits (taken directly from the about.cs file)
 
