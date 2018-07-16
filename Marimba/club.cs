@@ -473,16 +473,23 @@ namespace Marimba
 
                 CreateAndPopulateTable(
                     connection,
-                    "CREATE TABLE term (rowid INTEGER NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(rowid));",
+                    @"CREATE TABLE term 
+                        (rowid INTEGER NOT NULL,
+                        name VARCHAR(255) NOT NULL,
+                        start_date DATETIME NOT NULL,
+                        end_date DATETIME NOT NULL,
+                        PRIMARY KEY(rowid));",
                     new List<string> { },
-                    new List<string> { "@name" },
-                    "INSERT INTO term (name) VALUES (@name);",
+                    new List<string> { "@name", "@start_date", "@end_date" },
+                    "INSERT INTO term (name, start_date, end_date) VALUES (@name, @start_date, @end_date);",
                     (command, parameters) =>
                     {
                         var tasks = new List<Task<int>>();
                         foreach (Term term in listTerms)
                         {
                             parameters[0].Value = term.strName;
+                            parameters[1].Value = term.startDate;
+                            parameters[2].Value = term.endDate;
                             tasks.Add(command.ExecuteNonQueryAsync());
                         }
                         return tasks;
@@ -536,7 +543,9 @@ namespace Marimba
                         for (int i = 0; i < listTerms.Count(); i++)
                         {
                             parameters[0].Value = i + 1; // again, +1 because term index starts at 1
-                            foreach (short sID in listTerms[i].members)
+
+                            Term currentTerm = listTerms[i];
+                            foreach (short sID in currentTerm.members)
                             {
                                 int memberIndex = ClsStorage.currentClub.FindMember(sID);
                                 parameters[1].Value = memberIndex + 1;
@@ -566,18 +575,104 @@ namespace Marimba
                         var tasks = new List<Task<int>>();
                         for (int i = 0; i < listTerms.Count(); i++)
                         {
-
+                            // TODO
                         }
+
                         return tasks;
                     }
                 );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE term_fees
+                        (rowid INTEGER NOT NULL, term INTEGER NOT NULL, name VARCHAR(255) NOT NULL, amount DOUBLE NOT NULL,
+                        PRIMARY KEY (rowid),
+                        FOREIGN KEY (term) REFERENCES term(rowid));",
+                    new List<string>
+                    {
+                        "CREATE INDEX term_on_other_term_fees ON other_term_fees (term)"
+                    },
+                    new List<string> { "@term", "@name", "@amount" },
+                    "INSERT INTO other_term_fees (term, name, amount) VALUES (@term, @name, @amount);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        for (int i = 0; i < listTerms.Count(); i++)
+                        {
+                            parameters[0].Value = i + 1; // again, +1 because term index starts at 1
+                            
+                            Term currentTerm = listTerms[i];
+
+                            parameters[1].Value = "Membership Fee";
+                            parameters[2].Value = currentTerm.membershipFees;
+                            tasks.Add(command.ExecuteNonQueryAsync());
+
+                            for (int j = 0; j < currentTerm.otherFeesNames.Length; j++)
+                            {
+                                parameters[1].Value = currentTerm.otherFeesNames[j];
+                                parameters[2].Value = currentTerm.otherFeesAmounts[j];
+                                tasks.Add(command.ExecuteNonQueryAsync());
+                            }
+                        }
+
+                        return tasks;
+                    }
+                );
+
+                CreateAndPopulateTable(
+                    connection,
+                    @"CREATE TABLE fee_payments
+                        (term INTEGER NOT NULL, member INTEGER NOT NULL, fee INTEGER NOT NULL, amount_paid DOUBLE NOT NULL, date_paid DATETIME NOT NULL,
+                        FOREIGN KEY (fee) REFERENCES term_fees(rowid),
+                        FOREIGN KEY (term) REFERENCES term(rowid),
+                        FOREIGN KEY (member) REFERENCES member(rowid));",
+                    new List<string>
+                    {
+                        "CREATE INDEX member_on_fee_payments ON fee_payments (member)",
+                        "CREATE INDEX term_member_on_fee_payments ON fee_payments (term, member)"
+                    },
+                    new List<string> { "@term", "@member", "@fee", "@amount_paid", "@date_paid" },
+                    "INSERT INTO fee_payments VALUES (@term, @member, @fee, @amount_paid, @date_paid);",
+                    (command, parameters) =>
+                    {
+                        var tasks = new List<Task<int>>();
+                        for (int i = 0; i < listTerms.Count(); i++)
+                        {
+                            parameters[0].Value = i + 1; // again, +1 because term index starts at 1
+
+                            Term currentTerm = listTerms[i];
+
+                            for (int j = 0; j < currentTerm.members.Length; j++)
+                            {
+                                short sID = currentTerm.members[j];
+                                int memberIndex = ClsStorage.currentClub.FindMember(sID);
+
+                                parameters[1].Value = memberIndex + 1;
+                                
+                                double membershipFeePaid = currentTerm.feesPaid[memberIndex, 0];
+                                if (membershipFeePaid > 0.01)
+                                {
+
+                                    parameters[2].Value = (int)GetTermFeeID(connection, i + 1, "Membership Fee");
+                                    parameters[3].Value = membershipFeePaid;
+                                    parameters[4].Value = currentTerm.feesPaidDate[memberIndex, 0];
+                                    tasks.Add(command.ExecuteNonQueryAsync());
+                                }
+
+                                // TODO: add other fee payments
+                            }
+                        }
+
+                        return tasks;
+                    }
+);
             }
         }
 
         /// <summary>
         /// A lambda function to create a table in the given SQLite connection.
         /// </summary>
-        /// <param name="connection">An open connection to the SQLite Connection.</param>
+        /// <param name="connection">An open connection to the SQLite Database.</param>
         /// <param name="createCommand">The string SQLite command to create the table.</param>
         /// <param name="indexCommands">A list of string SQLite commands to create indexes on the table.</param>
         /// <param name="insertParameterNames">The names of the parameters to use in the prepared insert statement.</param>
@@ -606,11 +701,33 @@ namespace Marimba
 
                     command.CommandText = insertCommand;
                     var parameters = insertParameterNames.Select(parameterName => new SQLiteParameter(parameterName)).ToList();
+                    command.Parameters.AddRange(parameters.ToArray());
 
                     var insertTasks = createInsertTasks(command, parameters);
                     Task.WaitAll(insertTasks.ToArray());
                     tx.Commit();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the rowid of the input fee from the input database.
+        /// </summary>
+        /// <param name="connection">An open connetion to the SQLite Database.</param>
+        /// <param name="termID">The term of the fee.</param>
+        /// <param name="feeName">The name of the fee.</param>
+        protected object GetTermFeeID(SQLiteConnection connection, int termID, string feeName)
+        {
+            using (var queryCommand = new SQLiteCommand(connection))
+            {
+                queryCommand.CommandText = "SELECT rowid FROM term_fees WHERE term_fees.term = @term AND term_fees.name = @feeName";
+                var termParameter = new SQLiteParameter("@term", termID);
+                queryCommand.Parameters.Add(termParameter);
+
+                var nameParameter = new SQLiteParameter("@feeName", feeName);
+                queryCommand.Parameters.Add(nameParameter);
+
+                return queryCommand.ExecuteScalar();
             }
         }
 
