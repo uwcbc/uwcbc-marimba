@@ -1,14 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marimba", "Marimba\Marimba.csproj", "{E5307D7C-B845-46FA-801E-F0D08ADC5F91}"
 EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup", "Setup\Setup.isproj", "{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E5307D7C-B845-46FA-801E-F0D08ADC5F91} = {E5307D7C-B845-46FA-801E-F0D08ADC5F91}
-	EndProjectSection
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,16 +26,13 @@ Global
 		{E5307D7C-B845-46FA-801E-F0D08ADC5F91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5307D7C-B845-46FA-801E-F0D08ADC5F91}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{E5307D7C-B845-46FA-801E-F0D08ADC5F91}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.CD_ROM|Any CPU.Build.0 = CD_ROM
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.Debug|Any CPU.ActiveCfg = DVD-5
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.Debug|Any CPU.Build.0 = DVD-5
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.DVD-5|Any CPU.ActiveCfg = DVD-5
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.DVD-5|Any CPU.Build.0 = DVD-5
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.Release|Any CPU.ActiveCfg = SingleImage
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.Release|Any CPU.Build.0 = SingleImage
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.SingleImage|Any CPU.ActiveCfg = SingleImage
-		{F5EAABC3-8482-435B-98BA-25D6B68BF0CD}.SingleImage|Any CPU.Build.0 = SingleImage
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.CD_ROM|Any CPU.ActiveCfg = Release
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.Debug|Any CPU.ActiveCfg = Debug
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.DVD-5|Any CPU.ActiveCfg = Debug
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.Release|Any CPU.ActiveCfg = Release
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.Release|Any CPU.Build.0 = Release
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.Release|Any CPU.Deploy.0 = Release
+		{CAB0D052-E1F2-4BDD-AC94-87158E3F72AC}.SingleImage|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

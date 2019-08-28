@@ -15,12 +15,15 @@
         [STAThread]
         public static void Main(string[] args)
         {
+            /// <remarks> **This, along with fixing the below issue, also results in being unable to open Marimba through the .exe
+            /// The issue is very sporadic so it's being left commented in favour of better usability
+            /// </remarks>
             // This fixes when one is trying to open a .mrb file and the file name doesn't get passed in
             // Comment out the line if debugging as it throws an Argument Null Exception
-            if (args == null || args.Length == 0)
+            /*if (args == null || args.Length == 0)
             {
                 args = AppDomain.CurrentDomain.SetupInformation.ActivationArguments‌​.ActivationData.Select(s => new Uri(s).LocalPath).ToArray();
-            }
+            }*/
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

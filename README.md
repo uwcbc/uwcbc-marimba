@@ -3,13 +3,13 @@
 This is the UW Concert Band Club's mailing list/finances management program, originally developed by Lawrence Veregin.
 
 ## Getting started
-1. Install Visual Studio 2013 from Dreamspark.
+1. Install Visual Studio from Microsoft.
 
-    Look for the Visual Studio 2013 installation on Dreamspark. As a UW student, you can get this for free. Download it (it's 2GB) and install it. You can leave all the defaults as is.
+    Download the community version (free) from https://visualstudio.microsoft.com and install it. You can leave all the defaults as is.  If you encounter any issues with the latest version, try Visual Studio 2015.
 
-2. Install InstalShield Limited Edition
+2. Install Visual Studio Installer Projects extension
 
-    You'll need to add the [InstalledShield Plugin](https://info.flexerasoftware.com/IS-EVAL-InstallShield-Limited-Edition-Visual-Studio) so that users will be able to install Marimba. TODO: Actually document this properly. All I did is find the link.
+    Find the one made for the version of Visual Studio that you've installed from https://marketplace.visualstudio.com. You'll need this extension to create an installer for Marimba.
 
 3. Setup the Visual Studio projects.
 
