@@ -69,12 +69,15 @@ namespace Marimba.Forms
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            this.Hide();
+            this.BringToFront();
             Form login = new Login(strLocation);
             login.ShowDialog();
+
             // if we never logged in, close the program
             if (!ClsStorage.loggedin)
+            {
                 this.Close();
+            }
             // guest login, go straight to attendance
             // I might change this later to allow signing up members
             else if (ClsStorage.currentClub.strCurrentUser == null)
@@ -221,24 +224,34 @@ namespace Marimba.Forms
                 {
                     ClsStorage.currentClub.br.Close();
                     if (ClsStorage.loggedin)
-                        ClsStorage.currentClub.clubEmail.logout();
-                }
-            }
-            else
-            {
-                result = MessageBox.Show("Would you like to exit?", "Exit", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes && ClsStorage.currentClub != null)
-                {
-                    ClsStorage.currentClub.br.Close();
-                    if (ClsStorage.loggedin)
                     {
                         ClsStorage.currentClub.clubEmail.logout();
                     }
                 }
-                else if(result == DialogResult.No)
+            }
+            else
+            {
+                // only show the dialog after the user has logged in
+                if (ClsStorage.loggedin)
                 {
-                    e.Cancel = true;
+                    result = MessageBox.Show("Would you like to exit?", "Exit", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes && ClsStorage.currentClub != null)
+                    {
+                        ClsStorage.currentClub.br.Close();
+                        if (ClsStorage.loggedin)
+                        {
+                            ClsStorage.currentClub.clubEmail.logout();
+                        }
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else if (ClsStorage.currentClub != null)
+                {
+                    ClsStorage.currentClub.br.Close();
                 }                
             }
         }

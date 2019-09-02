@@ -40,10 +40,8 @@ namespace Marimba.Forms
 
             foreach (BudgetItem item in ClsStorage.currentClub.budget)
             {
-
                 //ignore all budget items that take effect after the last date of the term
-                if (item.dateAccount <
-                        ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].endDate.AddDays(1))
+                if (item.dateAccount < ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].endDate.AddDays(1))
                 {
                     //cash
                     if (item.type == TransactionType.Revenue)
@@ -289,7 +287,6 @@ namespace Marimba.Forms
 
             //cash flow statement
             //cash is of course different from revenue
-            //here we will be using dates as a measure as opposed to the term
             double dBegCash = 0;
             //we will reuse many of the previous variables
 
@@ -306,27 +303,31 @@ namespace Marimba.Forms
             foreach (BudgetItem item in ClsStorage.currentClub.budget)
             {
                 //if occured before the start of the term
-                if (item.dateAccount <
-                    ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].startDate)
+                if (item.dateAccount < ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].startDate)
                 {
                     if (item.type == TransactionType.Revenue)
+                    {
                         dBegCash += item.value;
-                    else if (item.type == TransactionType.Asset ||
-                        item.type == TransactionType.Expense)
+                    }
+                    else if (item.type == TransactionType.Asset || item.type == TransactionType.Expense)
+                    {
                         dBegCash -= item.value;
+                    }
                 }
-                //occured in this term
-                else if (item.dateAccount < ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].endDate.AddDays(1))
+                //if occured in this term
+                if (item.term == cbTerm.SelectedIndex)
                 {
-                    dValue = item.value;
-                    //ignore depreciation
-                    if (item.type == TransactionType.Depreciation)
-                        dValue = 0;
                     //note to self: this section could be improved with arrays
                     //I decided against arrays here because the categories aren't yet final
                     //And the types for each category are also not yet final
                     //And it would cause a lot of headache if I had to add a category later and did not use this less efficient method
 
+                    dValue = item.value;
+                    //ignore depreciation
+                    if (item.type == TransactionType.Depreciation)
+                    {
+                        dValue = 0;
+                    }
                     else if (item.type == TransactionType.Expense || item.type == TransactionType.Asset)
                     {
                         if (item.cat == "Waived Membership Fee")

@@ -53,7 +53,11 @@
             lvMembers.SmallImageList = Program.home.instrumentSmall;
             //if we default to selecting current term, do so!
             if (Properties.Settings.Default.selectCurrentTerm)
+            {
                 cbTerm.SelectedIndex = ClsStorage.currentClub.listTerms.Count - 1;
+            }
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;  // make the form non-resizble since its behaviour is weird (some things move, others don't)
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
