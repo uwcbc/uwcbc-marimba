@@ -37,7 +37,7 @@
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.lblStudentNumber = new System.Windows.Forms.Label();
             this.txtStudentNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFaculty = new System.Windows.Forms.Label();
             this.cbFaculty = new System.Windows.Forms.ComboBox();
             this.lblInstrument = new System.Windows.Forms.Label();
             this.cbInstrument = new System.Windows.Forms.ComboBox();
@@ -141,15 +141,15 @@
             this.txtStudentNumber.Size = new System.Drawing.Size(263, 23);
             this.txtStudentNumber.TabIndex = 3;
             // 
-            // label1
+            // lblFaculty
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(49, 217);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Faculty\r\n(if UW student)";
+            this.lblFaculty.AutoSize = true;
+            this.lblFaculty.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaculty.Location = new System.Drawing.Point(49, 217);
+            this.lblFaculty.Name = "lblFaculty";
+            this.lblFaculty.Size = new System.Drawing.Size(118, 32);
+            this.lblFaculty.TabIndex = 9;
+            this.lblFaculty.Text = "Faculty\r\n(if UW student)";
             // 
             // cbFaculty
             // 
@@ -267,7 +267,6 @@
             this.cbShirtSize.Name = "cbShirtSize";
             this.cbShirtSize.Size = new System.Drawing.Size(263, 24);
             this.cbShirtSize.TabIndex = 18;
-            this.cbShirtSize.SelectedIndexChanged += new System.EventHandler(this.cbShirtSize_SelectedIndexChanged);
             // 
             // SignUpForm
             // 
@@ -285,7 +284,7 @@
             this.Controls.Add(this.cbInstrument);
             this.Controls.Add(this.lblInstrument);
             this.Controls.Add(this.cbFaculty);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFaculty);
             this.Controls.Add(this.txtStudentNumber);
             this.Controls.Add(this.lblStudentNumber);
             this.Controls.Add(this.cbClass);
@@ -319,7 +318,7 @@
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label lblStudentNumber;
         private System.Windows.Forms.TextBox txtStudentNumber;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFaculty;
         private System.Windows.Forms.ComboBox cbFaculty;
         private System.Windows.Forms.Label lblInstrument;
         private System.Windows.Forms.ComboBox cbInstrument;

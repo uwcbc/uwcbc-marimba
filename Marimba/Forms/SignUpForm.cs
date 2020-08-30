@@ -30,22 +30,76 @@
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            bool bMissingInformation = false;
+            Color defaultInfoColour = Color.FromName("ControlText");
+            Color badInfoColour = Color.FromName("red");
+            bool bIsUWStudent = cbClass.Text.Contains("UW") && cbClass.Text.Contains("Student");
+
             try
             {
-                //check for missing information
+                // mark missing information in red or restore added information to default
                 if (txtFirstName.Text == "" || txtLastName.Text == "" || txtEmail.Text == "" ||
-                    ((txtStudentNumber.Text == "" || cbFaculty.Text == "") && cbClass.Text == "UW Student") ||
-                    cbInstrument.Text == "" || cbClass.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == ""))
+                    (bIsUWStudent && (txtStudentNumber.Text == "" || cbFaculty.Text == "")) ||
+                    cbInstrument.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == ""))
                 {
-                    if (Properties.Settings.Default.playSounds)
-                        Sound.Error.Play();
-                    MessageBox.Show("Please fill in the missing information.");
+                    if (txtFirstName.Text == "")
+                        lblFirstName.ForeColor = badInfoColour;
+                    else
+                        lblFirstName.ForeColor = defaultInfoColour;
+
+                    if (txtLastName.Text == "")
+                        lblLastName.ForeColor = badInfoColour;
+                    else
+                        lblLastName.ForeColor = defaultInfoColour;
+
+                    if (txtEmail.Text == "")
+                        lblEmail.ForeColor = badInfoColour;
+                    else
+                        lblEmail.ForeColor = defaultInfoColour;
+
+                    if (bIsUWStudent)
+                    {
+                        if (txtStudentNumber.Text == "")
+                            lblStudentNumber.ForeColor = badInfoColour;
+                        else
+                            lblStudentNumber.ForeColor = defaultInfoColour;
+
+                        if (cbFaculty.Text == "")
+                            lblFaculty.ForeColor = badInfoColour;
+                        else
+                            lblFaculty.ForeColor = defaultInfoColour;
+                    }
+                    else
+                    {
+                        lblStudentNumber.ForeColor = defaultInfoColour;
+                        lblFaculty.ForeColor = defaultInfoColour;
+                    }
+
+                    if (cbInstrument.Text == "")
+                        lblInstrument.ForeColor = badInfoColour;
+                    else
+                        lblInstrument.ForeColor = defaultInfoColour;
+
+                    if (bOtherInstrument && txtOtherInstrument.Text == "")
+                        lblOtherInstrument.ForeColor = badInfoColour;
+                    else if (bOtherInstrument)
+                        lblOtherInstrument.ForeColor = defaultInfoColour;
+
+                    bMissingInformation = true;
                 }
-                else if ((cbClass.Text == "UW Undergrad Student" || cbClass.Text == "UW Grad Student" ) && txtStudentNumber.Text.Length != 8)
+
+                //check for missing information
+                if (bMissingInformation)
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
-                    MessageBox.Show("The student number entered is not a valid UW student number.");
+                    MessageBox.Show("Missing information. Please review the highlighted fields.");
+                }
+                else if ((bIsUWStudent) && (txtStudentNumber.Text.Trim().Length != 8))
+                {
+                    if (Properties.Settings.Default.playSounds)
+                        Sound.Error.Play();
+                    throw new FormatException();                    
                 }
                 else
                 {
@@ -68,9 +122,12 @@
                     }
 
                     //no missing info, then add the member!
-                     //NOTE TO SELF: add functionality to check for duplicate members
-                    if (cbClass.Text != "UW Undergrad Student" && cbClass.Text != "UW Grad Student")
+                    if (!bIsUWStudent)
                             txtStudentNumber.Text = "0";
+                    // remove whitespace
+                    else
+                        txtStudentNumber.Text = txtStudentNumber.Text.Trim();
+
                     if (cbMultiple.Checked && ClsStorage.currentClub.AddMember(txtFirstName.Text, txtLastName.Text, (Member.MemberType)cbClass.SelectedIndex,
                         Convert.ToUInt32(txtStudentNumber.Text), cbFaculty.SelectedIndex, cbInstrument.Text, tempOtherInstrument, txtEmail.Text,
                         txtOther.Text, cbShirtSize.SelectedIndex, tempPlays) || ClsStorage.currentClub.AddMember(txtFirstName.Text, txtLastName.Text, (Member.MemberType)cbClass.SelectedIndex,
@@ -88,15 +145,28 @@
                         if (Properties.Settings.Default.playSounds)
                             Sound.Success.Play();
                         MessageBox.Show("Sign-Up was not completed. Our records show you are already signed up.");
-                        cleanup();
+                    }
+
+                    // restore text colour
+                    foreach (Label l in this.Controls.OfType<Label>())
+                    {
+                        l.ForeColor = defaultInfoColour;
                     }
                 }
             }
-            catch
+            catch (FormatException)
             {
                 if (Properties.Settings.Default.playSounds)
                     Sound.Error.Play();
-                MessageBox.Show("Bad input was entered. Make sure the student number entered has only numbers and no spaces.");
+
+                MessageBox.Show("Bad input. Ensure that the student number is valid.");
+                lblStudentNumber.ForeColor = badInfoColour;
+            }
+            catch (Exception)
+            {
+                if (Properties.Settings.Default.playSounds)
+                    Sound.Error.Play();
+                MessageBox.Show("Bad input. Please review the information.");
             }
         }
 
@@ -343,11 +413,6 @@
 
                 hideOther();
             }
-        }
-
-        private void cbShirtSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
