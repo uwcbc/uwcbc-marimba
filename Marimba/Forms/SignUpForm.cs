@@ -35,8 +35,7 @@
                 //check for missing information
                 if (txtFirstName.Text == "" || txtLastName.Text == "" || txtEmail.Text == "" ||
                     ((txtStudentNumber.Text == "" || cbFaculty.Text == "") && cbClass.Text == "UW Student") ||
-                    cbInstrument.Text == "" || cbClass.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == "")
-                    || cbShirtSize.Text == "")
+                    cbInstrument.Text == "" || cbClass.Text == "" || (bOtherInstrument && txtOtherInstrument.Text == ""))
                 {
                     if (Properties.Settings.Default.playSounds)
                         Sound.Error.Play();
@@ -199,6 +198,9 @@
                 lblOther.Location = new Point(lblOther.Location.X, lblOther.Location.Y + 248);
                 txtOther.Location = new Point(txtOther.Location.X, txtOther.Location.Y + 248);
                 txtOther.TabIndex++;
+                lblShirtSize.Location = new Point(lblShirtSize.Location.X, lblShirtSize.Location.Y + 248);
+                cbShirtSize.Location = new Point(cbShirtSize.Location.X, cbShirtSize.Location.Y + 248);
+                cbShirtSize.TabIndex++;
                 btnSignUp.Location = new Point(btnSignUp.Location.X, btnSignUp.Location.Y + 248);
                 btnSignUp.TabIndex++;
 
@@ -224,6 +226,9 @@
                 lblOther.Location = new Point(lblOther.Location.X, lblOther.Location.Y - 248);
                 txtOther.Location = new Point(txtOther.Location.X, txtOther.Location.Y - 248);
                 txtOther.TabIndex--;
+                lblShirtSize.Location = new Point(lblShirtSize.Location.X, lblShirtSize.Location.Y - 248);
+                cbShirtSize.Location = new Point(cbShirtSize.Location.X, cbShirtSize.Location.Y - 248);
+                cbShirtSize.TabIndex--;
                 btnSignUp.Location = new Point(btnSignUp.Location.X, btnSignUp.Location.Y - 248);
                 btnSignUp.TabIndex--;
                 lvInstruments.Dispose();
@@ -285,6 +290,9 @@
             lblOther.Location = new Point(lblOther.Location.X, lblOther.Location.Y + 45);
             txtOther.Location = new Point(txtOther.Location.X, txtOther.Location.Y + 45);
             txtOther.TabIndex++;
+            lblShirtSize.Location = new Point(lblShirtSize.Location.X, lblShirtSize.Location.Y + 45);
+            cbShirtSize.Location = new Point(cbShirtSize.Location.X, cbShirtSize.Location.Y + 45);
+            txtOther.TabIndex++;
             btnSignUp.Location = new Point(btnSignUp.Location.X, btnSignUp.Location.Y + 45);
             btnSignUp.TabIndex++;
 
@@ -306,6 +314,9 @@
             lblOther.Location = new Point(lblOther.Location.X, lblOther.Location.Y - 45);
             txtOther.Location = new Point(txtOther.Location.X, txtOther.Location.Y - 45);
             txtOther.TabIndex--;
+            lblShirtSize.Location = new Point(lblShirtSize.Location.X, lblShirtSize.Location.Y - 45);
+            cbShirtSize.Location = new Point(cbShirtSize.Location.X, cbShirtSize.Location.Y - 45);
+            cbShirtSize.TabIndex--;
             btnSignUp.Location = new Point(btnSignUp.Location.X, btnSignUp.Location.Y - 45);
             btnSignUp.TabIndex--;
             this.Height -= 45;
@@ -316,12 +327,22 @@
 
         private void cbInstrument_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if other is selected
+            // if "Other" is selected and it isn't already showing
             if (cbInstrument.SelectedIndex == 17 && !bOtherInstrument)
+            {
                 showOther();
-            //if other instrument is showing, then we have changed the selection from other to something else, so remove other
-            else if (bOtherInstrument && !lvInstruments.Items[17].Checked)
+            }
+            // if an instrument besides "Other" is selected and "Other" is currently showing
+            else if (bOtherInstrument)
+            {
+                // don't do anything if "Other" is selected in multiple instruments 
+                if (lvInstruments != null && lvInstruments.Items[17].Checked)
+                {
+                    return;
+                }
+
                 hideOther();
+            }
         }
 
         private void cbShirtSize_SelectedIndexChanged(object sender, EventArgs e)

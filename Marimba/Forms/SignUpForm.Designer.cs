@@ -46,7 +46,7 @@
             this.lblOther = new System.Windows.Forms.Label();
             this.txtOther = new System.Windows.Forms.TextBox();
             this.cbMultiple = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblShirtSize = new System.Windows.Forms.Label();
             this.cbShirtSize = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@
             this.lblLastName.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(49, 73);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(85, 16);
+            this.lblLastName.Size = new System.Drawing.Size(84, 16);
             this.lblLastName.TabIndex = 3;
             this.lblLastName.Text = "Last Name";
             // 
@@ -175,9 +175,9 @@
             this.lblInstrument.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInstrument.Location = new System.Drawing.Point(49, 270);
             this.lblInstrument.Name = "lblInstrument";
-            this.lblInstrument.Size = new System.Drawing.Size(86, 16);
+            this.lblInstrument.Size = new System.Drawing.Size(124, 16);
             this.lblInstrument.TabIndex = 11;
-            this.lblInstrument.Text = "Instrument";
+            this.lblInstrument.Text = "Main Instrument";
             // 
             // cbInstrument
             // 
@@ -241,15 +241,15 @@
             this.cbMultiple.UseVisualStyleBackColor = true;
             this.cbMultiple.CheckedChanged += new System.EventHandler(this.cbMultiple_CheckedChanged);
             // 
-            // label2
+            // lblShirtSize
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 556);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Shirt Size";
+            this.lblShirtSize.AutoSize = true;
+            this.lblShirtSize.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShirtSize.Location = new System.Drawing.Point(49, 556);
+            this.lblShirtSize.Name = "lblShirtSize";
+            this.lblShirtSize.Size = new System.Drawing.Size(76, 16);
+            this.lblShirtSize.TabIndex = 17;
+            this.lblShirtSize.Text = "Shirt Size";
             // 
             // cbShirtSize
             // 
@@ -276,7 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 675);
             this.Controls.Add(this.cbShirtSize);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblShirtSize);
             this.Controls.Add(this.cbMultiple);
             this.Controls.Add(this.txtOther);
             this.Controls.Add(this.lblOther);
@@ -328,7 +328,7 @@
         private System.Windows.Forms.Label lblOther;
         private System.Windows.Forms.TextBox txtOther;
         private System.Windows.Forms.CheckBox cbMultiple;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblShirtSize;
         private System.Windows.Forms.ComboBox cbShirtSize;
     }
 }

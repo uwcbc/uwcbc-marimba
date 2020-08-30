@@ -31,6 +31,7 @@ namespace Marimba.Forms
             List<ListViewItem> budgetList = new List<ListViewItem>();
             budgetItemDictionary = new Dictionary<int, BudgetItem>(ClsStorage.currentClub.budget.Count);
             int i = 0;
+
             foreach (BudgetItem item in ClsStorage.currentClub.budget)
             {
                 string[] budgetText = new string[8];
