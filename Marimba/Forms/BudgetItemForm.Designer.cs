@@ -63,7 +63,7 @@
             this.lblComment.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComment.Location = new System.Drawing.Point(73, 459);
             this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(67, 17);
+            this.lblComment.Size = new System.Drawing.Size(78, 16);
             this.lblComment.TabIndex = 12;
             this.lblComment.Text = "Comment";
             // 
@@ -92,7 +92,7 @@
             "Waived Membership Fee"});
             this.cbCat.Location = new System.Drawing.Point(252, 154);
             this.cbCat.Name = "cbCat";
-            this.cbCat.Size = new System.Drawing.Size(494, 25);
+            this.cbCat.Size = new System.Drawing.Size(494, 24);
             this.cbCat.TabIndex = 7;
             // 
             // lblCategory
@@ -101,7 +101,7 @@
             this.lblCategory.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.Location = new System.Drawing.Point(49, 157);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(65, 17);
+            this.lblCategory.Size = new System.Drawing.Size(75, 16);
             this.lblCategory.TabIndex = 6;
             this.lblCategory.Text = "Category";
             // 
@@ -117,7 +117,7 @@
             "Revenue"});
             this.cbType.Location = new System.Drawing.Point(252, 111);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(494, 25);
+            this.cbType.Size = new System.Drawing.Size(494, 24);
             this.cbType.TabIndex = 5;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
@@ -135,7 +135,7 @@
             this.lblValue.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValue.Location = new System.Drawing.Point(49, 69);
             this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(44, 17);
+            this.lblValue.Size = new System.Drawing.Size(49, 16);
             this.lblValue.TabIndex = 2;
             this.lblValue.Text = "Value";
             // 
@@ -174,7 +174,7 @@
             this.lblType.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblType.Location = new System.Drawing.Point(49, 114);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(40, 17);
+            this.lblType.Size = new System.Drawing.Size(43, 16);
             this.lblType.TabIndex = 4;
             this.lblType.Text = "Type";
             // 
@@ -184,13 +184,14 @@
             this.lblDateOccurred.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateOccurred.Location = new System.Drawing.Point(69, 237);
             this.lblDateOccurred.Name = "lblDateOccurred";
-            this.lblDateOccurred.Size = new System.Drawing.Size(170, 17);
+            this.lblDateOccurred.Size = new System.Drawing.Size(189, 16);
             this.lblDateOccurred.TabIndex = 10;
             this.lblDateOccurred.Text = "Date of Purchase/Receipt";
             // 
             // mcDateOccurred
             // 
             this.mcDateOccurred.Location = new System.Drawing.Point(55, 264);
+            this.mcDateOccurred.MaximumSize = new System.Drawing.Size(227, 162);
             this.mcDateOccurred.MaxSelectionCount = 1;
             this.mcDateOccurred.Name = "mcDateOccurred";
             this.mcDateOccurred.TabIndex = 11;
@@ -201,7 +202,7 @@
             this.lblTerm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTerm.Location = new System.Drawing.Point(49, 202);
             this.lblTerm.Name = "lblTerm";
-            this.lblTerm.Size = new System.Drawing.Size(41, 17);
+            this.lblTerm.Size = new System.Drawing.Size(45, 16);
             this.lblTerm.TabIndex = 8;
             this.lblTerm.Text = "Term";
             // 
@@ -212,7 +213,7 @@
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(252, 199);
             this.cbTerm.Name = "cbTerm";
-            this.cbTerm.Size = new System.Drawing.Size(494, 25);
+            this.cbTerm.Size = new System.Drawing.Size(494, 24);
             this.cbTerm.TabIndex = 9;
             // 
             // lblDateAccount
@@ -221,18 +222,19 @@
             this.lblDateAccount.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateAccount.Location = new System.Drawing.Point(505, 237);
             this.lblDateAccount.Name = "lblDateAccount";
-            this.lblDateAccount.Size = new System.Drawing.Size(120, 17);
+            this.lblDateAccount.Size = new System.Drawing.Size(136, 16);
             this.lblDateAccount.TabIndex = 15;
             this.lblDateAccount.Text = "Date Into Account";
             // 
             // mcDateAccount
             // 
             this.mcDateAccount.Location = new System.Drawing.Point(460, 264);
+            this.mcDateAccount.MaximumSize = new System.Drawing.Size(227, 162);
             this.mcDateAccount.MaxSelectionCount = 1;
             this.mcDateAccount.Name = "mcDateAccount";
             this.mcDateAccount.TabIndex = 16;
             // 
-            // addBudgetItem
+            // BudgetItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,7 +259,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
             this.MaximizeBox = false;
-            this.Name = "addBudgetItem";
+            this.Name = "BudgetItemForm";
             this.ShowInTaskbar = false;
             this.Text = "Marimba";
             this.Load += new System.EventHandler(this.addBudgetItem_Load);
