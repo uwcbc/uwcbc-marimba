@@ -68,7 +68,7 @@ namespace Marimba
         /// <summary>
         /// Number of members currently in the club
         /// </summary>
-        public short iMember;
+        public int iMember;
 
         /// <summary>
         /// array of members on the mailing list

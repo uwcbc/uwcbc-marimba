@@ -39,7 +39,7 @@
         // they may not be a true fully paid member
         // assuming no more than 120 unique people show up over the course of the term
         // this is pretty easy to change if, for whatever reason, the club needed to
-        public short[] members = new short[120];
+        public int[] members = new int[120];
         
         // limboMembers is to track members who come to only a few practices
         // a limbo member should not be charged membership fees
@@ -195,7 +195,7 @@
         /// </summary>
         /// <param name="sID">Club ID of member searching for</param>
         /// <returns>Index in term (0 to 119) if found, -1 if not found</returns>
-        public int memberSearch(short sID)
+        public int memberSearch(int sID)
         {
             for (int i = 0; i < numMembers; i++)
                 if (members[i] == sID)
@@ -203,7 +203,7 @@
             return -1;
         }
 
-        public bool addMember(short sID)
+        public bool addMember(int sID)
         {
             // first, make sure the member is not already part of the term
             // also fail if we have 120 members already this term

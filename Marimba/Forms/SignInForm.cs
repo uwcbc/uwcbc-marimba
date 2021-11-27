@@ -104,7 +104,7 @@
             //fill Signed in list
             for (int i = 0; i < ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].numMembers; i++)
             {
-                short sID = ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].members[i];
+                var sID = ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].members[i];
                 if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].rehearsalIndex(DateTime.Today) >=0 &&
                     ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].attendance[i,ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].rehearsalIndex(DateTime.Today)])
                     lvSignedIn.Items.Insert(0, new ListViewItem(ClsStorage.currentClub.members[sID].firstName + " " + ClsStorage.currentClub.members[sID].lastName, Member.instrumentIconIndex(ClsStorage.currentClub.members[sID].curInstrument)));
@@ -115,11 +115,11 @@
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            short userID = -1;
+            int userID = -1;
             //first, check if a user was selected
             //if not, we have to add them
             if(lvSearch.SelectedItems.Count == 0) //new user
-            {               
+            {
                 try
                 {
                     //check for missing information
@@ -151,7 +151,7 @@
                             MessageBox.Show("Registered new member.");
                             iSignup++;
                             //this line is necessary for also adding the member to the term
-                            userID = Convert.ToInt16(ClsStorage.currentClub.iMember - 1);
+                            userID = Convert.ToInt32(ClsStorage.currentClub.iMember - 1);
                         }
                         else //as of writing this comment, this cannot actually fail yet
                         {

@@ -18,7 +18,7 @@
         public MemberType type;
         public Faculty memberFaculty;
         public uint uiStudentNumber;
-        public short sID;
+        public int sID;
         public DateTime signupTime;
         public ShirtSize size;
         public bool bMultipleInstruments;
