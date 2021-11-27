@@ -61,7 +61,7 @@
             this.strName = strName;
             this.numMembers = 0;
             this.termIndex = index;
-            for (int i = 0; i < 120; i++)
+            for (int i = 0; i < members.Length; i++)
                 members[i] = -1; // set to -1 so we know it does not represent member 0
             this.startDate = start;
             this.endDate = end;
@@ -89,12 +89,12 @@
 
             // initialize the attendance record
             // it only means something if the rehearsal has happened and there is a member for that record
-            attendance = new bool[120, numRehearsals];
-            for (int i = 0; i < 120; i++)
+            attendance = new bool[members.Length, numRehearsals];
+            for (int i = 0; i < members.Length; i++)
                 for (int j = 0; j < numRehearsals; j++)
                     this.attendance[i, j] = false;
-            this.feesPaid = new double[120, 1 + numOtherFees];
-            this.feesPaidDate = new DateTime[120, 1 + numOtherFees];
+            this.feesPaid = new double[members.Length, 1 + numOtherFees];
+            this.feesPaidDate = new DateTime[members.Length, 1 + numOtherFees];
             checkLimbo();
         }
 
@@ -103,8 +103,8 @@
             strName = sr.ReadLine();
             numMembers = Convert.ToInt16(sr.ReadLine());
             termIndex = Convert.ToInt16(sr.ReadLine());
-            for (int i = 0; i < 120; i++)
-                members[i] = Convert.ToInt16(sr.ReadLine());
+            for (int i = 0; i < members.Length; i++)
+                members[i] = Convert.ToInt32(sr.ReadLine());
             startDate = new DateTime(Convert.ToInt64(sr.ReadLine()));
             endDate = new DateTime(Convert.ToInt64(sr.ReadLine()));
             numRehearsals = Convert.ToInt16(sr.ReadLine());
@@ -121,8 +121,8 @@
                 otherFeesNames[i] = sr.ReadLine();
             }
 
-            attendance = new bool[120, numRehearsals];
-            for (int i = 0; i < 120; i++)
+            attendance = new bool[members.Length, numRehearsals];
+            for (int i = 0; i < members.Length; i++)
             {
                 for (int j = 0; j < numRehearsals; j++)
                 {
@@ -130,9 +130,9 @@
                 }
             }
 
-            feesPaid = new double[120, 1 + numOtherFees];
-            feesPaidDate = new DateTime[120, 1 + numOtherFees];
-            for (int i = 0; i < 120; i++)
+            feesPaid = new double[members.Length, 1 + numOtherFees];
+            feesPaidDate = new DateTime[members.Length, 1 + numOtherFees];
+            for (int i = 0; i < members.Length; i++)
             {
                 for (int j = 0; j < 1 + numOtherFees; j++)
                 {
@@ -158,7 +158,7 @@
             sw.WriteLine(strName);
             sw.WriteLine(numMembers);
             sw.WriteLine(termIndex);
-            for (int i = 0; i < 120; i++)
+            for (int i = 0; i < members.Length; i++)
                 sw.WriteLine(members[i]);
             // start and end date
             sw.WriteLine(startDate.Ticks);
@@ -173,14 +173,14 @@
                 sw.WriteLine(otherFeesAmounts[i]);
                 sw.WriteLine(otherFeesNames[i]);
             }
-            for (int i = 0; i < 120; i++)
+            for (int i = 0; i < members.Length; i++)
             {
                 for (int j = 0; j < numRehearsals; j++)
                 {
                     sw.WriteLine(attendance[i, j]);
                 }
             }
-            for (int i = 0; i < 120; i++)
+            for (int i = 0; i < members.Length; i++)
             {
                 for (int j = 0; j < 1 + numOtherFees; j++)
                 {
@@ -203,16 +203,19 @@
             return -1;
         }
 
-        public bool addMember(int sID)
+        public int addMember(int sID)
         {
-            // first, make sure the member is not already part of the term
-            // also fail if we have 120 members already this term
-            if (this.memberSearch(sID) != -1 || numMembers == 120)
-                return false;
+            // fail if we have the max number of members already this term
+            if (numMembers == members.Length)
+                return -1;
+            // make sure the member is not already part of the term
+            if (this.memberSearch(sID) != -1)
+                return -2;
+            
             // at this point, not already a member, so add them to the term
             members[numMembers] = sID;
             numMembers++;
-            return true;
+            return 0;
         }
 
         /// <summary>

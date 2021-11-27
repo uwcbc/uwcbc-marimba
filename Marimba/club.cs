@@ -272,7 +272,7 @@ namespace Marimba
                         using (StreamReader reader = new StreamReader(cryptoStream))
                         {
                             // read the membership list
-                            iMember = Convert.ToInt16(reader.ReadLine());
+                            iMember = Convert.ToInt32(reader.ReadLine());
                             for (int i = 0; i < iMember; i++)
                                 members[i] = new Member(reader);
                             short numTerms = Convert.ToInt16(reader.ReadLine());

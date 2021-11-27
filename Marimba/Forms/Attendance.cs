@@ -412,10 +412,14 @@ namespace Marimba.Forms
                 tmp.ShowDialog();
                 tmp.Dispose();
 
+                bool isDuplicateMember = false;
+                string duplicateNames = "";
+
                 List<int> addedList = new List<int>();
                 foreach (int i in ClsStorage.selectedMembersList)
                 {
-                    if (!ClsStorage.currentClub.listTerms[iTerm].addMember((short)i))
+                    var status = ClsStorage.currentClub.listTerms[iTerm].addMember(i);
+                    if (status == -1)
                     {
                         MessageBox.Show("Too many members in the given term. Please add fewer members.");
                         MessageBox.Show("Now reverting...");
@@ -426,7 +430,24 @@ namespace Marimba.Forms
                         MessageBox.Show("Finished reverting...");
                         return;
                     }
-                    addedList.Add(i);
+                    else if (status == -2)
+                    {
+                        isDuplicateMember = true;
+                        duplicateNames += ClsStorage.currentClub.GetFirstAndLastName(i) + "\n";
+                    }
+
+                    if (!isDuplicateMember)
+                    {
+                        addedList.Add(i);
+                    }
+                }
+
+                if (isDuplicateMember)
+                {
+                    string msg = "The following members are already in the current term. They have been skipped:\n\n" + duplicateNames;
+                    MessageBox.Show(msg);
+
+                    return;
                 }
 
                 foreach (int i in ClsStorage.selectedMembersList)

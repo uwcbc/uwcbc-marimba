@@ -104,7 +104,7 @@
             //fill Signed in list
             for (int i = 0; i < ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].numMembers; i++)
             {
-                var sID = ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].members[i];
+                int sID = ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].members[i];
                 if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].rehearsalIndex(DateTime.Today) >=0 &&
                     ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].attendance[i,ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].rehearsalIndex(DateTime.Today)])
                     lvSignedIn.Items.Insert(0, new ListViewItem(ClsStorage.currentClub.members[sID].firstName + " " + ClsStorage.currentClub.members[sID].lastName, Member.instrumentIconIndex(ClsStorage.currentClub.members[sID].curInstrument)));
@@ -169,7 +169,7 @@
                 }
             }
             else
-                userID = Convert.ToInt16(lvSearch.SelectedItems[0].SubItems[5].Text);
+                userID = Convert.ToInt32(lvSearch.SelectedItems[0].SubItems[5].Text);
             //first, check if the member is currently part of the term
             int termIndex = 0;
             //edit the member
@@ -183,7 +183,7 @@
                 {
                     //now to add the member as part of the term
                     //this process is entirely invisible to the end user
-                    if (!ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].addMember(userID))
+                    if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].addMember(userID) != 0)
                     {
                         if (Properties.Settings.Default.playSounds)
                             Sound.Error.Play();
@@ -447,13 +447,13 @@
                 return;
             if (rehearsalindex != -1)
             {
-                short userID = Convert.ToInt16(lvSearch.SelectedItems[0].SubItems[5].Text);
+                int userID = Convert.ToInt32(lvSearch.SelectedItems[0].SubItems[5].Text);
                 int termIndex = ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].memberSearch(userID);
                 if (termIndex < 0) //member not currently part of the term
                 {
                     //now to add the member as part of the term
                     //this process is entirely invisible to the end user
-                    if (!ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].addMember(userID))
+                    if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].addMember(userID) != 0)
                     {
                         if (Properties.Settings.Default.playSounds)
                             Sound.Error.Play();

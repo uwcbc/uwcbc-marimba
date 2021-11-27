@@ -79,7 +79,7 @@
 
             email = sr.ReadLine();
             comments = ClsStorage.ReverseCleanNewLine(sr.ReadLine());
-            sID = Convert.ToInt16(sr.ReadLine());
+            sID = Convert.ToInt32(sr.ReadLine());
             signupTime = new DateTime(Convert.ToInt64(sr.ReadLine()));
             size = (ShirtSize)Convert.ToInt32(sr.ReadLine());
         }

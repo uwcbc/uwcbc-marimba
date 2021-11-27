@@ -577,7 +577,7 @@
                     row++;
 
                     // load attendance
-                    termToAdd.attendance = new bool[120, termToAdd.numRehearsals];
+                    termToAdd.attendance = new bool[ClsStorage.currentClub.members.Length, termToAdd.numRehearsals];
                     for (int j = 0; j < termToAdd.numMembers; j++)
                     {
                         for (int k = 0; k < termToAdd.numRehearsals; k++)
@@ -604,8 +604,8 @@
                     row += 2;
 
                     // load who has paid
-                    termToAdd.feesPaid = new double[120, termToAdd.numOtherFees + 1];
-                    termToAdd.feesPaidDate = new DateTime[120, termToAdd.numOtherFees + 1];
+                    termToAdd.feesPaid = new double[ClsStorage.currentClub.members.Length, termToAdd.numOtherFees + 1];
+                    termToAdd.feesPaidDate = new DateTime[ClsStorage.currentClub.members.Length, termToAdd.numOtherFees + 1];
                     for (int j = 0; j < termToAdd.numMembers; j++)
                     {
                         for (int k = 0; k < termToAdd.numOtherFees + 1; k++)

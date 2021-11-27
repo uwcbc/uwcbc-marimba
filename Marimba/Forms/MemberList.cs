@@ -287,7 +287,7 @@ namespace Marimba.Forms
                 foreach (ListViewItem name in memberlist)
                 {
                     // search the current term for the member
-                    if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].memberSearch(Convert.ToInt16(name.SubItems[5].Text)) >= 0)
+                    if (ClsStorage.currentClub.listTerms[ClsStorage.currentClub.listTerms.Count - 1].memberSearch(Convert.ToInt32(name.SubItems[5].Text)) >= 0)
                         tempList.Add(name);
                 }
                 memberlist = tempList;
