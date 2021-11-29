@@ -356,40 +356,6 @@ namespace Marimba.Forms
             }
         }
 
-        private void lvAttendance_KeyDown(object sender, KeyEventArgs e)
-        {
-            // note to self: there is probably a more efficient way of checking if something is selected
-            if (e.KeyCode == Keys.Delete && lvAttendance.SelectedIndices.Count != 0)
-            {
-                if (MessageBox.Show(
-                    "Would you like to remove " + lvAttendance.SelectedItems[0].SubItems[0].Text + " from the term?",
-                    "Remove Member From Term",
-                    MessageBoxButtons.YesNo)
-                    == DialogResult.Yes)
-                {
-                    // try to remove the member
-                    if (ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].removeMember(Convert.ToInt16(lvAttendance.SelectedItems[0].SubItems[ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].numRehearsals + 2].Text)))
-                    {  
-                        if (Properties.Settings.Default.playSounds)
-                            Sound.Click.Play();
-
-                        // we were successful, so add history and remove from the listview
-                        ClsStorage.currentClub.AddHistory(String.Format("{0}@{1}", lvAttendance.SelectedItems[0].SubItems[0].Text, cbTerm.Text), ChangeType.RemoveFromTerm);
-                        
-                        // iRemove is the index of the member to remove
-                        int iRemove = lvAttendance.SelectedIndices[0];
-                        for (int i = iRemove; i < ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].numMembers; i++)
-                            lvAttendance.Items[i + 1].SubItems[ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].numRehearsals + 2].Text = Convert.ToString(i - 1);
-                        lvAttendance.Items.RemoveAt(iRemove);
-                    }
-                    else
-                        // we failed, probably because the member still has attendance
-                        MessageBox.Show("Removing member failed. Please confirm the member has no attendance this term.");
-
-                }
-            }
-        }
-
         private void btnAddMembers_Click(object sender, EventArgs e)
         {
             int iTerm = cbTerm.SelectedIndex;
@@ -425,7 +391,7 @@ namespace Marimba.Forms
                         MessageBox.Show("Now reverting...");
                         foreach (int j in addedList)
                         {
-                            ClsStorage.currentClub.listTerms[iTerm].removeMember((short)j);
+                            ClsStorage.currentClub.listTerms[iTerm].removeMember(j);
                         }
                         MessageBox.Show("Finished reverting...");
                         return;
@@ -463,7 +429,7 @@ namespace Marimba.Forms
                 List<ListViewItem> attendanceList = new List<ListViewItem>();
                 int lastRehearsal = ClsStorage.currentClub.listTerms[iTerm].recentRehearsal(DateTime.Today);
                 foreach (int i in ClsStorage.selectedMembersList) {
-                    int memberTermID = ClsStorage.currentClub.listTerms[iTerm].memberSearch((short)i);
+                    int memberTermID = ClsStorage.currentClub.listTerms[iTerm].memberSearch(i);
                     loadMemberToAttendanceList(attendanceList, iTerm, memberTermID, lastRehearsal);
                 }
                 lvAttendance.Items.AddRange(attendanceList.ToArray());
@@ -471,6 +437,84 @@ namespace Marimba.Forms
 
                 if (Properties.Settings.Default.playSounds)
                     Sound.Success.Play();
+            }
+        }
+
+        private void btnRemoveMembers_Click(object sender, EventArgs e)
+        {
+            int iTerm = cbTerm.SelectedIndex;
+            if (iTerm == -1)
+            {
+                if (Properties.Settings.Default.playSounds)
+                {
+                    Sound.Error.Play();
+                }
+                MessageBox.Show("Please select a term to remove members from.");
+
+                return;
+            }
+
+            if (Properties.Settings.Default.playSounds)
+            {
+                Sound.Click.Play();
+            }
+
+            // note to self: there is probably a more efficient way of checking if something is selected
+            if (lvAttendance.SelectedIndices.Count == 0)
+            {
+                MessageBox.Show("Please select members to remove.");
+                return;
+            }
+
+            string membersStr = "";
+            foreach (System.Windows.Forms.ListViewItem m in lvAttendance.SelectedItems)
+            {
+                membersStr += m.Text + "\n";
+            }
+
+            if (MessageBox.Show(
+                "Would you like to remove these members from the term?\n\n" + membersStr.Trim(),
+                "Remove Member From Term",
+                MessageBoxButtons.YesNo)
+                == DialogResult.Yes)
+            {
+                string failedMembersStr = "";
+                bool isFail = false;
+
+                foreach (System.Windows.Forms.ListViewItem m in lvAttendance.SelectedItems)
+                {
+                    // try to remove the member
+                    if (ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].removeMember(
+                        Convert.ToInt32(m.SubItems[ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].numRehearsals + 2].Text)) == 0)
+                    {
+                        // we were successful, so add history and remove from the listview
+                        ClsStorage.currentClub.AddHistory(String.Format("{0}@{1}", m.Text, cbTerm.Text), ChangeType.RemoveFromTerm);
+
+                        // iRemove is the index of the member to remove
+                        int iRemove = m.Index;
+                        for (int i = iRemove; i < lvAttendance.Items.Count - 1; i++)
+                        {
+                            lvAttendance.Items[i + 1].SubItems[ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].numRehearsals + 2].Text = Convert.ToString(i - 1);
+                        }
+                        lvAttendance.Items.RemoveAt(iRemove);
+                    }
+                    else
+                    {
+                        // we failed, probably because the member still has attendance
+                        isFail = true;
+                        failedMembersStr += m.Text + "\n";
+                    }
+                }
+
+                if (isFail)
+                {
+                    if (Properties.Settings.Default.playSounds)
+                    {
+                        Sound.Click.Play();
+                    }
+
+                    MessageBox.Show("Removing these members failed:\n\n" + failedMembersStr + "\nPlease confirm the members have no attendance this term.");
+                }
             }
         }
     }

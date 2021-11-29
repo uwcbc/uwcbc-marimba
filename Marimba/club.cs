@@ -885,7 +885,7 @@ namespace Marimba
                 // check each term to confirm they are not in any of them
                 for (int j = 0; j < listTerms.Count && !attendedOneRehearsal; j++)
                 {
-                    attendedOneRehearsal = attendedOneRehearsal || listTerms[j].memberSearch((short)i) != -1;
+                    attendedOneRehearsal = attendedOneRehearsal || listTerms[j].memberSearch(i) != -1;
                 }
 
                 // if they haven't attended any rehearsals, next check if they have been on the list for four years (1461 days)
@@ -1087,7 +1087,7 @@ namespace Marimba
                 for (int j = 0; j < listTerms.Count; j++)
                 {
                     // check if the member is in a term
-                    termIndex = listTerms[j].memberSearch((short)i);
+                    termIndex = listTerms[j].memberSearch(i);
 
                     // if so, correct that members position in the term
                     if (termIndex != -1)

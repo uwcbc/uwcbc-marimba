@@ -37,7 +37,7 @@
         {
             int term1index, term2index;
             bool term1okay, term2okay;
-            for (short i = 0; i < mainClub.iMember; i++)
+            for (int i = 0; i < mainClub.iMember; i++)
             {
                 term2index = -1;
                 term2okay = true;

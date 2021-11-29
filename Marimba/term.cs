@@ -203,6 +203,13 @@
             return -1;
         }
 
+        /// <summary>
+        /// Adss a member to the term
+        /// </summary>
+        /// <param name="sID">ID of member</param>
+        /// <returns>0 if removing member was successful, 
+        ///          -1 if the term is full, and 
+        ///          -2 if they're already in the term</returns>
         public int addMember(int sID)
         {
             // fail if we have the max number of members already this term
@@ -222,19 +229,26 @@
         /// Removes a member from being associated with the term
         /// </summary>
         /// <param name="termIndex">Index of member relative to this term</param>
-        /// <returns>True if removing member was successful</returns>
-        public bool removeMember(short termIndex)
+        /// <returns>0 if removing member was successful, 
+        ///          -1 if the member isn't in the term
+        ///          -2 if the member has attendance this term</returns>
+        public int removeMember(int termIndex)
         {
             // make sure this member indeed exists
-            // and that the member has no attendance
-            if (this.members[termIndex] == -1 || iMemberAttendance(termIndex) != 0)
-                return false;
+            if (this.members[termIndex] == -1)
+                return -1;
+            // check that the member has no attendance
+            if (iMemberAttendance(termIndex) != 0)
+                return -2;
+
             // move the reference indices and attendance to the correct member
             for (int i = termIndex; i < this.numMembers; i++)
             {
                 members[i] = members[i + 1];
                 for (int j = 0; j < numRehearsals; j++)
+                {
                     attendance[i, j] = attendance[i + 1, j];
+                }
                 for (int j = 0; j <= numOtherFees; j++)
                 {
                     feesPaid[i, j] = feesPaid[i + 1, j];
@@ -242,7 +256,8 @@
                 }
             }
             numMembers--;
-            return true;
+            
+            return 0;
         }
 
         /// <summary>

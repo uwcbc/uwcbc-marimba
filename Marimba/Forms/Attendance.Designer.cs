@@ -37,6 +37,7 @@
             this.lblTerm = new System.Windows.Forms.Label();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddMembers = new System.Windows.Forms.Button();
+            this.btnRemoveMembers = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,29 +50,27 @@
             this.lblTotalRehearsals.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTotalRehearsals.AutoSize = true;
             this.lblTotalRehearsals.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTotalRehearsals.Font = new System.Drawing.Font("Quicksand", 10.18868F);
-            this.lblTotalRehearsals.Location = new System.Drawing.Point(686, 39);
-            this.lblTotalRehearsals.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalRehearsals.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
+            this.lblTotalRehearsals.Location = new System.Drawing.Point(444, 31);
             this.lblTotalRehearsals.Name = "lblTotalRehearsals";
-            this.lblTotalRehearsals.Size = new System.Drawing.Size(0, 20);
+            this.lblTotalRehearsals.Size = new System.Drawing.Size(0, 17);
             this.lblTotalRehearsals.TabIndex = 5;
             // 
             // lvAttendance
             // 
             this.lvAttendance.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.tlpMain.SetColumnSpan(this.lvAttendance, 5);
+            this.tlpMain.SetColumnSpan(this.lvAttendance, 6);
             this.lvAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvAttendance.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvAttendance.Location = new System.Drawing.Point(4, 102);
-            this.lvAttendance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvAttendance.HideSelection = false;
+            this.lvAttendance.Location = new System.Drawing.Point(3, 83);
             this.lvAttendance.Name = "lvAttendance";
-            this.lvAttendance.Size = new System.Drawing.Size(974, 497);
+            this.lvAttendance.Size = new System.Drawing.Size(732, 410);
             this.lvAttendance.TabIndex = 4;
             this.lvAttendance.UseCompatibleStateImageBehavior = false;
             this.lvAttendance.View = System.Windows.Forms.View.Details;
             this.lvAttendance.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvAttendance_ColumnClick);
-            this.lvAttendance.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvAttendance_KeyDown);
             this.lvAttendance.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvAttendance_MouseDoubleClick);
             this.lvAttendance.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvAttendance_MouseDown);
             // 
@@ -83,11 +82,11 @@
             // btnExport
             // 
             this.btnExport.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnExport.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(569, 28);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(373, 23);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(109, 42);
+            this.btnExport.Size = new System.Drawing.Size(63, 34);
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -95,12 +94,11 @@
             // cbTerm
             // 
             this.cbTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTerm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTerm.FormattingEnabled = true;
-            this.cbTerm.Location = new System.Drawing.Point(154, 35);
-            this.cbTerm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTerm.Location = new System.Drawing.Point(113, 27);
             this.cbTerm.Name = "cbTerm";
-            this.cbTerm.Size = new System.Drawing.Size(384, 28);
+            this.cbTerm.Size = new System.Drawing.Size(252, 25);
             this.cbTerm.TabIndex = 3;
             this.cbTerm.SelectedIndexChanged += new System.EventHandler(this.cbTerm_SelectedIndexChanged);
             // 
@@ -108,60 +106,72 @@
             // 
             this.lblTerm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTerm.AutoSize = true;
-            this.lblTerm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerm.Location = new System.Drawing.Point(4, 39);
-            this.lblTerm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerm.Location = new System.Drawing.Point(3, 31);
             this.lblTerm.Name = "lblTerm";
-            this.lblTerm.Size = new System.Drawing.Size(110, 20);
+            this.lblTerm.Size = new System.Drawing.Size(84, 17);
             this.lblTerm.TabIndex = 2;
             this.lblTerm.Text = "Select Term";
             // 
             // tlpMain
             // 
-            this.tlpMain.ColumnCount = 5;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tlpMain.ColumnCount = 6;
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpMain.Controls.Add(this.lblTerm, 0, 0);
             this.tlpMain.Controls.Add(this.cbTerm, 1, 0);
             this.tlpMain.Controls.Add(this.lvAttendance, 0, 1);
             this.tlpMain.Controls.Add(this.lblTotalRehearsals, 3, 0);
             this.tlpMain.Controls.Add(this.btnAddMembers, 4, 0);
             this.tlpMain.Controls.Add(this.btnExport, 2, 0);
+            this.tlpMain.Controls.Add(this.btnRemoveMembers, 5, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
-            this.tlpMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 2;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(982, 603);
+            this.tlpMain.Size = new System.Drawing.Size(738, 496);
             this.tlpMain.TabIndex = 4;
             // 
             // btnAddMembers
             // 
-            this.btnAddMembers.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddMembers.Font = new System.Drawing.Font("Quicksand", 10.18868F);
-            this.btnAddMembers.Location = new System.Drawing.Point(709, 28);
-            this.btnAddMembers.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
+            this.btnAddMembers.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnAddMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
+            this.btnAddMembers.Location = new System.Drawing.Point(446, 23);
+            this.btnAddMembers.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnAddMembers.Name = "btnAddMembers";
-            this.btnAddMembers.Size = new System.Drawing.Size(233, 42);
+            this.btnAddMembers.Size = new System.Drawing.Size(137, 34);
             this.btnAddMembers.TabIndex = 6;
-            this.btnAddMembers.Text = "Add Member to Term";
+            this.btnAddMembers.Text = "Add Members";
             this.btnAddMembers.Click += new System.EventHandler(this.btnAddMembers_Click);
+            // 
+            // btnRemoveMembers
+            // 
+            this.btnRemoveMembers.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnRemoveMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
+            this.btnRemoveMembers.Location = new System.Drawing.Point(593, 23);
+            this.btnRemoveMembers.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnRemoveMembers.Name = "btnRemoveMembers";
+            this.btnRemoveMembers.Size = new System.Drawing.Size(137, 34);
+            this.btnRemoveMembers.TabIndex = 7;
+            this.btnRemoveMembers.Text = "Remove Members";
+            this.btnRemoveMembers.UseVisualStyleBackColor = true;
+            this.btnRemoveMembers.Click += new System.EventHandler(this.btnRemoveMembers_Click);
             // 
             // Attendance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 603);
+            this.ClientSize = new System.Drawing.Size(738, 496);
             this.Controls.Add(this.tlpMain);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1920, 800);
-            this.MinimumSize = new System.Drawing.Size(1000, 650);
+            this.MaximumSize = new System.Drawing.Size(1444, 657);
+            this.MinimumSize = new System.Drawing.Size(754, 535);
             this.Name = "Attendance";
             this.ShowInTaskbar = false;
             this.Text = "Marimba";
@@ -184,5 +194,6 @@
         private System.Windows.Forms.ComboBox cbTerm;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnAddMembers;
+        private System.Windows.Forms.Button btnRemoveMembers;
     }
 }
