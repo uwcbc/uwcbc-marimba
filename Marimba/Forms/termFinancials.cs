@@ -315,7 +315,7 @@ namespace Marimba.Forms
                     }
                 }
                 //if occured in this term
-                if (item.term == cbTerm.SelectedIndex)
+                if ((item.term == cbTerm.SelectedIndex) && (item.dateAccount >= ClsStorage.currentClub.listTerms[cbTerm.SelectedIndex].startDate))
                 {
                     //note to self: this section could be improved with arrays
                     //I decided against arrays here because the categories aren't yet final
