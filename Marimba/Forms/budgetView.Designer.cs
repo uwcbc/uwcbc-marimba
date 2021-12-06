@@ -49,8 +49,9 @@
             this.type,
             this.date});
             this.lvMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvMain.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvMain.FullRowSelect = true;
+            this.lvMain.HideSelection = false;
             this.lvMain.Location = new System.Drawing.Point(0, 0);
             this.lvMain.MultiSelect = false;
             this.lvMain.Name = "lvMain";
@@ -99,8 +100,8 @@
             // 
             // budgetView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(988, 519);
             this.Controls.Add(this.lvMain);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;

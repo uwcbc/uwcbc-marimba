@@ -48,6 +48,7 @@
             this.assetListPanel.SetColumnSpan(this.assetListView, 2);
             this.assetListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.assetListView.FullRowSelect = true;
+            this.assetListView.HideSelection = false;
             this.assetListView.Location = new System.Drawing.Point(3, 53);
             this.assetListView.MultiSelect = false;
             this.assetListView.Name = "assetListView";
@@ -94,9 +95,9 @@
             // 
             this.chkBoxShowDepTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkBoxShowDepTransactions.AutoSize = true;
-            this.chkBoxShowDepTransactions.Location = new System.Drawing.Point(37, 15);
+            this.chkBoxShowDepTransactions.Location = new System.Drawing.Point(50, 14);
             this.chkBoxShowDepTransactions.Name = "chkBoxShowDepTransactions";
-            this.chkBoxShowDepTransactions.Size = new System.Drawing.Size(258, 20);
+            this.chkBoxShowDepTransactions.Size = new System.Drawing.Size(231, 21);
             this.chkBoxShowDepTransactions.TabIndex = 1;
             this.chkBoxShowDepTransactions.Text = "Show Depreciation Transactions";
             this.chkBoxShowDepTransactions.UseVisualStyleBackColor = true;
@@ -107,23 +108,23 @@
             // 
             this.chkBoxShowDepreciated.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkBoxShowDepreciated.AutoSize = true;
-            this.chkBoxShowDepreciated.Location = new System.Drawing.Point(351, 15);
+            this.chkBoxShowDepreciated.Location = new System.Drawing.Point(367, 14);
             this.chkBoxShowDepreciated.Name = "chkBoxShowDepreciated";
-            this.chkBoxShowDepreciated.Size = new System.Drawing.Size(293, 20);
+            this.chkBoxShowDepreciated.Size = new System.Drawing.Size(262, 21);
             this.chkBoxShowDepreciated.TabIndex = 2;
             this.chkBoxShowDepreciated.Text = "Show Completely-Depreciated Assets";
             this.chkBoxShowDepreciated.UseVisualStyleBackColor = true;
             this.chkBoxShowDepreciated.CheckStateChanged += new System.EventHandler(this.chkBoxShowDepTransactions_CheckedChanged);
             // 
-            // viewAssetList
+            // AssetList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(664, 441);
             this.Controls.Add(this.assetListPanel);
-            this.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "viewAssetList";
+            this.Name = "AssetList";
             this.Text = "Marimba";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.viewAssetList_FormClosed);
             this.Load += new System.EventHandler(this.viewAssetList_Load);

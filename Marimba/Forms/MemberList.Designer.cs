@@ -58,8 +58,9 @@
             this.Signuptime});
             this.tlpMember.SetColumnSpan(this.lvMain, 6);
             this.lvMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvMain.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvMain.FullRowSelect = true;
+            this.lvMain.HideSelection = false;
             this.lvMain.Location = new System.Drawing.Point(3, 103);
             this.lvMain.MultiSelect = false;
             this.lvMain.Name = "lvMain";
@@ -128,7 +129,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSelect.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.Location = new System.Drawing.Point(1266, 11);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(135, 28);
@@ -140,7 +141,7 @@
             // btnName
             // 
             this.btnName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnName.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnName.Location = new System.Drawing.Point(53, 11);
             this.btnName.Name = "btnName";
             this.btnName.Size = new System.Drawing.Size(135, 28);
@@ -152,7 +153,7 @@
             // btnInstrument
             // 
             this.btnInstrument.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInstrument.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstrument.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstrument.Location = new System.Drawing.Point(45, 61);
             this.btnInstrument.Name = "btnInstrument";
             this.btnInstrument.Size = new System.Drawing.Size(152, 28);
@@ -165,7 +166,7 @@
             // 
             this.cbDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbDisplay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDisplay.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDisplay.FormattingEnabled = true;
             this.cbDisplay.Items.AddRange(new object[] {
             "Small Icon",
@@ -173,16 +174,16 @@
             "Details",
             "Tile",
             "List"});
-            this.cbDisplay.Location = new System.Drawing.Point(1255, 64);
+            this.cbDisplay.Location = new System.Drawing.Point(1255, 63);
             this.cbDisplay.Name = "cbDisplay";
-            this.cbDisplay.Size = new System.Drawing.Size(157, 22);
+            this.cbDisplay.Size = new System.Drawing.Size(157, 23);
             this.cbDisplay.TabIndex = 3;
             this.cbDisplay.SelectedIndexChanged += new System.EventHandler(this.cbDisplay_SelectedIndexChanged);
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(487, 64);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(236, 21);
@@ -193,10 +194,10 @@
             // 
             this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(581, 18);
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Location = new System.Drawing.Point(582, 17);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(48, 14);
+            this.lblSearch.Size = new System.Drawing.Size(46, 15);
             this.lblSearch.TabIndex = 6;
             this.lblSearch.Text = "Search";
             // 
@@ -204,16 +205,16 @@
             // 
             this.cbSearchMode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbSearchMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchMode.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearchMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSearchMode.FormattingEnabled = true;
             this.cbSearchMode.Items.AddRange(new object[] {
             "Name",
             "Instrument",
             "Email Address",
             "Student Number"});
-            this.cbSearchMode.Location = new System.Drawing.Point(741, 64);
+            this.cbSearchMode.Location = new System.Drawing.Point(741, 63);
             this.cbSearchMode.Name = "cbSearchMode";
-            this.cbSearchMode.Size = new System.Drawing.Size(211, 22);
+            this.cbSearchMode.Size = new System.Drawing.Size(211, 23);
             this.cbSearchMode.TabIndex = 5;
             this.cbSearchMode.SelectedIndexChanged += new System.EventHandler(this.cbSearchMode_SelectedIndexChanged);
             // 
@@ -221,10 +222,10 @@
             // 
             this.lblSearchMode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSearchMode.AutoSize = true;
-            this.lblSearchMode.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchMode.Location = new System.Drawing.Point(804, 18);
+            this.lblSearchMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchMode.Location = new System.Drawing.Point(806, 17);
             this.lblSearchMode.Name = "lblSearchMode";
-            this.lblSearchMode.Size = new System.Drawing.Size(85, 14);
+            this.lblSearchMode.Size = new System.Drawing.Size(81, 15);
             this.lblSearchMode.TabIndex = 7;
             this.lblSearchMode.Text = "Search Mode";
             // 
@@ -232,10 +233,10 @@
             // 
             this.cbCurrentTerm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCurrentTerm.AutoSize = true;
-            this.cbCurrentTerm.Font = new System.Drawing.Font("Quicksand", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurrentTerm.Location = new System.Drawing.Point(985, 59);
+            this.cbCurrentTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCurrentTerm.Location = new System.Drawing.Point(993, 58);
             this.cbCurrentTerm.Name = "cbCurrentTerm";
-            this.cbCurrentTerm.Size = new System.Drawing.Size(208, 32);
+            this.cbCurrentTerm.Size = new System.Drawing.Size(192, 34);
             this.cbCurrentTerm.TabIndex = 9;
             this.cbCurrentTerm.Text = "Only show members in current\r\nterm";
             this.cbCurrentTerm.UseVisualStyleBackColor = true;
@@ -243,8 +244,8 @@
             // 
             // MemberList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1458, 553);
             this.Controls.Add(this.tlpMember);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;

@@ -50,11 +50,11 @@
             this.lvHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvHistory.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvHistory.Location = new System.Drawing.Point(21, 282);
-            this.lvHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvHistory.HideSelection = false;
+            this.lvHistory.Location = new System.Drawing.Point(16, 229);
             this.lvHistory.Name = "lvHistory";
-            this.lvHistory.Size = new System.Drawing.Size(1149, 174);
+            this.lvHistory.Size = new System.Drawing.Size(863, 142);
             this.lvHistory.TabIndex = 0;
             this.lvHistory.UseCompatibleStateImageBehavior = false;
             this.lvHistory.View = System.Windows.Forms.View.List;
@@ -62,11 +62,10 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(17, 234);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(13, 190);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(115, 24);
+            this.lblWelcome.Size = new System.Drawing.Size(84, 20);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "Welcome ";
             // 
@@ -78,11 +77,10 @@
             // lblHistory
             // 
             this.lblHistory.AutoSize = true;
-            this.lblHistory.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistory.Location = new System.Drawing.Point(17, 258);
-            this.lblHistory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHistory.Location = new System.Drawing.Point(13, 210);
             this.lblHistory.Name = "lblHistory";
-            this.lblHistory.Size = new System.Drawing.Size(141, 20);
+            this.lblHistory.Size = new System.Drawing.Size(104, 17);
             this.lblHistory.TabIndex = 14;
             this.lblHistory.Text = "Recent activity:";
             // 
@@ -91,12 +89,11 @@
             this.elementHost1.AutoSize = true;
             this.elementHost1.Dock = System.Windows.Forms.DockStyle.Top;
             this.elementHost1.Location = new System.Drawing.Point(0, 0);
-            this.elementHost1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.elementHost1.MaximumSize = new System.Drawing.Size(1920, 220);
-            this.elementHost1.MinimumSize = new System.Drawing.Size(900, 220);
+            this.elementHost1.MaximumSize = new System.Drawing.Size(1440, 179);
+            this.elementHost1.MinimumSize = new System.Drawing.Size(675, 179);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.elementHost1.Size = new System.Drawing.Size(1182, 220);
+            this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.elementHost1.Size = new System.Drawing.Size(886, 179);
             this.elementHost1.TabIndex = 17;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -170,13 +167,13 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.lvEmail.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEmail.FullRowSelect = true;
-            this.lvEmail.Location = new System.Drawing.Point(21, 482);
-            this.lvEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvEmail.HideSelection = false;
+            this.lvEmail.Location = new System.Drawing.Point(16, 392);
             this.lvEmail.MultiSelect = false;
             this.lvEmail.Name = "lvEmail";
-            this.lvEmail.Size = new System.Drawing.Size(1148, 358);
+            this.lvEmail.Size = new System.Drawing.Size(862, 292);
             this.lvEmail.TabIndex = 18;
             this.lvEmail.UseCompatibleStateImageBehavior = false;
             this.lvEmail.UseWaitCursor = true;
@@ -212,19 +209,18 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 853);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(886, 693);
             this.Controls.Add(this.lvEmail);
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lvHistory);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(900, 800);
+            this.MaximumSize = new System.Drawing.Size(1444, 885);
+            this.MinimumSize = new System.Drawing.Size(679, 657);
             this.Name = "MainMenu";
             this.Text = "Marimba";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);

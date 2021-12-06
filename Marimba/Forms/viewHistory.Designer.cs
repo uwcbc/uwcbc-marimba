@@ -39,8 +39,9 @@
             this.columnHeader1,
             this.columnHeader2});
             this.lvMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvMain.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvMain.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvMain.HideSelection = false;
             this.lvMain.Location = new System.Drawing.Point(0, 0);
             this.lvMain.Name = "lvMain";
             this.lvMain.Size = new System.Drawing.Size(677, 473);
@@ -60,13 +61,13 @@
             // 
             // viewHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(677, 473);
             this.Controls.Add(this.lvMain);
+            this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
             this.Name = "viewHistory";
             this.ShowInTaskbar = false;
-            this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
             this.Text = "Marimba";
             this.Load += new System.EventHandler(this.viewHistory_Load);
             this.ResumeLayout(false);

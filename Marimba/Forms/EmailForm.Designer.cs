@@ -50,12 +50,12 @@
             this.Fname,
             this.email});
             this.tlpMain.SetColumnSpan(this.lvFromTo, 2);
-            this.lvFromTo.Location = new System.Drawing.Point(204, 8);
-            this.lvFromTo.Margin = new System.Windows.Forms.Padding(4);
-            this.lvFromTo.MaximumSize = new System.Drawing.Size(1600, 210);
-            this.lvFromTo.MinimumSize = new System.Drawing.Size(700, 50);
+            this.lvFromTo.HideSelection = false;
+            this.lvFromTo.Location = new System.Drawing.Point(153, 6);
+            this.lvFromTo.MaximumSize = new System.Drawing.Size(1201, 171);
+            this.lvFromTo.MinimumSize = new System.Drawing.Size(526, 41);
             this.lvFromTo.Name = "lvFromTo";
-            this.lvFromTo.Size = new System.Drawing.Size(774, 196);
+            this.lvFromTo.Size = new System.Drawing.Size(582, 160);
             this.lvFromTo.TabIndex = 0;
             this.lvFromTo.TileSize = new System.Drawing.Size(250, 36);
             this.lvFromTo.UseCompatibleStateImageBehavior = false;
@@ -74,11 +74,10 @@
             // 
             this.lblFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFrom.AutoSize = true;
-            this.lblFrom.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrom.Location = new System.Drawing.Point(4, 98);
-            this.lblFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrom.Location = new System.Drawing.Point(3, 79);
             this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(192, 17);
+            this.lblFrom.Size = new System.Drawing.Size(144, 15);
             this.lblFrom.TabIndex = 1;
             this.lblFrom.Text = "From";
             // 
@@ -86,11 +85,10 @@
             // 
             this.lblSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSubject.AutoSize = true;
-            this.lblSubject.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubject.Location = new System.Drawing.Point(4, 223);
-            this.lblSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Location = new System.Drawing.Point(3, 180);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(192, 17);
+            this.lblSubject.Size = new System.Drawing.Size(144, 15);
             this.lblSubject.TabIndex = 2;
             this.lblSubject.Text = "Subject";
             // 
@@ -98,20 +96,19 @@
             // 
             this.txtSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMain.SetColumnSpan(this.txtSubject, 2);
-            this.txtSubject.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubject.Location = new System.Drawing.Point(204, 219);
-            this.txtSubject.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubject.MaximumSize = new System.Drawing.Size(1600, 25);
-            this.txtSubject.MinimumSize = new System.Drawing.Size(700, 25);
+            this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubject.Location = new System.Drawing.Point(153, 177);
+            this.txtSubject.MaximumSize = new System.Drawing.Size(1201, 25);
+            this.txtSubject.MinimumSize = new System.Drawing.Size(526, 25);
             this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(774, 25);
+            this.txtSubject.Size = new System.Drawing.Size(582, 25);
             this.txtSubject.TabIndex = 1;
             // 
             // tlpMain
             // 
             this.tlpMain.ColumnCount = 3;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.btnForward, 1, 2);
             this.tlpMain.Controls.Add(this.lvFromTo, 1, 0);
@@ -123,26 +120,24 @@
             this.tlpMain.Controls.Add(this.rtbWrite, 2, 2);
             this.tlpMain.Controls.Add(this.btnReply, 0, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMain.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlpMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
-            this.tlpMain.Margin = new System.Windows.Forms.Padding(4);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 5;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tlpMain.Size = new System.Drawing.Size(982, 753);
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpMain.Size = new System.Drawing.Size(738, 618);
             this.tlpMain.TabIndex = 4;
             // 
             // btnForward
             // 
             this.btnForward.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnForward.Location = new System.Drawing.Point(250, 255);
-            this.btnForward.Margin = new System.Windows.Forms.Padding(4);
+            this.btnForward.Location = new System.Drawing.Point(187, 207);
             this.btnForward.Name = "btnForward";
-            this.btnForward.Size = new System.Drawing.Size(100, 28);
+            this.btnForward.Size = new System.Drawing.Size(75, 23);
             this.btnForward.TabIndex = 6;
             this.btnForward.Text = "Forward";
             this.btnForward.UseVisualStyleBackColor = true;
@@ -152,22 +147,20 @@
             // wbrView
             // 
             this.wbrView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbrView.Location = new System.Drawing.Point(4, 293);
-            this.wbrView.Margin = new System.Windows.Forms.Padding(4);
-            this.wbrView.MinimumSize = new System.Drawing.Size(27, 25);
+            this.wbrView.Location = new System.Drawing.Point(3, 238);
+            this.wbrView.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbrView.Name = "wbrView";
-            this.wbrView.Size = new System.Drawing.Size(192, 407);
+            this.wbrView.Size = new System.Drawing.Size(144, 337);
             this.wbrView.TabIndex = 2;
             // 
             // btnSend
             // 
             this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlpMain.SetColumnSpan(this.btnSend, 3);
-            this.btnSend.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(441, 714);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(331, 586);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(100, 28);
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -179,21 +172,19 @@
             this.rtbWrite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbWrite.EnableAutoDragDrop = true;
             this.rtbWrite.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbWrite.Location = new System.Drawing.Point(404, 254);
-            this.rtbWrite.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbWrite.Location = new System.Drawing.Point(303, 206);
             this.rtbWrite.Name = "rtbWrite";
             this.tlpMain.SetRowSpan(this.rtbWrite, 2);
-            this.rtbWrite.Size = new System.Drawing.Size(574, 446);
+            this.rtbWrite.Size = new System.Drawing.Size(432, 369);
             this.rtbWrite.TabIndex = 3;
             this.rtbWrite.Text = "";
             // 
             // btnReply
             // 
             this.btnReply.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReply.Location = new System.Drawing.Point(50, 255);
-            this.btnReply.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReply.Location = new System.Drawing.Point(37, 207);
             this.btnReply.Name = "btnReply";
-            this.btnReply.Size = new System.Drawing.Size(100, 28);
+            this.btnReply.Size = new System.Drawing.Size(75, 23);
             this.btnReply.TabIndex = 5;
             this.btnReply.Text = "Reply";
             this.btnReply.UseVisualStyleBackColor = true;
@@ -201,14 +192,13 @@
             // 
             // EmailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 753);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(738, 618);
             this.Controls.Add(this.tlpMain);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1600, 1400);
-            this.MinimumSize = new System.Drawing.Size(1000, 800);
+            this.MaximumSize = new System.Drawing.Size(1204, 1145);
+            this.MinimumSize = new System.Drawing.Size(754, 657);
             this.Name = "EmailForm";
             this.Text = "Marimba";
             this.Load += new System.EventHandler(this.emailBrowser_Load);

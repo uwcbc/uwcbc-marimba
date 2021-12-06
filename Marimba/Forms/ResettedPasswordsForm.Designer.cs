@@ -46,20 +46,22 @@
             this.tlpResettedPasswords.Controls.Add(this.lvResettedPasswords, 0, 1);
             this.tlpResettedPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpResettedPasswords.Location = new System.Drawing.Point(0, 0);
+            this.tlpResettedPasswords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tlpResettedPasswords.Name = "tlpResettedPasswords";
             this.tlpResettedPasswords.RowCount = 2;
-            this.tlpResettedPasswords.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlpResettedPasswords.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tlpResettedPasswords.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpResettedPasswords.Size = new System.Drawing.Size(874, 729);
+            this.tlpResettedPasswords.Size = new System.Drawing.Size(437, 379);
             this.tlpResettedPasswords.TabIndex = 0;
             // 
             // btnExport
             // 
             this.btnExport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExport.Font = new System.Drawing.Font("Quicksand", 10.18868F);
-            this.btnExport.Location = new System.Drawing.Point(530, 17);
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
+            this.btnExport.Location = new System.Drawing.Point(265, 9);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(250, 65);
+            this.btnExport.Size = new System.Drawing.Size(125, 34);
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export to CSV";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -72,10 +74,12 @@
             this.passwordHeader});
             this.tlpResettedPasswords.SetColumnSpan(this.lvResettedPasswords, 2);
             this.lvResettedPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvResettedPasswords.Font = new System.Drawing.Font("Quicksand", 10.18868F);
-            this.lvResettedPasswords.Location = new System.Drawing.Point(3, 103);
+            this.lvResettedPasswords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
+            this.lvResettedPasswords.HideSelection = false;
+            this.lvResettedPasswords.Location = new System.Drawing.Point(2, 54);
+            this.lvResettedPasswords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvResettedPasswords.Name = "lvResettedPasswords";
-            this.lvResettedPasswords.Size = new System.Drawing.Size(868, 623);
+            this.lvResettedPasswords.Size = new System.Drawing.Size(433, 323);
             this.lvResettedPasswords.TabIndex = 1;
             this.lvResettedPasswords.UseCompatibleStateImageBehavior = false;
             this.lvResettedPasswords.View = System.Windows.Forms.View.Details;
@@ -92,11 +96,12 @@
             // 
             // ResettedPasswordsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 729);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(437, 379);
             this.Controls.Add(this.tlpResettedPasswords);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ResettedPasswordsForm";
             this.Text = "Resetted Passwords";
             this.tlpResettedPasswords.ResumeLayout(false);

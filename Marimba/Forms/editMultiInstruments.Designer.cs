@@ -72,8 +72,9 @@
             this.lvPlays.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2});
             this.lvPlays.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvPlays.Font = new System.Drawing.Font("Quicksand", 9.749999F);
+            this.lvPlays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
             this.lvPlays.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvPlays.HideSelection = false;
             this.lvPlays.Location = new System.Drawing.Point(387, 43);
             this.lvPlays.Name = "lvPlays";
             this.tlpMain.SetRowSpan(this.lvPlays, 4);
@@ -94,10 +95,10 @@
             // 
             this.lblNotPlayed.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNotPlayed.AutoSize = true;
-            this.lblNotPlayed.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotPlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotPlayed.Location = new System.Drawing.Point(77, 10);
             this.lblNotPlayed.Name = "lblNotPlayed";
-            this.lblNotPlayed.Size = new System.Drawing.Size(104, 19);
+            this.lblNotPlayed.Size = new System.Drawing.Size(105, 20);
             this.lblNotPlayed.TabIndex = 0;
             this.lblNotPlayed.Text = "Instruments";
             // 
@@ -105,10 +106,10 @@
             // 
             this.lblPlays.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPlays.AutoSize = true;
-            this.lblPlays.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlays.Location = new System.Drawing.Point(433, 10);
+            this.lblPlays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlays.Location = new System.Drawing.Point(432, 10);
             this.lblPlays.Name = "lblPlays";
-            this.lblPlays.Size = new System.Drawing.Size(162, 19);
+            this.lblPlays.Size = new System.Drawing.Size(163, 20);
             this.lblPlays.TabIndex = 1;
             this.lblPlays.Text = "Instruments Played";
             // 
@@ -118,8 +119,9 @@
             this.lvAvailable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lvAvailable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvAvailable.Font = new System.Drawing.Font("Quicksand", 9.749999F);
+            this.lvAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
             this.lvAvailable.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvAvailable.HideSelection = false;
             this.lvAvailable.Location = new System.Drawing.Point(3, 43);
             this.lvAvailable.Name = "lvAvailable";
             this.tlpMain.SetRowSpan(this.lvAvailable, 4);
@@ -139,7 +141,7 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdd.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(284, 217);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -151,7 +153,7 @@
             // btnRemove
             // 
             this.btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRemove.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.Location = new System.Drawing.Point(284, 257);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
@@ -163,7 +165,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSubmit.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(284, 362);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
@@ -175,8 +177,8 @@
             // editMultiInstruments
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(644, 458);
             this.Controls.Add(this.tlpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

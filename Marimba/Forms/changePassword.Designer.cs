@@ -40,10 +40,10 @@
             // lblOld
             // 
             this.lblOld.AutoSize = true;
-            this.lblOld.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOld.Location = new System.Drawing.Point(12, 25);
             this.lblOld.Name = "lblOld";
-            this.lblOld.Size = new System.Drawing.Size(103, 16);
+            this.lblOld.Size = new System.Drawing.Size(95, 17);
             this.lblOld.TabIndex = 0;
             this.lblOld.Text = "Old Password";
             // 
@@ -68,10 +68,10 @@
             // lblNew
             // 
             this.lblNew.AutoSize = true;
-            this.lblNew.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNew.Location = new System.Drawing.Point(12, 70);
             this.lblNew.Name = "lblNew";
-            this.lblNew.Size = new System.Drawing.Size(111, 16);
+            this.lblNew.Size = new System.Drawing.Size(100, 17);
             this.lblNew.TabIndex = 2;
             this.lblNew.Text = "New Password";
             // 
@@ -87,16 +87,16 @@
             // lblConfirm
             // 
             this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirm.Location = new System.Drawing.Point(12, 118);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(101, 32);
+            this.lblConfirm.Size = new System.Drawing.Size(87, 34);
             this.lblConfirm.TabIndex = 4;
             this.lblConfirm.Text = "Confirm New\r\nPassword";
             // 
             // btnChange
             // 
-            this.btnChange.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.Location = new System.Drawing.Point(81, 184);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(163, 30);
@@ -108,8 +108,8 @@
             // changePassword
             // 
             this.AcceptButton = this.btnChange;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(332, 226);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.txtConfirm);

@@ -52,6 +52,8 @@
             this.tlpAttendance = new System.Windows.Forms.TableLayoutPanel();
             this.sfdSave = new System.Windows.Forms.SaveFileDialog();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEditMultiple = new System.Windows.Forms.Button();
+            this.cbMultiple = new System.Windows.Forms.CheckBox();
             this.lblShirtSize = new System.Windows.Forms.Label();
             this.cbSize = new System.Windows.Forms.ComboBox();
             this.lvSearch = new System.Windows.Forms.ListView();
@@ -60,8 +62,6 @@
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StudentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cbMultiple = new System.Windows.Forms.CheckBox();
-            this.btnEditMultiple = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,10 +70,10 @@
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTitle.AutoSize = true;
             this.tlpMain.SetColumnSpan(this.lblTitle, 4);
-            this.lblTitle.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(153, 13);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(153, 12);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(46, 19);
+            this.lblTitle.Size = new System.Drawing.Size(46, 20);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             // 
@@ -81,7 +81,8 @@
             // 
             this.lvSignedIn.AllowDrop = true;
             this.lvSignedIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvSignedIn.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvSignedIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvSignedIn.HideSelection = false;
             this.lvSignedIn.Location = new System.Drawing.Point(1175, 3);
             this.lvSignedIn.Name = "lvSignedIn";
             this.tlpMain.SetRowSpan(this.lvSignedIn, 13);
@@ -96,7 +97,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblName.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(3, 90);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(144, 40);
@@ -109,17 +110,17 @@
             this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDate.AutoSize = true;
             this.tlpMain.SetColumnSpan(this.lblDate, 4);
-            this.lblDate.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(153, 58);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(153, 57);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(49, 19);
+            this.lblDate.Size = new System.Drawing.Size(49, 20);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "Date";
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(153, 588);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(430, 24);
@@ -129,7 +130,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEmail.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(3, 583);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(144, 35);
@@ -143,18 +144,18 @@
             this.cbInstrument.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbInstrument.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tlpMain.SetColumnSpan(this.cbInstrument, 2);
-            this.cbInstrument.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbInstrument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInstrument.FormattingEnabled = true;
-            this.cbInstrument.Location = new System.Drawing.Point(739, 553);
+            this.cbInstrument.Location = new System.Drawing.Point(739, 552);
             this.cbInstrument.Name = "cbInstrument";
-            this.cbInstrument.Size = new System.Drawing.Size(430, 24);
+            this.cbInstrument.Size = new System.Drawing.Size(430, 25);
             this.cbInstrument.TabIndex = 7;
             // 
             // lblInstrument
             // 
             this.lblInstrument.AutoSize = true;
             this.lblInstrument.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblInstrument.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstrument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInstrument.Location = new System.Drawing.Point(589, 548);
             this.lblInstrument.Name = "lblInstrument";
             this.lblInstrument.Size = new System.Drawing.Size(144, 35);
@@ -167,7 +168,7 @@
             this.cbFaculty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFaculty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbFaculty.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbFaculty.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFaculty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFaculty.FormattingEnabled = true;
             this.cbFaculty.Items.AddRange(new object[] {
             "Applied Health Science",
@@ -176,16 +177,16 @@
             "Environment",
             "Mathematics",
             "Science"});
-            this.cbFaculty.Location = new System.Drawing.Point(153, 553);
+            this.cbFaculty.Location = new System.Drawing.Point(153, 552);
             this.cbFaculty.Name = "cbFaculty";
-            this.cbFaculty.Size = new System.Drawing.Size(430, 24);
+            this.cbFaculty.Size = new System.Drawing.Size(430, 25);
             this.cbFaculty.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 548);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 35);
@@ -197,7 +198,7 @@
             // 
             this.txtStudentNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMain.SetColumnSpan(this.txtStudentNumber, 2);
-            this.txtStudentNumber.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudentNumber.Location = new System.Drawing.Point(739, 518);
             this.txtStudentNumber.MaxLength = 8;
             this.txtStudentNumber.Name = "txtStudentNumber";
@@ -208,7 +209,7 @@
             // 
             this.lblStudentNumber.AutoSize = true;
             this.lblStudentNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblStudentNumber.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentNumber.Location = new System.Drawing.Point(589, 513);
             this.lblStudentNumber.Name = "lblStudentNumber";
             this.lblStudentNumber.Size = new System.Drawing.Size(144, 35);
@@ -220,23 +221,23 @@
             // 
             this.cbClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClass.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClass.FormattingEnabled = true;
             this.cbClass.Items.AddRange(new object[] {
             "UW Undergrad Student",
             "UW Grad Student",
             "UW Alumni",
             "Other"});
-            this.cbClass.Location = new System.Drawing.Point(153, 518);
+            this.cbClass.Location = new System.Drawing.Point(153, 517);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(430, 24);
+            this.cbClass.Size = new System.Drawing.Size(430, 25);
             this.cbClass.TabIndex = 4;
             // 
             // lblClass
             // 
             this.lblClass.AutoSize = true;
             this.lblClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblClass.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClass.Location = new System.Drawing.Point(3, 513);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(144, 35);
@@ -248,7 +249,7 @@
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMain.SetColumnSpan(this.txtLastName, 2);
-            this.txtLastName.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(739, 483);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(430, 24);
@@ -258,7 +259,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLastName.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(589, 478);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(144, 35);
@@ -269,7 +270,7 @@
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(153, 483);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(430, 24);
@@ -279,7 +280,7 @@
             // 
             this.btnSignIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlpMain.SetColumnSpan(this.btnSignIn, 5);
-            this.btnSignIn.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignIn.Location = new System.Drawing.Point(536, 663);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(100, 30);
@@ -292,7 +293,7 @@
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFirstName.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.Location = new System.Drawing.Point(3, 478);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(144, 35);
@@ -304,7 +305,7 @@
             // 
             this.lblFeesPaid.AutoSize = true;
             this.lblFeesPaid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFeesPaid.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFeesPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFeesPaid.Location = new System.Drawing.Point(589, 618);
             this.lblFeesPaid.Name = "lblFeesPaid";
             this.lblFeesPaid.Size = new System.Drawing.Size(144, 35);
@@ -317,7 +318,7 @@
             this.cbFees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFees.AutoSize = true;
             this.cbFees.Enabled = false;
-            this.cbFees.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFees.Location = new System.Drawing.Point(739, 628);
             this.cbFees.Name = "cbFees";
             this.cbFees.Size = new System.Drawing.Size(212, 14);
@@ -353,7 +354,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
             this.tlpMain.Controls.Add(this.btnEditMultiple, 4, 10);
             this.tlpMain.Controls.Add(this.cbMultiple, 2, 10);
             this.tlpMain.Controls.Add(this.lblShirtSize, 0, 11);
@@ -383,7 +384,7 @@
             this.tlpMain.Controls.Add(this.lvSearch, 0, 3);
             this.tlpMain.Controls.Add(this.txtSearch, 1, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMain.Font = new System.Drawing.Font("Quicksand", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlpMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22641F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 14;
@@ -405,11 +406,38 @@
             this.tlpMain.Size = new System.Drawing.Size(1474, 760);
             this.tlpMain.TabIndex = 0;
             // 
+            // btnEditMultiple
+            // 
+            this.btnEditMultiple.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnEditMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMultiple.Location = new System.Drawing.Point(957, 586);
+            this.btnEditMultiple.Name = "btnEditMultiple";
+            this.btnEditMultiple.Size = new System.Drawing.Size(159, 29);
+            this.btnEditMultiple.TabIndex = 26;
+            this.btnEditMultiple.Text = "Edit Instruments";
+            this.btnEditMultiple.UseVisualStyleBackColor = true;
+            this.btnEditMultiple.Visible = false;
+            this.btnEditMultiple.Click += new System.EventHandler(this.btnEditMultiple_Click);
+            // 
+            // cbMultiple
+            // 
+            this.cbMultiple.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbMultiple.AutoSize = true;
+            this.tlpMain.SetColumnSpan(this.cbMultiple, 2);
+            this.cbMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMultiple.Location = new System.Drawing.Point(589, 590);
+            this.cbMultiple.Name = "cbMultiple";
+            this.cbMultiple.Size = new System.Drawing.Size(190, 21);
+            this.cbMultiple.TabIndex = 25;
+            this.cbMultiple.Text = "Plays Multiple Instruments";
+            this.cbMultiple.UseVisualStyleBackColor = true;
+            this.cbMultiple.CheckedChanged += new System.EventHandler(this.cbMultiple_CheckedChanged);
+            // 
             // lblShirtSize
             // 
             this.lblShirtSize.AutoSize = true;
             this.lblShirtSize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblShirtSize.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShirtSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShirtSize.Location = new System.Drawing.Point(3, 618);
             this.lblShirtSize.Name = "lblShirtSize";
             this.lblShirtSize.Size = new System.Drawing.Size(144, 35);
@@ -421,7 +449,7 @@
             // 
             this.cbSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSize.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSize.FormattingEnabled = true;
             this.cbSize.Items.AddRange(new object[] {
             "XS",
@@ -430,9 +458,9 @@
             "L",
             "XL",
             "XXL"});
-            this.cbSize.Location = new System.Drawing.Point(153, 623);
+            this.cbSize.Location = new System.Drawing.Point(153, 622);
             this.cbSize.Name = "cbSize";
-            this.cbSize.Size = new System.Drawing.Size(430, 24);
+            this.cbSize.Size = new System.Drawing.Size(430, 25);
             this.cbSize.TabIndex = 9;
             // 
             // lvSearch
@@ -444,7 +472,8 @@
             this.StudentID});
             this.tlpMain.SetColumnSpan(this.lvSearch, 5);
             this.lvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvSearch.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvSearch.HideSelection = false;
             this.lvSearch.Location = new System.Drawing.Point(3, 133);
             this.lvSearch.Name = "lvSearch";
             this.tlpMain.SetRowSpan(this.lvSearch, 3);
@@ -478,7 +507,7 @@
             this.txtSearch.AcceptsReturn = true;
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMain.SetColumnSpan(this.txtSearch, 4);
-            this.txtSearch.Font = new System.Drawing.Font("Quicksand", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(153, 96);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
@@ -487,42 +516,15 @@
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
-            // cbMultiple
+            // SignInForm
             // 
-            this.cbMultiple.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbMultiple.AutoSize = true;
-            this.tlpMain.SetColumnSpan(this.cbMultiple, 2);
-            this.cbMultiple.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMultiple.Location = new System.Drawing.Point(589, 590);
-            this.cbMultiple.Name = "cbMultiple";
-            this.cbMultiple.Size = new System.Drawing.Size(210, 20);
-            this.cbMultiple.TabIndex = 25;
-            this.cbMultiple.Text = "Plays Multiple Instruments";
-            this.cbMultiple.UseVisualStyleBackColor = true;
-            this.cbMultiple.CheckedChanged += new System.EventHandler(this.cbMultiple_CheckedChanged);
-            // 
-            // btnEditMultiple
-            // 
-            this.btnEditMultiple.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnEditMultiple.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditMultiple.Location = new System.Drawing.Point(957, 586);
-            this.btnEditMultiple.Name = "btnEditMultiple";
-            this.btnEditMultiple.Size = new System.Drawing.Size(159, 29);
-            this.btnEditMultiple.TabIndex = 26;
-            this.btnEditMultiple.Text = "Edit Instruments";
-            this.btnEditMultiple.UseVisualStyleBackColor = true;
-            this.btnEditMultiple.Visible = false;
-            this.btnEditMultiple.Click += new System.EventHandler(this.btnEditMultiple_Click);
-            // 
-            // signin
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1474, 760);
             this.Controls.Add(this.tlpMain);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
             this.MinimumSize = new System.Drawing.Size(631, 491);
-            this.Name = "signin";
+            this.Name = "SignInForm";
             this.ShowInTaskbar = false;
             this.Text = "Marimba";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.signin_FormClosing);

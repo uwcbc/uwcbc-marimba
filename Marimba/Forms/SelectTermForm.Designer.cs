@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbTerms, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Quicksand", 10.18868F);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -73,9 +73,9 @@
             // 
             this.lblTerms.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTerms.AutoSize = true;
-            this.lblTerms.Location = new System.Drawing.Point(12, 100);
+            this.lblTerms.Location = new System.Drawing.Point(14, 100);
             this.lblTerms.Name = "lblTerms";
-            this.lblTerms.Size = new System.Drawing.Size(52, 16);
+            this.lblTerms.Size = new System.Drawing.Size(48, 17);
             this.lblTerms.TabIndex = 1;
             this.lblTerms.Text = "Terms";
             // 
@@ -83,11 +83,11 @@
             // 
             this.lbTerms.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTerms.FormattingEnabled = true;
-            this.lbTerms.ItemHeight = 16;
-            this.lbTerms.Location = new System.Drawing.Point(130, 21);
+            this.lbTerms.ItemHeight = 17;
+            this.lbTerms.Location = new System.Drawing.Point(130, 30);
             this.lbTerms.Name = "lbTerms";
             this.lbTerms.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbTerms.Size = new System.Drawing.Size(200, 164);
+            this.lbTerms.Size = new System.Drawing.Size(200, 157);
             this.lbTerms.TabIndex = 2;
             // 
             // btnCancel
@@ -104,8 +104,8 @@
             // 
             // SelectTermForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(384, 311);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

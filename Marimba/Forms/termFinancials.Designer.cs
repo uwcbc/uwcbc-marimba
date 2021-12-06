@@ -66,7 +66,7 @@
             this.tcMain.Controls.Add(this.tpIncome);
             this.tcMain.Controls.Add(this.tpCash);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcMain.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMain.Location = new System.Drawing.Point(3, 73);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
@@ -92,6 +92,7 @@
             this.ch2,
             this.ch3});
             this.lvBalance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvBalance.HideSelection = false;
             this.lvBalance.Location = new System.Drawing.Point(3, 3);
             this.lvBalance.Name = "lvBalance";
             this.lvBalance.Size = new System.Drawing.Size(619, 381);
@@ -138,6 +139,7 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvIncome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvIncome.HideSelection = false;
             this.lvIncome.Location = new System.Drawing.Point(3, 3);
             this.lvIncome.Name = "lvIncome";
             this.lvIncome.Size = new System.Drawing.Size(619, 381);
@@ -184,6 +186,7 @@
             this.columnHeader7,
             this.columnHeader8});
             this.lvCash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvCash.HideSelection = false;
             this.lvCash.Location = new System.Drawing.Point(3, 3);
             this.lvCash.Name = "lvCash";
             this.lvCash.Size = new System.Drawing.Size(619, 381);
@@ -218,7 +221,7 @@
             // cbTerm
             // 
             this.cbTerm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTerm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(128, 22);
             this.cbTerm.Name = "cbTerm";
@@ -230,7 +233,7 @@
             // 
             this.btnExport.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnExport.Enabled = false;
-            this.btnExport.Font = new System.Drawing.Font("Quicksand", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Location = new System.Drawing.Point(442, 23);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(178, 23);
@@ -243,10 +246,10 @@
             // 
             this.lblSelect.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblSelect.AutoSize = true;
-            this.lblSelect.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelect.Location = new System.Drawing.Point(3, 26);
             this.lblSelect.Name = "lblSelect";
-            this.lblSelect.Size = new System.Drawing.Size(105, 18);
+            this.lblSelect.Size = new System.Drawing.Size(84, 17);
             this.lblSelect.TabIndex = 1;
             this.lblSelect.Text = "Select Term";
             // 
@@ -271,8 +274,8 @@
             // 
             // termFinancials
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(639, 493);
             this.Controls.Add(this.tlpMain);
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;

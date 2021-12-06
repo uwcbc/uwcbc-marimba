@@ -40,20 +40,20 @@
             // lblElection
             // 
             this.lblElection.AutoSize = true;
-            this.lblElection.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblElection.Location = new System.Drawing.Point(27, 24);
             this.lblElection.Name = "lblElection";
-            this.lblElection.Size = new System.Drawing.Size(198, 16);
+            this.lblElection.Size = new System.Drawing.Size(175, 17);
             this.lblElection.TabIndex = 0;
             this.lblElection.Text = "Term before election term:";
             // 
             // cbTerm
             // 
-            this.cbTerm.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(257, 21);
             this.cbTerm.Name = "cbTerm";
-            this.cbTerm.Size = new System.Drawing.Size(188, 24);
+            this.cbTerm.Size = new System.Drawing.Size(188, 25);
             this.cbTerm.TabIndex = 1;
             // 
             // svdSave
@@ -68,7 +68,7 @@
             // gbStep1
             // 
             this.gbStep1.Controls.Add(this.btnList);
-            this.gbStep1.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStep1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStep1.Location = new System.Drawing.Point(12, 60);
             this.gbStep1.Name = "gbStep1";
             this.gbStep1.Size = new System.Drawing.Size(452, 100);
@@ -79,7 +79,7 @@
             // btnList
             // 
             this.btnList.Enabled = false;
-            this.btnList.Font = new System.Drawing.Font("Quicksand", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnList.Location = new System.Drawing.Point(170, 30);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(135, 47);
@@ -90,8 +90,8 @@
             // 
             // electionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(476, 180);
             this.Controls.Add(this.gbStep1);
             this.Controls.Add(this.cbTerm);

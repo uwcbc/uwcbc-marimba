@@ -69,12 +69,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcMain.Controls.Add(this.tpPref);
             this.tcMain.Controls.Add(this.tpAdmin);
-            this.tcMain.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMain.Location = new System.Drawing.Point(0, 0);
-            this.tcMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(664, 507);
+            this.tcMain.Size = new System.Drawing.Size(498, 412);
             this.tcMain.TabIndex = 0;
             // 
             // tpPref
@@ -89,11 +88,10 @@
             this.tpPref.Controls.Add(this.cbAutoSave);
             this.tpPref.Controls.Add(this.cbCurTerm);
             this.tpPref.Controls.Add(this.cbSound);
-            this.tpPref.Location = new System.Drawing.Point(4, 28);
-            this.tpPref.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpPref.Location = new System.Drawing.Point(4, 25);
             this.tpPref.Name = "tpPref";
-            this.tpPref.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tpPref.Size = new System.Drawing.Size(656, 475);
+            this.tpPref.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpPref.Size = new System.Drawing.Size(490, 383);
             this.tpPref.TabIndex = 0;
             this.tpPref.Text = "Preferences";
             this.tpPref.UseVisualStyleBackColor = true;
@@ -101,10 +99,9 @@
             // lblEmailPassword
             // 
             this.lblEmailPassword.AutoSize = true;
-            this.lblEmailPassword.Location = new System.Drawing.Point(40, 359);
-            this.lblEmailPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmailPassword.Location = new System.Drawing.Point(30, 292);
             this.lblEmailPassword.Name = "lblEmailPassword";
-            this.lblEmailPassword.Size = new System.Drawing.Size(152, 20);
+            this.lblEmailPassword.Size = new System.Drawing.Size(112, 16);
             this.lblEmailPassword.TabIndex = 9;
             this.lblEmailPassword.Text = "E-mail Password:";
             // 
@@ -112,30 +109,27 @@
             // 
             this.txtEmailPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmailPassword.Location = new System.Drawing.Point(223, 356);
-            this.txtEmailPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmailPassword.Location = new System.Drawing.Point(167, 289);
             this.txtEmailPassword.Name = "txtEmailPassword";
             this.txtEmailPassword.PasswordChar = '♪';
-            this.txtEmailPassword.Size = new System.Drawing.Size(331, 26);
+            this.txtEmailPassword.Size = new System.Drawing.Size(249, 22);
             this.txtEmailPassword.TabIndex = 8;
             // 
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(40, 302);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPosition.Location = new System.Drawing.Point(30, 245);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(80, 20);
+            this.lblPosition.Size = new System.Drawing.Size(59, 16);
             this.lblPosition.TabIndex = 7;
             this.lblPosition.Text = "Position:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(40, 251);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(30, 204);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(63, 20);
+            this.lblName.Size = new System.Drawing.Size(48, 16);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "Name:";
             // 
@@ -143,29 +137,26 @@
             // 
             this.txtPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPosition.Location = new System.Drawing.Point(173, 298);
-            this.txtPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPosition.Location = new System.Drawing.Point(130, 242);
             this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(381, 26);
+            this.txtPosition.Size = new System.Drawing.Size(287, 22);
             this.txtPosition.TabIndex = 5;
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(173, 247);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(130, 201);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(381, 26);
+            this.txtName.Size = new System.Drawing.Size(287, 22);
             this.txtName.TabIndex = 4;
             // 
             // cbAttachSignature
             // 
             this.cbAttachSignature.AutoSize = true;
-            this.cbAttachSignature.Location = new System.Drawing.Point(44, 201);
-            this.cbAttachSignature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAttachSignature.Location = new System.Drawing.Point(33, 163);
             this.cbAttachSignature.Name = "cbAttachSignature";
-            this.cbAttachSignature.Size = new System.Drawing.Size(357, 24);
+            this.cbAttachSignature.Size = new System.Drawing.Size(254, 20);
             this.cbAttachSignature.TabIndex = 3;
             this.cbAttachSignature.Text = "Attach signature when sending e-mails";
             this.cbAttachSignature.UseVisualStyleBackColor = true;
@@ -174,10 +165,9 @@
             // cbAutoSave
             // 
             this.cbAutoSave.AutoSize = true;
-            this.cbAutoSave.Location = new System.Drawing.Point(44, 146);
-            this.cbAutoSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAutoSave.Location = new System.Drawing.Point(33, 119);
             this.cbAutoSave.Name = "cbAutoSave";
-            this.cbAutoSave.Size = new System.Drawing.Size(442, 24);
+            this.cbAutoSave.Size = new System.Drawing.Size(313, 20);
             this.cbAutoSave.TabIndex = 2;
             this.cbAutoSave.Text = "Automatically save file after any change is made";
             this.cbAutoSave.UseVisualStyleBackColor = true;
@@ -185,10 +175,9 @@
             // cbCurTerm
             // 
             this.cbCurTerm.AutoSize = true;
-            this.cbCurTerm.Location = new System.Drawing.Point(44, 90);
-            this.cbCurTerm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCurTerm.Location = new System.Drawing.Point(33, 73);
             this.cbCurTerm.Name = "cbCurTerm";
-            this.cbCurTerm.Size = new System.Drawing.Size(316, 24);
+            this.cbCurTerm.Size = new System.Drawing.Size(219, 20);
             this.cbCurTerm.TabIndex = 1;
             this.cbCurTerm.Text = "Select current term automatically";
             this.cbCurTerm.UseVisualStyleBackColor = true;
@@ -196,10 +185,9 @@
             // cbSound
             // 
             this.cbSound.AutoSize = true;
-            this.cbSound.Location = new System.Drawing.Point(44, 36);
-            this.cbSound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSound.Location = new System.Drawing.Point(33, 29);
             this.cbSound.Name = "cbSound";
-            this.cbSound.Size = new System.Drawing.Size(142, 24);
+            this.cbSound.Size = new System.Drawing.Size(110, 20);
             this.cbSound.TabIndex = 0;
             this.cbSound.Text = "Enable sound";
             this.cbSound.UseVisualStyleBackColor = true;
@@ -208,11 +196,10 @@
             // 
             this.tpAdmin.Controls.Add(this.gbEncryption);
             this.tpAdmin.Controls.Add(this.gbEmail);
-            this.tpAdmin.Location = new System.Drawing.Point(4, 28);
-            this.tpAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpAdmin.Location = new System.Drawing.Point(4, 25);
             this.tpAdmin.Name = "tpAdmin";
-            this.tpAdmin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tpAdmin.Size = new System.Drawing.Size(656, 475);
+            this.tpAdmin.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpAdmin.Size = new System.Drawing.Size(490, 383);
             this.tpAdmin.TabIndex = 1;
             this.tpAdmin.Text = "Admin";
             this.tpAdmin.UseVisualStyleBackColor = true;
@@ -220,22 +207,19 @@
             // gbEncryption
             // 
             this.gbEncryption.Controls.Add(this.btnChangeKey);
-            this.gbEncryption.Location = new System.Drawing.Point(11, 313);
-            this.gbEncryption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbEncryption.Location = new System.Drawing.Point(8, 254);
             this.gbEncryption.Name = "gbEncryption";
-            this.gbEncryption.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbEncryption.Size = new System.Drawing.Size(643, 123);
+            this.gbEncryption.Size = new System.Drawing.Size(482, 100);
             this.gbEncryption.TabIndex = 1;
             this.gbEncryption.TabStop = false;
             this.gbEncryption.Text = "Encryption";
             // 
             // btnChangeKey
             // 
-            this.btnChangeKey.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeKey.Location = new System.Drawing.Point(233, 53);
-            this.btnChangeKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeKey.Location = new System.Drawing.Point(175, 43);
             this.btnChangeKey.Name = "btnChangeKey";
-            this.btnChangeKey.Size = new System.Drawing.Size(177, 28);
+            this.btnChangeKey.Size = new System.Drawing.Size(133, 23);
             this.btnChangeKey.TabIndex = 3;
             this.btnChangeKey.Text = "Change Key";
             this.btnChangeKey.UseVisualStyleBackColor = true;
@@ -255,11 +239,9 @@
             this.gbEmail.Controls.Add(this.lblImap);
             this.gbEmail.Controls.Add(this.lblEmail);
             this.gbEmail.Controls.Add(this.txtEmail);
-            this.gbEmail.Location = new System.Drawing.Point(11, 7);
-            this.gbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbEmail.Location = new System.Drawing.Point(8, 6);
             this.gbEmail.Name = "gbEmail";
-            this.gbEmail.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbEmail.Size = new System.Drawing.Size(636, 297);
+            this.gbEmail.Size = new System.Drawing.Size(477, 241);
             this.gbEmail.TabIndex = 0;
             this.gbEmail.TabStop = false;
             this.gbEmail.Text = "Email";
@@ -269,10 +251,9 @@
             this.cbSMTP.AutoSize = true;
             this.cbSMTP.Checked = true;
             this.cbSMTP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbSMTP.Location = new System.Drawing.Point(8, 260);
-            this.cbSMTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSMTP.Location = new System.Drawing.Point(6, 211);
             this.cbSMTP.Name = "cbSMTP";
-            this.cbSMTP.Size = new System.Drawing.Size(223, 24);
+            this.cbSMTP.Size = new System.Drawing.Size(170, 20);
             this.cbSMTP.TabIndex = 16;
             this.cbSMTP.Text = "SSL Required for SMTP";
             this.cbSMTP.UseVisualStyleBackColor = true;
@@ -281,19 +262,17 @@
             // 
             this.txtSMTPPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSMTPPort.Location = new System.Drawing.Point(195, 213);
-            this.txtSMTPPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSMTPPort.Location = new System.Drawing.Point(146, 173);
             this.txtSMTPPort.Name = "txtSMTPPort";
-            this.txtSMTPPort.Size = new System.Drawing.Size(403, 26);
+            this.txtSMTPPort.Size = new System.Drawing.Size(303, 22);
             this.txtSMTPPort.TabIndex = 15;
             // 
             // lblSMTPPort
             // 
             this.lblSMTPPort.AutoSize = true;
-            this.lblSMTPPort.Location = new System.Drawing.Point(8, 217);
-            this.lblSMTPPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSMTPPort.Location = new System.Drawing.Point(6, 176);
             this.lblSMTPPort.Name = "lblSMTPPort";
-            this.lblSMTPPort.Size = new System.Drawing.Size(99, 20);
+            this.lblSMTPPort.Size = new System.Drawing.Size(76, 16);
             this.lblSMTPPort.TabIndex = 14;
             this.lblSMTPPort.Text = "SMTP Port:";
             // 
@@ -301,19 +280,17 @@
             // 
             this.txtSMTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSMTP.Location = new System.Drawing.Point(195, 165);
-            this.txtSMTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSMTP.Location = new System.Drawing.Point(146, 134);
             this.txtSMTP.Name = "txtSMTP";
-            this.txtSMTP.Size = new System.Drawing.Size(403, 26);
+            this.txtSMTP.Size = new System.Drawing.Size(303, 22);
             this.txtSMTP.TabIndex = 13;
             // 
             // lblSMTP
             // 
             this.lblSMTP.AutoSize = true;
-            this.lblSMTP.Location = new System.Drawing.Point(8, 169);
-            this.lblSMTP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSMTP.Location = new System.Drawing.Point(6, 137);
             this.lblSMTP.Name = "lblSMTP";
-            this.lblSMTP.Size = new System.Drawing.Size(119, 20);
+            this.lblSMTP.Size = new System.Drawing.Size(92, 16);
             this.lblSMTP.TabIndex = 12;
             this.lblSMTP.Text = "SMTP Server:";
             // 
@@ -322,10 +299,9 @@
             this.cbSSL.AutoSize = true;
             this.cbSSL.Checked = true;
             this.cbSSL.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbSSL.Location = new System.Drawing.Point(12, 123);
-            this.cbSSL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSSL.Location = new System.Drawing.Point(9, 100);
             this.cbSSL.Name = "cbSSL";
-            this.cbSSL.Size = new System.Drawing.Size(217, 24);
+            this.cbSSL.Size = new System.Drawing.Size(164, 20);
             this.cbSSL.TabIndex = 11;
             this.cbSSL.Text = "SSL Required for IMAP";
             this.cbSSL.UseVisualStyleBackColor = true;
@@ -334,29 +310,26 @@
             // 
             this.txtImap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtImap.Location = new System.Drawing.Point(195, 71);
-            this.txtImap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImap.Location = new System.Drawing.Point(146, 58);
             this.txtImap.Name = "txtImap";
-            this.txtImap.Size = new System.Drawing.Size(403, 26);
+            this.txtImap.Size = new System.Drawing.Size(303, 22);
             this.txtImap.TabIndex = 10;
             // 
             // lblImap
             // 
             this.lblImap.AutoSize = true;
-            this.lblImap.Location = new System.Drawing.Point(8, 75);
-            this.lblImap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImap.Location = new System.Drawing.Point(6, 61);
             this.lblImap.Name = "lblImap";
-            this.lblImap.Size = new System.Drawing.Size(113, 20);
+            this.lblImap.Size = new System.Drawing.Size(86, 16);
             this.lblImap.TabIndex = 9;
             this.lblImap.Text = "IMAP Server:";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(8, 30);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(6, 24);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(135, 20);
+            this.lblEmail.Size = new System.Drawing.Size(103, 16);
             this.lblEmail.TabIndex = 8;
             this.lblEmail.Text = "E-Mail Address:";
             // 
@@ -364,19 +337,18 @@
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(195, 26);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Location = new System.Drawing.Point(146, 21);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(403, 26);
+            this.txtEmail.Size = new System.Drawing.Size(303, 22);
             this.txtEmail.TabIndex = 7;
             // 
             // btnOk
             // 
-            this.btnOk.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(177, 539);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(100, 4, 4, 4);
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Location = new System.Drawing.Point(133, 438);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(75, 3, 3, 3);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(100, 28);
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -385,11 +357,11 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Quicksand", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(390, 539);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 100, 4);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(292, 438);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 3, 75, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -398,16 +370,15 @@
             // editSettings
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(667, 603);
+            this.ClientSize = new System.Drawing.Size(500, 490);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tcMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::Marimba.Properties.Resources.Marimba_logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "editSettings";

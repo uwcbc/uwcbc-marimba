@@ -51,7 +51,7 @@
             this.tlpEditUser.Controls.Add(this.cboUserID, 1, 0);
             this.tlpEditUser.Controls.Add(this.cboPrivileges, 1, 1);
             this.tlpEditUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpEditUser.Font = new System.Drawing.Font("Quicksand", 8.830189F);
+            this.tlpEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F);
             this.tlpEditUser.Location = new System.Drawing.Point(0, 0);
             this.tlpEditUser.Name = "tlpEditUser";
             this.tlpEditUser.RowCount = 4;
@@ -66,9 +66,9 @@
             // 
             this.lblUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(36, 20);
+            this.lblUserID.Location = new System.Drawing.Point(38, 20);
             this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(55, 14);
+            this.lblUserID.Size = new System.Drawing.Size(51, 15);
             this.lblUserID.TabIndex = 5;
             this.lblUserID.Text = "User ID:";
             // 
@@ -76,9 +76,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 75);
+            this.label2.Location = new System.Drawing.Point(32, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 14);
+            this.label2.Size = new System.Drawing.Size(63, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Privileges:";
             // 
@@ -110,9 +110,9 @@
             // 
             this.cboUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboUserID.FormattingEnabled = true;
-            this.cboUserID.Location = new System.Drawing.Point(172, 17);
+            this.cboUserID.Location = new System.Drawing.Point(172, 16);
             this.cboUserID.Name = "cboUserID";
-            this.cboUserID.Size = new System.Drawing.Size(148, 22);
+            this.cboUserID.Size = new System.Drawing.Size(148, 23);
             this.cboUserID.TabIndex = 0;
             this.cboUserID.SelectedIndexChanged += new System.EventHandler(this.cboUserID_SelectedIndexChanged);
             // 
@@ -125,15 +125,15 @@
             this.cboPrivileges.Items.AddRange(new object[] {
             "Exec",
             "Admin"});
-            this.cboPrivileges.Location = new System.Drawing.Point(172, 72);
+            this.cboPrivileges.Location = new System.Drawing.Point(172, 71);
             this.cboPrivileges.Name = "cboPrivileges";
-            this.cboPrivileges.Size = new System.Drawing.Size(148, 22);
+            this.cboPrivileges.Size = new System.Drawing.Size(148, 23);
             this.cboPrivileges.TabIndex = 1;
             // 
             // frmEditUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(365, 185);
             this.Controls.Add(this.tlpEditUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
