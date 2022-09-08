@@ -197,7 +197,7 @@
 
         public enum MemberType { UWUnderGrad = 0, UWGrad = 1, UWAlumni = 2, Other = 3 }
 
-        public enum Faculty { AHS, Arts, Engineering, Environment, Mathematics, Science, Unknown = -1 }
+        public enum Faculty { AHS, Arts, Engineering, Environment, Health, Mathematics, Science, Unknown = -1 }
 
         public enum ShirtSize { XS, S, M, L, XL, XXL, Unknown = -1 }
 
