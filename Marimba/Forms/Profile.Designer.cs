@@ -157,6 +157,7 @@
             "Arts",
             "Engineering",
             "Environment",
+            "Health",
             "Mathematics",
             "Science"});
             this.cbFaculty.Location = new System.Drawing.Point(285, 202);

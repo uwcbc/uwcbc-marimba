@@ -9,10 +9,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="selectCurrentTerm" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="autoSave" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="signatureName" Type="System.String" Scope="User">
       <Value Profile="(Default)">*Insert Exec Name Here*</Value>
