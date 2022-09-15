@@ -197,7 +197,7 @@
 
         public enum MemberType { UWUnderGrad = 0, UWGrad = 1, UWAlumni = 2, Other = 3 }
 
-        public enum Faculty { AHS, Arts, Engineering, Environment, Health, Mathematics, Science, Unknown = -1 }
+        public enum Faculty { AHS, Arts, Engineering, Environment, Mathematics, Science, Health, Unknown = -1 }
 
         public enum ShirtSize { XS, S, M, L, XL, XXL, Unknown = -1 }
 
@@ -366,15 +366,15 @@
                     return "Engineering";
                 case Faculty.Environment:
                     return "Environment";
-                case Faculty.Health:
-                    return "Health";
                 case Faculty.Mathematics:
                     return "Mathematics";
                 case Faculty.Science:
                     return "Science";
+                case Faculty.Health:
+                    return "Health";
+                default:
+                    return "Unknown";            
             }
-
-            return "Unknown";
         }
 
         public static int ParseFaculty(string strFaculty)
@@ -390,13 +390,13 @@
                     return (int)Faculty.Engineering;
                 case "environment":
                     return (int)Faculty.Environment;
-                case "health":
-                    return (int)Faculty.Health;
                 case "mathematics":
                 case "math":
                     return (int)Faculty.Mathematics;
                 case "science":
                     return (int)Faculty.Science;
+                case "health":
+                    return (int)Faculty.Health;
                 default:
                     return (int)Faculty.Unknown;
             }

@@ -15,7 +15,7 @@
     <TargetFrameworkProfile />
     <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
     <StyleCopTreatErrorsAsWarnings>False</StyleCopTreatErrorsAsWarnings>
-    <PublishUrl>C:\Users\natha\Documents\Marimba\Builds\</PublishUrl>
+    <PublishUrl>C:\Users\nathan\Documents\Marimba\Builds\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <TargetCulture>en-CA</TargetCulture>
     <ProductName>Marimba</ProductName>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
