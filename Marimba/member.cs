@@ -197,7 +197,7 @@
 
         public enum MemberType { UWUnderGrad = 0, UWGrad = 1, UWAlumni = 2, Other = 3 }
 
-        public enum Faculty { AHS, Arts, Engineering, Environment, Mathematics, Science, Health, Unknown = -1 }
+        public enum Faculty { Health, Arts, Engineering, Environment, Mathematics, Science, Unknown = -1 }
 
         public enum ShirtSize { XS, S, M, L, XL, XXL, Unknown = -1 }
 
@@ -358,8 +358,6 @@
         {
             switch (fac)
             {
-                case Faculty.AHS:
-                    return "Applied Health Science";
                 case Faculty.Arts:
                     return "Arts";
                 case Faculty.Engineering:
@@ -381,9 +379,6 @@
         {
             switch (strFaculty.ToLower())
             {
-                case "applied health science":
-                case "ahs":
-                    return (int)Faculty.AHS;
                 case "arts":
                     return (int)Faculty.Arts;
                 case "engineering":
